@@ -1,0 +1,290 @@
+
+
+/* ===================================================================
+ * # footer
+ *
+ * ------------------------------------------------------------------- */
+.s-footer {
+    padding-top: 24rem;
+    padding-bottom: 8rem;
+    background-color: #0b0a15;
+    position: relative;
+  }
+  
+  .s-footer .right-vert-line {
+    background-color: #f9861a;
+  }
+  
+  .s-footer__bottom {
+    font-family: "Gothic A1", sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 8rem;
+  }
+  
+  .s-footer .footer-email-us .btn:hover,
+  .s-footer .footer-email-us .btn:focus {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+  }
+  
+  .s-footer .footer-contacts {
+    margin-top: 7.2rem;
+    margin-left: 8.33333%;
+  }
+  
+  /* ------------------------------------------------------------------- 
+   * ## contact block
+   * ------------------------------------------------------------------- */
+  .footer-contact-block {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  
+  .footer-contact-block a {
+    color: #ffffff;
+  }
+  
+  .footer-contact-block a:hover,
+  .footer-contact-block a:focus {
+    color: #f9861a;
+  }
+  
+  .footer-contact-block__content,
+  .footer-contact-block__list li {
+    padding: .8rem 0;
+  }
+  
+  .footer-contact-block__list {
+    list-style: none;
+    margin-top: .4rem;
+    margin-left: 0;
+  }
+  
+  .footer-contact-block__list li {
+    padding-left: 0;
+  }
+  
+  .footer-contact-block__header {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+  
+  /* ------------------------------------------------------------------- 
+   * ## copyright
+   * ------------------------------------------------------------------- */
+  .ss-copyright {
+    z-index: 2;
+    position: relative;
+  }
+  
+  .ss-copyright a {
+    color: #ffffff;
+  }
+  
+  .ss-copyright a:hover,
+  .ss-copyright a:focus {
+    color: #f9861a;
+  }
+  
+  .ss-copyright span {
+    font-size: 1.5rem;
+    display: inline-block;
+  }
+  
+  .ss-copyright span::after {
+    content: "|";
+    display: inline-block;
+    padding: 0 .8rem 0 1rem;
+    color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .ss-copyright span:last-child::after {
+    display: none;
+  } */
+  
+
+
+
+  
+
+  <!-- footer
+  ================================================== -->
+  <footer class="s-footer h-dark-bg">
+      
+      <div class="right-vert-line"></div>
+
+      <div class="row s-footer__main">
+          <div class="column large-6">
+              <div class="section-intro" data-aos="fade-up">
+                  <h3 class="subhead">Get In Touch</h3>
+
+                  <h1 class="display-1">
+                  Have an idea or a concept that really excite you?
+                  Let's turn that idea into reality. Shoot me a message.
+                  </h1>
+              </div>
+
+              <div class="footer-email-us">
+                  <a href="mailto:#0" class="btn btn--primary h-full-width">Let's Talk</a>
+              </div>
+          </div>
+
+          <div class="column large-5">
+              <div class="footer-contacts">
+                  <div class="footer-contact-block" data-aos="fade-up">
+                      <h5 class="footer-contact-block__header">
+                          Email
+                      </h5>
+                      <p class="footer-contact-block__content">
+                          <a href="mailto:#0">sayhello@ethos.com</a>
+                      </p>
+                  </div> <!-- end footer-contact-block -->
+                  <div class="footer-contact-block" data-aos="fade-up">
+                      <h5 class="footer-contact-block__header">
+                          Phone
+                      </h5>
+                      <p class="footer-contact-block__content">
+                          <a href="tel:+1975432345">+197 543 2345</a>
+                      </p>
+                  </div> <!-- end footer-contact-block -->
+                  <br>
+                  <div class="footer-contact-block" data-aos="fade-up">
+                      <h5 class="footer-contact-block__header">
+                          Social
+                      </h5>
+                      <ul class="footer-contact-block__list">
+                          <li><a href="#0">Twitter</a></li>
+                          <li><a href="#0">Instagram</a></li>
+                          <li><a href="#0">Behance</a></li>
+                          <li><a href="#0">Dribbble</a></li>
+                      </ul>
+                  </div> <!-- end footer-contact-block -->
+              </div>
+          </div>
+      </div> <!-- end s-footer__main -->
+
+      <div class="row s-footer__bottom">
+          <div class="column large-full ss-copyright">
+              <span>© Copyright Ethos 2019</span> 
+              <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+          </div> <!-- end ss-copyright -->
+
+          <div class="ss-go-top">
+              <a class="smoothscroll" title="Back to Top" href="#top">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
+              </a>
+          </div> <!-- end ss-go-top -->
+      </div> <!-- end s-footer__bottom -->
+
+  </footer> <!-- end s-footer -->
+
+
+
+    <!-- testimonials
+    ================================================== -->
+    <section id="testimonials" class="s-testimonials">
+
+        <div class="row collapse">
+
+            <div class="column large-full">
+
+                <div class="testimonial-slider" data-aos="fade-up">
+
+                    <div class="testimonial-slider__slide">
+                        <p>
+                        Molestiae incidunt consequatur quis ipsa autem nam sit enim magni. Voluptas tempore rem. 
+                        Explicabo a quaerat sint autem dolore ducimus ut consequatur neque.  Nisi dolores quaerat fuga rem nihil nostrum.
+                        Laudantium quia consequatur molestias delectus culpa.
+                        </p>
+                        <div class="testimonial-slider__author">
+                            <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonial-slider__avatar">
+                            <cite class="testimonial-slider__cite">
+                                <strong>Tim Cook</strong>
+                                <span>CEO, Apple</span>
+                            </cite>
+                        </div>
+                    </div> <!-- end testimonials__slide -->
+    
+                    <div class="testimonial-slider__slide">
+                        <p>
+                        Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
+                        Nisi eaque consequatur. Voluptatem dignissimos ut ducimus accusantium perspiciatis.
+                        Quasi voluptas eius distinctio. Atque eos maxime.
+                        </p>
+                        <div class="testimonial-slider__author">
+                            <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonial-slider__avatar">
+                            <cite class="testimonial-slider__cite">
+                                <strong>Sundar Pichai</strong>
+                                <span>CEO, Google</span>
+                            </cite>
+                        </div>
+                    </div> <!-- end testimonials__slide -->
+    
+                    <div class="testimonial-slider__slide">
+                        <p>
+                        Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.  
+                        Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.
+                        Voluptatem dignissimos ut.
+                        </p>
+                        <div class="testimonial-slider__author">
+                            <img src="images/avatars/user-04.jpg" alt="Author image" class="testimonial-slider__avatar">
+                            <cite class="testimonial-slider__cite">
+                                <strong>Satya Nadella</strong>
+                                <span>CEO, Microsoft</span>
+                            </cite>
+                        </div>
+                    </div> <!-- end testimonials__slide -->
+    
+                    <div class="testimonial-slider__slide">
+                        <p>
+                        Nunc interdum lacus sit amet orci. Vestibulum dapibus nunc ac augue. Fusce vel dui. In ac felis 
+                        quis tortor malesuada pretium. Curabitur vestibulum aliquam leo. Qui sed at corrupti expedita voluptas odit. 
+                        Nihil ea quia nesciunt. Ducimus aut sed ipsam.
+                        </p>
+                        <div class="testimonial-slider__author">
+                            <img src="images/avatars/user-05.jpg" alt="Author image" class="testimonial-slider__avatar">
+                            <cite class="testimonial-slider__cite">
+                                <strong>Jeff Bezos</strong>
+                                <span>CEO, Amazon</span>
+                            </cite>
+                        </div>
+                    </div> <!-- end testimonials__slide -->
+
+                </div> <!-- end testimonial slider -->
+                
+            </div> <!-- end column -->
+
+        </div> <!-- end row -->
+
+
+        <!-- CTA
+        ================================================== -->
+        <div class="s-cta">
+
+            <div class="row">
+                <div class="column large-full">
+                    <h2 class="section-desc" data-aos="fade-up">
+                        Need a great reliable web hosting?
+                    </h2>
+                </div>
+            </div>
+    
+            <div class="row cta-content" data-aos="fade-up">
+                <div class="column large-full">
+                    <p>
+                    We highly recommend <a href="https://www.dreamhost.com/r.cgi?287326">DreamHost</a>.
+                    Powerful web and Wordpress hosting. Guaranteed.
+                    Starting at $2.95 per month.
+                    </p>
+    
+                    <a href="https://www.dreamhost.com/r.cgi?287326" class="btn btn--primary h-full-width">Get Started</a>
+                </div>
+            </div> <!-- end cta-content -->
+    
+        </div> <!-- end s-cta -->
+
+
+    </section> <!-- end s-testimonials -->
