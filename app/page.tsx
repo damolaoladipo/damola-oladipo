@@ -1,8 +1,47 @@
+import AvatarContainer, { Avatar } from "@/components/containers/Avatar";
+import { Container } from "@/components/containers/Container";
+import SocialLink from "@/components/containers/SocialLink";
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/Constants/social-icons";
 
-export default function Home() {
+const Home = () => {
   return (
-      <>
-      Home
-      </>
+    <>
+      <Container className="mt-9">
+        <div className="flex flex-1">
+          <AvatarContainer>
+            <Avatar />
+          </AvatarContainer>
+        </div>
+        <div className="max-w-2xl">
+          <h1 className="text-4xl font-bold tracking-tight text-neutral-800 sm:text-5xl dark:text-neutral-100">
+            Product Engineer, designer NLP Researcher and web3 enthusiast.
+          </h1>
+          <p className="mt-6 text-base text-neutral-600 dark:text-neutral-400">
+            I’m Damola Oladipo, a product engineer with experience in building
+            web and mobile applications. I’m passionate about Natural Language
+            Generation (NLG) and the future of the AI systems.
+          </p>
+          <div className="mt-6 flex gap-6">
+            <SocialLink
+              href="https://x.com/damolaoladipo"
+              aria-label="Follow on X"
+              icon={XIcon}
+            />
+            <SocialLink
+              href="https://github.com/damola-oladipo"
+              aria-label="Follow on GitHub"
+              icon={GitHubIcon}
+            />
+            <SocialLink
+              href="https://www.linkedin.com/in/damola-oladipo/"
+              aria-label="Follow on LinkedIn"
+              icon={LinkedInIcon}
+            />
+          </div>
+        </div>
+      </Container>
+    </>
   );
-}
+};
+
+export default Home;
