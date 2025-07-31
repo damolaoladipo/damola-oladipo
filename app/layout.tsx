@@ -8,7 +8,7 @@ const useSora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Product Engineer - Damola Oladipo",
+  title: "Damola Oladipo - Product Engineer ",
   description: "A Product Engineer is in town",
 };
 
