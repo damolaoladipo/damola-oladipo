@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import { AppProvider } from "@/context/app-provider";
 
 const useSora = Sora({
   variable: "--font-sora",
@@ -18,9 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${useSora.variable} ${useSora.variable} antialiased`}>
-        {children}
+        
+        <AppProvider>
+          {children}
+        </AppProvider>
+
       </body>
     </html>
   );
