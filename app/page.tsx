@@ -1,7 +1,18 @@
 import AvatarContainer, { Avatar } from "@/components/containers/Avatar";
 import { Container } from "@/components/containers/Container";
+import { SecondaryButton } from "@/components/containers/dml-button";
+
 import SocialLink from "@/components/containers/SocialLink";
+import { Button } from "@/components/ui/button";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/Constants/social-icons";
+import {
+  ArrowDownRight,
+  ArrowRight,
+  ArrowUpRight,
+  Grid2X2Icon,
+  LayoutGrid,
+  ToolCaseIcon,
+} from "lucide-react";
 
 const Home = () => {
   return (
@@ -14,13 +25,29 @@ const Home = () => {
         </div>
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-neutral-800 sm:text-5xl dark:text-neutral-100">
-            Product Engineer, designer NLP Researcher and web3 enthusiast.
+            Product and Design Engineer, ML/NLP Researcher.
           </h1>
           <p className="mt-6 text-base text-neutral-600 dark:text-neutral-400">
             I’m Damola Oladipo, a product engineer with experience in building
             web and mobile applications. I’m passionate about Natural Language
             Generation (NLG) and the future of the AI systems.
           </p>
+          <div className="mt-6 flex gap-4">
+            
+
+            <SecondaryButton
+              icon={<Grid2X2Icon size={16}  />}
+              iconPosition="right"
+              variant="default"
+              href="/about"
+            >
+              My playground
+            </SecondaryButton>
+
+            
+  
+
+          </div>
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://x.com/damolaoladipo"
