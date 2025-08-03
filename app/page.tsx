@@ -1,6 +1,7 @@
 import AvatarContainer, { Avatar } from "@/components/containers/Avatar";
 import { Container } from "@/components/containers/Container";
 import { SecondaryButton } from "@/components/containers/dml-button";
+import GooeyButton from "@/components/containers/gooey-button";
 
 import SocialLink from "@/components/containers/SocialLink";
 import { Button } from "@/components/ui/button";
@@ -32,21 +33,30 @@ const Home = () => {
             web and mobile applications. I’m passionate about Natural Language
             Generation (NLG) and the future of the AI systems.
           </p>
-          <div className="mt-6 flex gap-4">
-            
 
+
+          
+          <div className="mt-32 flex gap-4">
             <SecondaryButton
-              icon={<Grid2X2Icon size={16}  />}
+              icon={<LayoutGrid size={16} />}
               iconPosition="right"
-              variant="default"
+              variant="secondary"
               href="/about"
             >
               My playground
             </SecondaryButton>
 
-            
-  
+<GooeyButton variant="secondary" href="#"> Go to Project Planner</GooeyButton>
 
+            {/* <GooeyButton  icon={<LayoutGrid/>} href="#"> Go to Project Planner</GooeyButton>
+            <GooeyButton href="#">Go to Project Planner</GooeyButton> */}
+            {/* <GooeyButton
+              
+              variant="default"
+              size="default"
+            >
+              See all services
+            </GooeyButton> */}
           </div>
           <div className="mt-6 flex gap-6">
             <SocialLink
