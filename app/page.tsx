@@ -1,44 +1,46 @@
 import AvatarContainer, { Avatar } from "@/components/containers/Avatar";
 import { Container } from "@/components/containers/Container";
-import SocialLink from "@/components/containers/SocialLink";
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/Constants/social-icons";
+import GooeyButton from "@/components/containers/gooey-button";
+import { DotIcon } from "lucide-react";
 
 const Home = () => {
   return (
     <>
-      <Container className="mt-9">
-        <div className="flex flex-1">
-          <AvatarContainer>
-            <Avatar />
-          </AvatarContainer>
+      <Container className="mt-32">
+
+        <div className="flex  items-center text-sm text-neutral-700 dark:text-neutral-400">
+          <DotIcon className="h-10 w-10 -ml-3"/> Hi, I’m Damola Oladipo 👋
         </div>
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-neutral-800 sm:text-5xl dark:text-neutral-100">
-            Product Engineer, designer NLP Researcher and web3 enthusiast.
+
+        <div className="max-w-[600px] mt-2">
+          <h1 className="text-4xl font-bold sm:text-4xl tracking-tight text-neutral-800  dark:text-neutral-100">
+            A Product and Design Engineer exploring ML and NLP research.
           </h1>
-          <p className="mt-6 text-base text-neutral-600 dark:text-neutral-400">
-            I’m Damola Oladipo, a product engineer with experience in building
-            web and mobile applications. I’m passionate about Natural Language
-            Generation (NLG) and the future of the AI systems.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://x.com/damolaoladipo"
-              aria-label="Follow on X"
-              icon={XIcon}
-            />
-            <SocialLink
-              href="https://github.com/damola-oladipo"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/damola-oladipo/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
-          </div>
+
+          <div className="mt-6 flex gap-4">
+            <GooeyButton variant="default" href="#">
+              My playground
+            </GooeyButton>
+
+            <GooeyButton variant="secondary" href="#">
+              About me
+            </GooeyButton>
+          </div> 
         </div>
+
+        <div className="mt-32 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-16 md:gap-24 lg:gap-36 xl:gap-72">
+            <div className="flex items-center pt-1 text-sm text-neutral-700 dark:text-neutral-400 whitespace-nowrap">
+              <DotIcon className="h-10 w-10 -ml-4 align-middle inline-block" />
+              Who I am?
+            </div>
+
+            <p className="text-3xl leading-relaxed font-medium sm:text-3xl text-neutral-800 dark:text-neutral-200">
+              I build products with useful features that help people get
+              important things done. My work is across scalable modular monolithic and
+              microservice applications. My curiosity keeps me learning every,
+              day.
+            </p>
+          </div>
       </Container>
     </>
   );
