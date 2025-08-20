@@ -1,15 +1,17 @@
-import AvatarContainer, { Avatar } from "@/components/containers/Avatar";
-import { Container } from "@/components/containers/Container";
+import { Container } from "@/components/containers/container";
 import GooeyButton from "@/components/containers/gooey-button";
+import Header from "@/components/containers/nav-bar";
+
 import { DotIcon } from "lucide-react";
 
 const Home = () => {
   return (
     <>
-      <Container className="mt-32">
+      <Header />
 
-        <div className="flex  items-center text-sm text-neutral-700 dark:text-neutral-400">
-          <DotIcon className="h-10 w-10 -ml-3"/> Hi, I’m Damola Oladipo 👋
+      <Container className="">
+        <div className="flex mt-24 items-center text-sm text-neutral-700 dark:text-neutral-400">
+          <DotIcon className="h-10 w-10 -ml-3" /> Hi, I’m Damola Oladipo 👋
         </div>
 
         <div className="max-w-[600px] mt-2">
@@ -25,22 +27,22 @@ const Home = () => {
             <GooeyButton variant="secondary" href="#">
               About me
             </GooeyButton>
-          </div> 
+          </div>
         </div>
 
         <div className="mt-32 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-16 md:gap-24 lg:gap-36 xl:gap-72">
-            <div className="flex items-center pt-1 text-sm text-neutral-700 dark:text-neutral-400 whitespace-nowrap">
-              <DotIcon className="h-10 w-10 -ml-4 align-middle inline-block" />
-              Who I am?
-            </div>
-
-            <p className="text-3xl leading-relaxed font-medium sm:text-3xl text-neutral-800 dark:text-neutral-200">
-              I build products with useful features that help people get
-              important things done. My work is across scalable modular monolithic and
-              microservice applications. My curiosity keeps me learning every,
-              day.
-            </p>
+          <div className="flex items-center pt-1 text-sm text-neutral-700 dark:text-neutral-400 whitespace-nowrap">
+            <DotIcon className="h-10 w-10 -ml-4 align-middle inline-block" />
+            Who I am?
           </div>
+
+          <p className="text-3xl leading-relaxed font-medium sm:text-3xl text-neutral-800 dark:text-neutral-200">
+            I build products with useful features that help people get important
+            things done. My work is across scalable modular monolithic and
+            microservice applications. My curiosity keeps me learning every,
+            day.
+          </p>
+        </div>
       </Container>
     </>
   );

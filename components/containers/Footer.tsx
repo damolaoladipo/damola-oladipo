@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ContainerInner, ContainerOuter } from "./Container";
+import { ContainerInner, ContainerOuter } from "./container";
 import { INavlink } from "@/utils/interfaces";
 
 const NavLink = (data: INavlink) => {
