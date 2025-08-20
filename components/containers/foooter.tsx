@@ -122,7 +122,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex justify-center">
-          <span className="text-[6.2rem] md:text-[12rem] lg:text-[20.5rem] font-bold text-neutral-800 select-none leading-none">
+          <span className="text-[6.2rem] md:text-[12rem] lg:text-[20.5rem] font-bold select-none leading-none bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-neutral-200 dark:to-neutral-800 inset-x-0">
             Damola.
           </span>
         </div>

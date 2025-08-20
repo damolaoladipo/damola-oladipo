@@ -1,7 +1,10 @@
+import CallToAction from "@/components/containers/call-to-action";
 import { Container } from "@/components/containers/container";
 import { CTALoop } from "@/components/containers/cta-loop";
 import CTAPart from "@/components/containers/cta-part";
 import GooeyButton from "@/components/containers/gooey-button";
+import HeroSection from "@/components/containers/hero-section";
+import InterestCards from "@/components/containers/interests";
 import LogoCloud from "@/components/containers/logo-cloud";
 import Header from "@/components/containers/nav-bar";
 import PlaygroundTabs  from "@/components/containers/playground-tabs";
@@ -95,8 +98,16 @@ const Home = () => {
         </div>
 
         <div className="div">
+          <HeroSection/>
+        </div>
+
+        <CallToAction/>
+
+        <div className="div">
           <PlaygroundTabs/>
         </div>
+
+        <InterestCards/>
 
         <div className="div">
           <CTALoop/>
