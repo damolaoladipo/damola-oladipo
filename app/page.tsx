@@ -1,7 +1,10 @@
 import { Container } from "@/components/containers/container";
+import { CTALoop } from "@/components/containers/cta-loop";
+import CTAPart from "@/components/containers/cta-part";
 import GooeyButton from "@/components/containers/gooey-button";
 import LogoCloud from "@/components/containers/logo-cloud";
 import Header from "@/components/containers/nav-bar";
+import { PlaygroundTabs } from "@/components/containers/playground-tabs";
 import { HexagonBackground } from "@/components/ui/hexagon";
 
 import { DotIcon } from "lucide-react";
@@ -90,6 +93,17 @@ const Home = () => {
         <div className="div">
           <LogoCloud />
         </div>
+
+        <div className="div">
+          <PlaygroundTabs/>
+        </div>
+
+        <div className="div">
+          <CTALoop/>
+
+          <CTAPart/>
+        </div>
+        
       </Container>
     </>
   );

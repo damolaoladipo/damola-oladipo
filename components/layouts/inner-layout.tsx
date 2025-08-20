@@ -1,5 +1,5 @@
 import { ILayout } from "@/utils/interfaces";
-import { Footer } from "../containers/footer";
+import { Footer } from "@/components/containers/foooter";
 
 const InnerLayout = (data: ILayout) => {
   const { children } = data;
