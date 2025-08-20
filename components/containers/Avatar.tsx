@@ -4,7 +4,6 @@ import { IAvatar } from "@/utils/interfaces";
 import { clsx } from "clsx";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function AvatarContainer({

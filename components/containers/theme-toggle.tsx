@@ -4,7 +4,12 @@ import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
-const ThemeToggle = () => {
+interface IToggle {
+  className?: string
+}
+
+const ThemeToggle = (data: IToggle) => {
+const {className} = data
 const [mounted, setMounted] = useState(false)
 const { theme, setTheme } = useTheme()
 
@@ -22,7 +27,7 @@ const { theme, setTheme } = useTheme()
   ] as const
 
   return (
-    <fieldset className="inline-flex h-8 items-center rounded-full border bg-muted p-1 shadow-sm">
+    <fieldset className={`inline-flex h-8 items-center rounded-full border bg-muted p-1 shadow-sm ${className}`}>
       <legend className="sr-only">Select theme</legend>
       {options.map((opt) => (
         <label
