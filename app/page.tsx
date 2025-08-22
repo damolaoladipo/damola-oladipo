@@ -1,5 +1,3 @@
-import { Container } from "@/components/containers/container";
-import Header from "@/components/sections/nav-bar";
 import HeroSection from "@/components/sections/hero-section";
 import LogoCloud from "@/components/sections/logo-cloud";
 import Projects from "@/components/sections/projects";
@@ -8,6 +6,7 @@ import PlaygroundTabs from "@/components/sections/playground-tabs";
 import InterestCards from "@/components/sections/interests";
 import CTAPart from "@/components/containers/cta-part";
 import { CTALoop } from "@/components/containers/cta-loop";
+import { Container } from "@/components/containers/container";
 
 const Home = () => {
   

@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Avatar } from "@/components/containers/avatar";
 import GooeyButton from "@/components/containers/gooey-button";
 import ThemeToggle from "@/components/containers/theme-toggle";
+import { Avatar } from "@/components/containers/avatar";
 
 const menuItems = [
   { name: "My Playground", href: "#link" },

@@ -1,6 +1,7 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/constants/social-icons";
 
 
+
 export function Footer() {
   return (
     <footer className="">
