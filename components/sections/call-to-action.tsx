@@ -4,7 +4,7 @@ export default function CallToAction() {
   return (
     <>
       <div className="mt-32 bg-background">
-        <div className="relative  mx-auto max-w-5xl px-6 py-24 md:px-12 md:p-20  border rounded-lg bg-neutral-900 dark:hover:bg-background flex flex-row">
+        <div className="relative  mx-auto max-w-8xl md:max-w-5xl px-6 py-24 md:px-12 md:p-20  border rounded-lg bg-neutral-900 dark:hover:bg-background flex flex-row">
           <div className="flex-1">
             <div className="">
               <h1 className="text-balance text-4xl font-semibold lg:text-5xl tracking-tight text-neutral-800 dark:text-neutral-100">
@@ -33,7 +33,7 @@ export default function CallToAction() {
               </div>
             </div>
           </div>
-          <div className="flex-1 relative z-10 flex w-full max-w-lg justify-end mx-auto">
+          <div className="flex-1 relative z-10 w-full max-w-lg justify-end mx-auto hidden md:block">
             <div className="rounded-tl-(--radius) relative h-fit border-l border-t mt-12 -mr-6 -mb-10  md:mt-36 md:-mr-12 md:-mb-20 px-8 py-14">
               <div className="absolute left-3 top-3 flex gap-1">
                 <span className="block size-2 rounded-full border dark:border-white/10 dark:bg-white/10"></span>
