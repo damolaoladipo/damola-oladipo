@@ -32,7 +32,7 @@ export default function CallToAction() {
                 <span className="block size-2 rounded-full border dark:border-white/10 dark:bg-white/10"></span>
               </div>
               <svg
-                className="w-full sm:w-[150%]"
+                className="w-full sm:w-[150%] max-w-[366px]"
                 viewBox="0 0 366 231"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

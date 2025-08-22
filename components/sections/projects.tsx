@@ -19,15 +19,15 @@ interface CompanySlide {
 
 const companies: CompanySlide[] = [
   {
-    name: "Libra AI",
-    website: "www.libra.dev",
+    name: "Troott ",
+    website: "www.troott.com",
     url: "https://libra.dev/",
-    image: "./images/one.png",
+    image: "./images/three.png",
   },
   {
-    name: "Brine",
-    website: "www.brine.co",
-    url: "https://www.brine.co/",
+    name: "Pacepard",
+    website: "www.pacepard.com",
+    url: "https://www.pacepard.com/",
     image: "./images/two.png",
   },
   {
@@ -40,7 +40,7 @@ const companies: CompanySlide[] = [
     name: "Smigli",
     website: "www.smigli.com",
     url: "https://landing.smigli.com/",
-    image: "/smigli-social-media-dark.png",
+    image: "./images/three.png",
   },
   {
     name: "Gramsite",

@@ -26,7 +26,7 @@ export default function RootLayout({
         
         <AppProvider>
 
-          <div className="relative z-0 flex flex-col w-full min-h-screen inset-0 ">
+          <div className="relative flex flex-col w-full min-h-screen inset-0 ">
             <Header />
             <main className="flex-grow">{children}</main>
             <Footer />

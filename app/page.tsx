@@ -14,7 +14,7 @@ const Home = () => {
     <>
       
       
-            <Container>
+            {/* <Container> */}
                 <HeroSection />
                 <LogoCloud />
                 <Projects />
@@ -27,7 +27,7 @@ const Home = () => {
                 <CTALoop />
                 </div>
                 <CTAPart />
-            </Container>
+            {/* </Container> */}
     </>
   );
 };

@@ -29,21 +29,22 @@ const Header = () => {
     <header>
       <nav
         data-state={menuState && "active"}
-        className="fixed z-20 w-full px-2"
+        className="fixed top-0 left-0 w-full z-20 px-4 "
       >
+        
         <div
           className={cn(
-            "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
+            "mx-auto mt-4 md:mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
             isScrolled &&
               "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
           )}
         >
-          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4 lg:flex-nowrap">
-            <div className="flex w-full justify-between lg:w-auto">
+          <div className="relative left-0 flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4 lg:flex-nowrap">
+            <div className="flex left-0 w-full justify-between lg:w-auto">
               <Link
                 href="/"
                 aria-label="home"
-                className="flex items-center space-x-2"
+                className="flex items-center left-0"
               >
                 <Avatar />
               </Link>
