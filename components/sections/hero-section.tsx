@@ -23,11 +23,11 @@ function HeroSection() {
               </h1>
 
               <div className="mt-6 flex gap-4">
-                <GooeyButton variant="default" href="#">
-                  My playground
+                <GooeyButton variant="default" href="mailto:iam@damolaoladipo.com">
+                  Start a project
                 </GooeyButton>
-                <GooeyButton variant="secondary" href="#">
-                  About me
+                <GooeyButton variant="secondary" href="#playground">
+                  My playground
                 </GooeyButton>
               </div>
             </div>
