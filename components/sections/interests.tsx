@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import features from "@/_data/interest-data"
+import { DotIcon } from "lucide-react"
 
 
 // The main component that renders the grid of feature cards
@@ -11,10 +12,13 @@ export default function InterestCards() {
       <div className="container py-24 px-6 md:py-20 lg:py-32 relative">
         {/* Title and Subtitle Section */}
         <div className="text-left mb-16">
+          <div className="flex mt-0 items-center text-sm text-neutral-700 dark:text-neutral-400">
+              <DotIcon className="h-10 w-10 -ml-3" /> Where you will find me
+            </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Everything you need.
+            I love user problems
             <br />
-            Nothing you don't.
+            and technical challenges
           </h2>
         </div>
 

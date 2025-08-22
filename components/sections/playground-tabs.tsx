@@ -23,20 +23,20 @@ export default function PlaygroundTabs() {
 
   const images = {
     "item-1": {
-      image: "./blocks/typescript.svg",
-      alt: "Database visualization",
+      image: "./items/web.svg",
+      alt: "Web playground",
     },
     "item-2": {
-      image: "./blocks/typescript.svg",
-      alt: "Security authentication",
+      image: "./items/mobile.svg",
+      alt: "Mobile playground",
     },
     "item-3": {
-      image: "./blocks/typescript.svg",
-      alt: "Identity management",
+      image: "./items/api.svg",
+      alt: "API playground",
     },
     "item-4": {
-      image: "./blocks/typescript.svg",
-      alt: "Analytics dashboard",
+      image: "./items/ml.svg",
+      alt: "ML playground",
     },
   };
 
@@ -47,11 +47,10 @@ export default function PlaygroundTabs() {
      
         <div className="text-left mb-12">
           <h1 className="text-balance text-4xl font-semibold lg:text-5xl text-foreground mb-4">
-            My experiment playground
+            My playground
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl">
-            Here, I want to show my product, design and engineering prowess.
-            Here, I want to show my product, design and engineering prowess
+          <p className="text-xl text-muted-foreground max-w-md">
+            A collection of small, well-coded  expeirmental components to aid my development process.
           </p>
         </div>
 
@@ -66,52 +65,44 @@ export default function PlaygroundTabs() {
               <AccordionTrigger>
                 <div className="flex items-center gap-2 text-base">
                   <Database className="size-4" />
-                  Database Visualization
+                  Web Playground
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                Lyra is evolving to be more than just the models. It supports an
-                entire to the APIs and platforms helping developers and
-                businesses innovate.
+                Experiments and prototypes of modern web developmnent, UI and performances.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger>
                 <div className="flex items-center gap-2 text-base">
                   <Fingerprint className="size-4" />
-                  Advanced Authentication
+                  Mobile Playground
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                Lyra is evolving to be more than just the models. It supports an
-                entire to the APIs and platforms helping developers and
-                businesses innovate.
+                Building and testing mobile-first experiences and micro-interactions across platform and devices.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger>
                 <div className="flex items-center gap-2 text-base">
                   <IdCard className="size-4" />
-                  Identity Management
+                  API Playground
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                Lyra is evolving to be more than just the models. It supports an
-                entire to the APIs and platforms helping developers and
-                businesses innovate.
+                Designing, testing a wide range of APIs and scalable architecture techniques
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
               <AccordionTrigger>
                 <div className="flex items-center gap-2 text-base">
                   <ChartBarIncreasingIcon className="size-4" />
-                  Analytics Dashboard
+                  ML Playground
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                Lyra is evolving to be more than just the models. It supports an
-                entire to the APIs and platforms helping developers and
-                businesses innovate.
+                Hands on experiments with machine learning models, data and real-world applications
               </AccordionContent>
             </AccordionItem>
           </Accordion>

@@ -20,33 +20,33 @@ interface FeatureCardProps {
 // Data for each feature card, including the icon component
 const features: FeatureCardProps[] = [
   {
-    title: "Accessibility first",
-    description: "Fully WCAG 2.0 compliant, made with best ally practices",
+    title: "Open Source Softwares",
+    description: " I believe in the power of shared knowledge. I'm passionate about contributing to OSS products. ",
     icon: Accessibility,
   },
   {
-    title: "Responsive design",
-    description: "Looks and works great on any device and screen size",
+    title: "AI-Assisted Learning",
+    description: "I love exploring how AI/ML can be used to create personalized and engaging educational tools.",
     icon: Laptop,
   },
   {
-    title: "Light and dark mode",
-    description: "Seamless switching between color schemes, 6 themes included",
+    title: "Machine Learning",
+    description: "Products that use natural language generation and understanding to sovle customer problems.",
     icon: Moon,
   },
   {
-    title: "Easy to customize",
-    description: "Flexible options to match your product or brand",
+    title: "Media and Internet Literacy",
+    description: "Contribute to tools that help people navigate the digital space critically and safely.",
     icon: Braces,
   },
   {
-    title: "Top-level performance",
-    description: "Made for lightning-fast load times and smooth interactions",
+    title: "Redemptive Technologies",
+    description: "Build systems that are beyound-ethical, and designed to improve rather than exploit.",
     icon: Bolt,
   },
   {
-    title: "Production ready",
-    description: "Thoroughly tested and launch-prepared",
+    title: "Blockchaain Technologies",
+    description: "Build products that leverages decentralized systems for a more transparent abd secure planet.",
     icon: Rocket,
   },
 ]
