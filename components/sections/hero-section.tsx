@@ -6,7 +6,7 @@ import React from "react";
 function HeroSection() {
   return (
     <>
-    <div className="relative m-auto max-w-4xl px-6">
+    <div className="relative m-auto max-w-4xl px-6 md:px-0">
        <div className="py-36 md:py-20 lg:py-32 relative">
   
         <HexagonBackground className="bg-linear-to-b absolute inset-0 z-[-10] w-full mt-80 flex items-center justify-center rounded-xl dark:block dark:to-[color-mix(in_oklab,var(--color-neutral-900)_75%,var(--color-background))]" />
@@ -44,8 +44,8 @@ function HeroSection() {
 
         <p className="text-balance text-3xl leading-relaxed font-medium sm:text-3xl text-neutral-800 dark:text-neutral-200">
           I build products with useful features that help people get important
-          things done. My work is across scalable modular monolithic and
-          microservice applications. My curiosity keeps me learning every, day.
+          things done everday. My work is across scalable modular monolithic and
+          microservice applications. My curiosity keeps me going.
         </p>
       </div>
 
