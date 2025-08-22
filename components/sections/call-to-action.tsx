@@ -16,7 +16,7 @@ export default function CallToAction() {
 
             <div className="mt-6 flex gap-4 ">
               <GooeyButton variant="default" href="#">
-                My playground
+                Send me a mail
               </GooeyButton>
               <GooeyButton variant="secondary" href="#">
                 About me

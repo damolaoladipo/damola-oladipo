@@ -6,8 +6,8 @@ import React from "react";
 function HeroSection() {
   return (
     <>
-    <div className="relative m-auto max-w-4xl ">
-       <div className="py-12 md:py-20 lg:py-32 relative">
+    <div className="relative m-auto max-w-4xl px-6">
+       <div className="py-36 md:py-20 lg:py-32 relative">
   
         <HexagonBackground className="bg-linear-to-b absolute inset-0 z-[-10] w-full mt-80 flex items-center justify-center rounded-xl dark:block dark:to-[color-mix(in_oklab,var(--color-neutral-900)_75%,var(--color-background))]" />
         
