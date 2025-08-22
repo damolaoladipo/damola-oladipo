@@ -57,7 +57,7 @@ const Projects = () => {
     <>
     
     
-      <div className="w-full overflow-hidden px-4 md:py-20 lg:py-20 relative m-auto max-w-4xl ">
+      <div className="w-full overflow-hidden relative mx-auto max-w-4xl ">
         
         <div className="text-left mb-10">
           <h1 className="text-balance text-4xl font-semibold lg:text-5xl text-foreground mb-4">
