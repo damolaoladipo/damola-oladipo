@@ -1,9 +1,6 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/constantz/social-icons";
 
-
-
 export function Footer() {
-  
   return (
     <footer className="mx-auto max-w-6xl w-full relative">
       <div className="  px-6 py-12 border-t border-neutral-800 mt-36 pt-8 ">
@@ -16,26 +13,28 @@ export function Footer() {
               </div>
               <span className="text-xl font-semibold text-white">Damola.</span>
             </div>
-{/* 
+            {/* 
             Interview Coder is a desktop
               app designed to help job seekers ace technical interviews by
               providing real-time assistance with coding questions. */}
 
             <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
-              Damola is product and design engineer from Nigeria. I design and build beautiful, intuitive, and responsive web and mobile applications. Let’s work together.
+              Damola is product and design engineer from Nigeria. I design and
+              build beautiful, intuitive, and responsive web and mobile
+              applications. Let’s work together.
             </p>
 
             {/* Social Links */}
             <div className="flex space-x-3">
               <a
-                href="#"
+                href="https://www.x.com/damolaoladipo"
                 className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Twitter"
               >
                 <XIcon className="w-4 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/damolaoladipo"
                 className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
@@ -43,7 +42,7 @@ export function Footer() {
               </a>
 
               <a
-                href="#"
+                href="https://github.com/damolaoladipo/"
                 className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
@@ -60,7 +59,9 @@ export function Footer() {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="#"
+                    href="./damola-resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
                   >
                     View my resume
@@ -68,7 +69,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#playground"
                     className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
                   >
                     My playground
@@ -76,7 +77,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#playground"
                     className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
                   >
                     My studio

@@ -7,10 +7,11 @@ import { cn } from "@/lib/utils";
 import GooeyButton from "@/components/containers/gooey-button";
 import ThemeToggle from "@/components/containers/theme-toggle";
 import { Avatar } from "@/components/containers/pic-avatar";
+import { siteConfig } from "@/_data/site-config";
 
 const menuItems = [
-  { name: "My Playground", href: "#link" },
-  { name: "View my resume", href: "#link" },
+  { name: "My Playground", href: siteConfig.baseLinks.playground },
+  { name: "View my resume", href: siteConfig.baseLinks.resume },
   { name: "Articles", href: "#link" },
 ];
 
@@ -34,9 +35,9 @@ const Header = () => {
         
         <div
           className={cn(
-            "mx-auto mt-4 md:mt-2 max-w-6xl px-0 transition-all duration-300 lg:px-12",
+            "mx-auto max-w-6xl mt-1 md:mt-1  px-0 sm:px-4lg:px-12transition-all duration-300 ",
             isScrolled &&
-              "bg-background/50 max-w-4xl p-0 rounded-2xl border backdrop-blur-lg lg:px-5"
+              "bg-background/50 max-w-4xl p- rounded-2xl border backdrop-blur-lg lg:px-5"
           )}
         >
           <div className="relative left-0 flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4 lg:flex-nowrap">
@@ -54,7 +55,7 @@ const Header = () => {
                 <button
                   onClick={() => setMenuState(!menuState)}
                   aria-label={menuState == true ? "Close Menu" : "Open Menu"}
-                  className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
+                  className="relative z-20 -m-2.5 -mr-1 block cursor-pointer p-2.5  lg:hidden"
                 >
                   <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-8 duration-200" />
                   <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-8 -rotate-180 scale-0 opacity-0 duration-200" />

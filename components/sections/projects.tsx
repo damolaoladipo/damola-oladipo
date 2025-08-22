@@ -50,7 +50,7 @@ const Projects = () => {
 
   return (
     <>
-      <div className="w-full px-6 md:py-16 relative mx-auto max-w-4xl">
+      <div id="projects" className="w-full px-6 md:py-16 relative mx-auto max-w-4xl">
         <div className="text-left mb-10">
           <h1 className="text-balance text-4xl font-semibold lg:text-5xl text-foreground mb-4">
             Project Showcase

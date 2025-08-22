@@ -23,11 +23,11 @@ function HeroSection() {
               </h1>
 
               <div className="mt-6 flex gap-4">
-                <GooeyButton variant="default" href="#">
-                  My playground
+                <GooeyButton variant="default" href="mailto:iam@damolaoladipo.com">
+                  Start a project
                 </GooeyButton>
-                <GooeyButton variant="secondary" href="#">
-                  About me
+                <GooeyButton variant="secondary" href="#playground">
+                  My playground
                 </GooeyButton>
               </div>
             </div>
@@ -39,7 +39,7 @@ function HeroSection() {
       <div className="mt-32 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-16 md:gap-24 lg:gap-36 xl:gap-72">
         <div className="flex items-center pt-1 text-sm text-neutral-700 dark:text-neutral-400 whitespace-nowrap">
           <DotIcon className="h-10 w-10 -ml-4 align-middle inline-block" />
-          Who I am?
+          Who I am
         </div>
 
         <p className="text-balance text-3xl leading-relaxed font-medium sm:text-3xl text-neutral-800 dark:text-neutral-200">
