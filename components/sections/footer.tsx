@@ -1,5 +1,5 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/constants/social-icons";
-import { Twitter, Linkedin, Instagram } from "lucide-react";
+
 
 export function Footer() {
   return (
