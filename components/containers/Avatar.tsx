@@ -6,14 +6,14 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function AvatarContainer({
+const AvatarContainer = ({
   className,
   ...props
-}: React.ComponentPropsWithoutRef<"div">) {
+}: React.ComponentPropsWithoutRef<"div">) => {
   return <div className={clsx(className, "h-48 w-48 pr-10")} {...props} />;
 }
 
-export const Avatar = (data: IAvatar) => {
+const Avatar = (data: IAvatar) => {
   const { large, className, ...rest } = data;
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -52,3 +52,8 @@ export const Avatar = (data: IAvatar) => {
     </>
   );
 };
+
+export {
+  Avatar,
+  AvatarContainer
+}
