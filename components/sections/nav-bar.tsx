@@ -7,10 +7,11 @@ import { cn } from "@/lib/utils";
 import GooeyButton from "@/components/containers/gooey-button";
 import ThemeToggle from "@/components/containers/theme-toggle";
 import { Avatar } from "@/components/containers/pic-avatar";
+import { siteConfig } from "@/_data/site-config";
 
 const menuItems = [
-  { name: "My Playground", href: "#link" },
-  { name: "View my resume", href: "#link" },
+  { name: "My Playground", href: siteConfig.baseLinks.playground },
+  { name: "View my resume", href: siteConfig.baseLinks.resume },
   { name: "Articles", href: "#link" },
 ];
 

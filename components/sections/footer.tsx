@@ -27,7 +27,7 @@ export function Footer() {
             {/* Social Links */}
             <div className="flex space-x-3">
               <a
-                href="https://www.x,com/damolaoladipo"
+                href="https://www.x.com/damolaoladipo"
                 className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Twitter"
               >
