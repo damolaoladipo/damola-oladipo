@@ -3,11 +3,12 @@ import { Container } from "@/components/containers/container";
 import { CTALoop } from "@/components/containers/cta-loop";
 import CTAPart from "@/components/containers/cta-part";
 import GooeyButton from "@/components/containers/gooey-button";
-import HeroSection from "@/components/containers/hero-section";
 import InterestCards from "@/components/containers/interests";
 import LogoCloud from "@/components/containers/logo-cloud";
 import Header from "@/components/containers/nav-bar";
-import PlaygroundTabs  from "@/components/containers/playground-tabs";
+import PlaygroundTabs from "@/components/sections/playground-tabs";
+import Projects from "@/components/sections/projects";
+
 import { HexagonBackground } from "@/components/ui/hexagon";
 
 import { DotIcon } from "lucide-react";
@@ -18,10 +19,8 @@ const Home = () => {
       <Header />
 
       <Container className="">
-
-
         <div className="relative ">
-          <HexagonBackground className="absolute inset-0 z-[-10] w-full mt-50 flex items-center justify-center rounded-xl" />
+          <HexagonBackground className="absolute inset-0 z-[-10] w-full mt-80 flex items-center justify-center rounded-xl" />
           <div className="flex flex-row">
             <div className="flex-1">
               <div className="flex mt-32 items-center text-sm text-neutral-700 dark:text-neutral-400">
@@ -30,7 +29,7 @@ const Home = () => {
               </div>
 
               <div className="max-w-[600px] mt-2">
-                <h1 className="text-4xl font-bold sm:text-4xl tracking-tight text-neutral-800 dark:text-neutral-100">
+                <h1 className="text-balance text-4xl font-semibold lg:text-5xl tracking-tight text-neutral-800 dark:text-neutral-100">
                   A Product and Design Engineer exploring ML and NLP research.
                 </h1>
 
@@ -85,7 +84,7 @@ const Home = () => {
             Who I am?
           </div>
 
-          <p className="text-3xl leading-relaxed font-medium sm:text-3xl text-neutral-800 dark:text-neutral-200">
+          <p className="text-balance text-3xl leading-relaxed font-medium sm:text-3xl text-neutral-800 dark:text-neutral-200">
             I build products with useful features that help people get important
             things done. My work is across scalable modular monolithic and
             microservice applications. My curiosity keeps me learning every,
@@ -98,23 +97,27 @@ const Home = () => {
         </div>
 
         <div className="div">
-          <HeroSection/>
+          
+          <Projects/>
         </div>
 
-        <CallToAction/>
+        <CallToAction />
 
-        <div className="div">
-          <PlaygroundTabs/>
+        <div className="">
+          <PlaygroundTabs />
         </div>
 
-        <InterestCards/>
+        <InterestCards />
 
-        <div className="div">
-          <CTALoop/>
+        <div className="relative mt-32 mx-auto">
 
-          <CTAPart/>
+          <div className="bg-linear-to-b h-32 absolute inset-0 -z-10 sm:inset-6 sm:rounded-b-3xl dark:block dark:to-[color-mix(in_oklab,var(--color-zinc-900)_75%,var(--color-background))]">
+            </div>
+          <CTALoop />
+
+          
         </div>
-        
+        <CTAPart />
       </Container>
     </>
   );
