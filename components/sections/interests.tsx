@@ -7,8 +7,8 @@ import features from "@/_data/interest-data"
 // The main component that renders the grid of feature cards
 export default function InterestCards() {
   return (
-    <div className="flex mt-24 items-start justify-start text-foreground">
-      <div className="container py-12 md:py-24">
+    <div className="w-full items-start justify-start text-foreground overflow-hidden px-4 md:py-16  relative m-auto max-w-4xl">
+      <div className="container py-24 px-6 md:py-20 lg:py-32 relative">
         {/* Title and Subtitle Section */}
         <div className="text-left mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">

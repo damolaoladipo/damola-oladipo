@@ -3,7 +3,7 @@ import { HexagonBackground } from "@/components/ui/hexagon";
 const CTAPart = () => {
   return (
     <>
-      <div className="">
+      <div className="w-full overflow-hidden relative m-auto max-w-4xl">
         <HexagonBackground
           className="h-40 mt-8 dark:bg-[#a3f443] inset-0 flex items-center justify-center rounded-md "
           hexagonProps={{

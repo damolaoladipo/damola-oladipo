@@ -6,11 +6,14 @@ import React from "react";
 function HeroSection() {
   return (
     <>
-      <div className="relative ">
-        <HexagonBackground className="absolute inset-0 z-[-10] w-full mt-80 flex items-center justify-center rounded-xl" />
-        <div className="flex flex-row">
+    <div className="relative m-auto max-w-4xl ">
+       <div className="py-12 md:py-20 lg:py-32 relative">
+  
+        <HexagonBackground className="bg-linear-to-b absolute inset-0 z-[-10] w-full mt-80 flex items-center justify-center rounded-xl dark:block dark:to-[color-mix(in_oklab,var(--color-neutral-900)_75%,var(--color-background))]" />
+        
+        <div className="flex flex-col">
           <div className="flex-1">
-            <div className="flex mt-32 items-center text-sm text-neutral-700 dark:text-neutral-400">
+            <div className="flex mt-0 items-center text-sm text-neutral-700 dark:text-neutral-400">
               <DotIcon className="h-10 w-10 -ml-3" /> Hi, I’m Damola Oladipo 👋
             </div>
 
@@ -19,7 +22,7 @@ function HeroSection() {
                 A Product and Design Engineer exploring ML and NLP research.
               </h1>
 
-              <div className="mt-6 flex gap-4 mb-36">
+              <div className="mt-6 flex gap-4">
                 <GooeyButton variant="default" href="#">
                   My playground
                 </GooeyButton>
@@ -45,6 +48,10 @@ function HeroSection() {
           microservice applications. My curiosity keeps me learning every, day.
         </p>
       </div>
+
+
+    </div>
+     
     </>
   );
 }
