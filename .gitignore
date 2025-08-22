@@ -16,6 +16,13 @@
 # next.js
 /.next/
 /out/
+.env
+.trunk
+.txt
+*/.txt
+/.txt
+*.txt
+*/.txt
 
 # production
 /build

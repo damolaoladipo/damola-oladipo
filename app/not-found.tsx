@@ -1,6 +1,6 @@
-import { Container } from "@/components/containers/Container";
-import { Button } from "@/components/ui/button";
-import {  ArrowLeftIcon } from "lucide-react";
+import { Container } from "@/components/containers/container"
+import { Button } from "@/components/ui/button"
+import { ArrowLeftIcon } from "lucide-react"
 
 
 const NotFound = () => {
@@ -19,7 +19,7 @@ const NotFound = () => {
           Sorry, we couldn’t find the page you’re looking for.
         </p>
         <a href="/" className="mt-4">
-          <Button variant="secondary" className="bg-lime-400 text-neutral-950 cursor-pointer hover:bg-lime-300">
+          <Button variant="secondary" className="bg-[#a3f443]  text-neutral-950 cursor-pointer hover:bg-[#a3f443] ">
             <ArrowLeftIcon /> Go back home
           </Button>
         </a>
