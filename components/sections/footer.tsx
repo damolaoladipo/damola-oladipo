@@ -1,4 +1,4 @@
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/constants/social-icons";
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/constantz/social-icons";
 
 
 

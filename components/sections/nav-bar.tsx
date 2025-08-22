@@ -6,7 +6,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import GooeyButton from "@/components/containers/gooey-button";
 import ThemeToggle from "@/components/containers/theme-toggle";
-import { Avatar } from "@/components/containers/avatar";
+import { Avatar } from "@/components/containers/pic-avatar";
 
 const menuItems = [
   { name: "My Playground", href: "#link" },
