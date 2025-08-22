@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/app-provider";
-import InnerLayout from "@/components/layouts/inner-layout";
+import { Footer } from "@/components/sections/footer";
+import Header from "@/components/sections/nav-bar";
 
 const useSora = Sora({
   variable: "--font-sora",
@@ -24,9 +25,14 @@ export default function RootLayout({
       <body className={`${useSora.variable} antialiased`}>
         
         <AppProvider>
-           <InnerLayout>{children}</InnerLayout>
-        </AppProvider>
 
+          <div className="relative z-0 flex flex-col w-full min-h-screen inset-0 ">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+
+        </AppProvider>
       </body>
     </html>
   );

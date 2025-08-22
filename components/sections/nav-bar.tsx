@@ -9,9 +9,8 @@ import GooeyButton from "@/components/containers/gooey-button";
 import ThemeToggle from "@/components/containers/theme-toggle";
 
 const menuItems = [
-  { name: "About me", href: "#link" },
   { name: "My Playground", href: "#link" },
-  { name: "My Studio", href: "#link" },
+  { name: "View my resume", href: "#link" },
   { name: "Articles", href: "#link" },
 ];
 
@@ -62,7 +61,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+            <div className="absolute inset-y-0 left-48 m-auto hidden size-fit lg:block ">
               <ul className="flex gap-8 text-sm">
                 {menuItems.map((item, index) => (
                   <li key={index}>
@@ -93,10 +92,14 @@ const Header = () => {
                 </ul>
               </div>
 
-              <div className="flex w-full flex-col space-y-0 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit items-center">
-                <div className="flex items-center gap-6">
-                  {/* ThemeToggle and the two buttons are now in the same flex container */}
-                  <ThemeToggle className="hidden sm:hidden lg:block relative z-20 cursor-pointer" />
+              <div className="flex w-full flex-col space-y-0 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit items-start">
+                
+                <div className="flex items-center gap-2 ">
+
+                  <div className="lg:flex relative z-20 cursor-pointer hidden">
+                    <ThemeToggle />  
+                  </div>
+                              
                   <GooeyButton
                     variant="secondary"
                     href="#"
