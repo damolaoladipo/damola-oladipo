@@ -17,7 +17,7 @@ const buttonVariants = cva(
         link: "underline-offset-4 hover:underline text-primary",
       },
       size: {
-        default: "h-10 px-8 py-4",
+        default: "h-10 px-6 py-4",
         sm: "h-9 px-3",
         lg: "h-11 px-8",
         icon: "h-10 w-10",
@@ -78,7 +78,7 @@ const GooeyButton = React.forwardRef<HTMLAnchorElement, GooeyButtonProps>(
 
     return (
       <div
-        className={cn("relative group inline-flex items-center", className)}
+        className={cn("relative group inline-flex items-center justify-center", className)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -107,7 +107,7 @@ const GooeyButton = React.forwardRef<HTMLAnchorElement, GooeyButtonProps>(
         >
           {/* Button body */}
           <div className={cn(buttonClasses)}>
-            <div className="relative inline-flex top-px flex-shrink-0">
+            <div className="relative inline-flex top-px flex-shrink-0 items-center justify-center">
               <div>{children}</div>
             </div>
           </div>
