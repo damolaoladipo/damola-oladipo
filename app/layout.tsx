@@ -5,6 +5,8 @@ import { AppProvider } from "@/context/app-provider";
 import { Footer } from "@/components/sections/footer";
 import Header from "@/components/sections/nav-bar";
 import { siteConfig } from "@/_data/site-config";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const useSora = Sora({
   variable: "--font-sora",
@@ -81,7 +83,10 @@ export default function RootLayout({
 
           <div className="relative flex flex-col w-full min-h-screen inset-0 ">
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow">{children}
+                      <Analytics/>
+        <SpeedInsights/>
+            </main>
             <Footer />
           </div>
 
