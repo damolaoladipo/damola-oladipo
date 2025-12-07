@@ -11,12 +11,8 @@ export function Footer() {
               <div className="w-8 h-8 bg-[#a3f443] rounded-lg flex items-center justify-center">
                 <span className="text-neutral-900 font-medium text-lg">d</span>
               </div>
-              <span className="text-xl font-semibold text-white">Damola.</span>
+              <span className="text-xl font-semibold text-black dark:text-white">Damola.</span>
             </div>
-            {/* 
-            Interview Coder is a desktop
-              app designed to help job seekers ace technical interviews by
-              providing real-time assistance with coding questions. */}
 
             <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
               Damola is product and design engineer from Nigeria. I design and
@@ -28,14 +24,14 @@ export function Footer() {
             <div className="flex space-x-3">
               <a
                 href="https://www.x.com/damolaoladipo"
-                className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Twitter"
               >
                 <XIcon className="w-4 h-6" />
               </a>
               <a
                 href="https://www.linkedin.com/in/damolaoladipo"
-                className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <LinkedInIcon className="w-4 h-4" />
@@ -43,7 +39,7 @@ export function Footer() {
 
               <a
                 href="https://github.com/damolaoladipo/"
-                className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
                 <GitHubIcon className="w-4 h-4" />

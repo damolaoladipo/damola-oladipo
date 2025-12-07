@@ -27,8 +27,8 @@ const Avatar = (data: IAvatar) => {
   }
 
   const imageSrc =
-    theme === "dark" ? "images/damola-dark.svg" : "images/damola-dark.svg";
-
+  theme === "dark" ? "/images/damola-dark.svg" : "/images/damola-light.svg";
+  
   // Only pass valid div props (filter out any props not valid for div)
   const divProps: React.HTMLAttributes<HTMLDivElement> = {};
   if (rest.id) divProps.id = rest.id;
@@ -43,7 +43,7 @@ const Avatar = (data: IAvatar) => {
         <Image
           src={imageSrc}
           alt="Damola Oladipo"
-          className="w-36"
+          className="w-30"
           width={100}
           height={100}
           priority

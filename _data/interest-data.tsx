@@ -21,7 +21,7 @@ interface FeatureCardProps {
 const features: FeatureCardProps[] = [
   {
     title: "Open Source Softwares",
-    description: " I believe in the power of shared knowledge. I'm passionate about contributing to OSS products. ",
+    description: "I believe in the power of shared knowledge. I'm passionate about contributing to OSS products. ",
     icon: Accessibility,
   },
   {

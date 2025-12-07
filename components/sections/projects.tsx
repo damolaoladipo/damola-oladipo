@@ -123,17 +123,17 @@ const Projects = () => {
             <div className="absolute top-full mt-6 left-4 flex gap-3 z-20 ">
               <button
                 onClick={() => api?.scrollPrev()}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-800 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-200 hover:bg-[#a3f443] hover:scale-105 hover:shadow-xl cursor-pointer"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-200 hover:bg-[#a3f443] hover:scale-105 hover:shadow-xl cursor-pointer"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="h-5 w-5 dark:hover:text-black" />
               </button>
               <button
                 onClick={() => api?.scrollNext()}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-800 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-200 hover:bg-[#a3f443] hover:scale-105 hover:shadow-xl cursor-pointer"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-200 hover:bg-[#a3f443] hover:scale-105 hover:shadow-xl cursor-pointer"
                 aria-label="Next slide"
               >
-                <ChevronRight className="h-5 w-5 dark:hover:text-black" />
+                <ChevronRight className="h-5 w-5   dark:hover:text-black" />
               </button>
             </div>
           </div>

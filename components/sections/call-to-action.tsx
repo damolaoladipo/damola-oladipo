@@ -3,8 +3,8 @@ import GooeyButton from "@/components/containers/gooey-button";
 export default function CallToAction() {
   return (
     <>
-      <div className="mt-32 bg-background">
-        <div className="relative  mx-auto max-w-8xl md:max-w-5xl px-6 py-24 md:px-12 md:p-20  border rounded-lg bg-neutral-900 dark:hover:bg-background flex flex-row">
+      <div className="mt-32">
+        <div className="relative  mx-auto max-w-8xl md:max-w-5xl px-6 py-24 md:px-12 md:p-20  border rounded-lg bg-[#a3f443]/5 dark:hover:bg-background flex flex-row">
           <div className="flex-1">
             <div className="">
               <h1 className="text-balance text-4xl font-semibold lg:text-5xl tracking-tight text-neutral-800 dark:text-neutral-100">

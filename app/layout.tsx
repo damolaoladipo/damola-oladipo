@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
-import { AppProvider } from "@/context/app-provider";
 import { Footer } from "@/components/sections/footer";
 import Header from "@/components/sections/nav-bar";
 import { siteConfig } from "@/_data/site-config";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from "next-themes";
 
 const useSora = Sora({
   variable: "--font-sora",
@@ -78,19 +78,27 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${useSora.variable} antialiased`}>
-        
-        <AppProvider>
+
+
+
+        <ThemeProvider
+          attribute="class"
+          enableSystem
+          defaultTheme="system"
+          disableTransitionOnChange
+        >
 
           <div className="relative flex flex-col w-full min-h-screen inset-0 ">
             <Header />
             <main className="flex-grow">{children}
-                      <Analytics/>
-        <SpeedInsights/>
+              <Analytics />
+              <SpeedInsights />
             </main>
             <Footer />
           </div>
 
-        </AppProvider>
+        </ThemeProvider>
+
       </body>
     </html>
   );
