@@ -28,14 +28,14 @@ export function Footer() {
             <div className="flex space-x-3">
               <a
                 href="https://www.x.com/damolaoladipo"
-                className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Twitter"
               >
                 <XIcon className="w-4 h-6" />
               </a>
               <a
                 href="https://www.linkedin.com/in/damolaoladipo"
-                className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <LinkedInIcon className="w-4 h-4" />
@@ -43,7 +43,7 @@ export function Footer() {
 
               <a
                 href="https://github.com/damolaoladipo/"
-                className="w-9 h-9 bg-neutral-800 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
                 <GitHubIcon className="w-4 h-4" />

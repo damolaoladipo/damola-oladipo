@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#a3f443] text-primary-foreground hover:bg-[#92e032]",
+        default: "bg-[#a3f443] dark:text-primary-foreground text-primary hover:bg-[#92e032]",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
@@ -61,7 +61,7 @@ const GooeyButton = React.forwardRef<HTMLAnchorElement, GooeyButtonProps>(
     const iconColorMap: Record<string, string> = {
       default: "text-black",
       destructive: "text-white",
-      secondary: "text-white",
+      secondary: "text-white invert dark:invert-0",
       outline: "text-white",
       ghost: "text-white",
       link: "text-primary",
