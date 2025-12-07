@@ -6,7 +6,7 @@ import PlaygroundTabs from "@/components/sections/playground-tabs";
 import InterestCards from "@/components/sections/interests";
 import CTAPart from "@/components/containers/cta-part";
 import { CTALoop } from "@/components/containers/cta-loop";
-import { Container } from "@/components/containers/c-container";
+import MyInterests from "@/components/sections/my-interests";
 
 const Home = () => {
   
@@ -18,6 +18,7 @@ const Home = () => {
                 <Projects />
                 <CallToAction />
                 <PlaygroundTabs />
+                <MyInterests/>
                 <InterestCards />
                 <CTALoop />
                 <CTAPart />
