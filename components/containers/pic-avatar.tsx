@@ -43,7 +43,7 @@ const Avatar = (data: IAvatar) => {
         <Image
           src={imageSrc}
           alt="Damola Oladipo"
-          className="w-36"
+          className="w-30"
           width={100}
           height={100}
           priority

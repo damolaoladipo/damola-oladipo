@@ -11,12 +11,8 @@ export function Footer() {
               <div className="w-8 h-8 bg-[#a3f443] rounded-lg flex items-center justify-center">
                 <span className="text-neutral-900 font-medium text-lg">d</span>
               </div>
-              <span className="text-xl font-semibold text-white">Damola.</span>
+              <span className="text-xl font-semibold text-black dark:text-white">Damola.</span>
             </div>
-            {/* 
-            Interview Coder is a desktop
-              app designed to help job seekers ace technical interviews by
-              providing real-time assistance with coding questions. */}
 
             <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
               Damola is product and design engineer from Nigeria. I design and
