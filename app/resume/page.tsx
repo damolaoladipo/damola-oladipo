@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
 export default function MyResume() {
-  redirect("/resume.pdf");
+  redirect("./damola-resume.pdf");
   return null;
 }
