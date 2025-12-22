@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, "projects/troott-mobile.mdx"  ],
   "exclude": [
     "node_modules"
   ]
