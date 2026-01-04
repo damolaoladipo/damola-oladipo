@@ -39,8 +39,8 @@ const companies: CompanySlide[] = [
 
   {
     name: "Troott mobile app",
-    website: "www.troott.com",
-    url: "https://troott.com",
+    website: "www.damolaoladipo.com",
+    url: "https://www.damolaoladipo.com/projects/troott-mobile",
     image: "./images/troott-mobile.png",
   },
 ];

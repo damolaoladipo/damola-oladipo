@@ -9,6 +9,7 @@ export const siteConfig = {
     home: "/",
     resume: "https://damolaoladipo.com/resume",
     playground: "#playground",
+    projects: "https://www.damolaoladipo.com/projects/troott-mobile",
     sociaLlinks: {
       twitter: "https://www.x.com/damolaoladipo",
       github: "https://github.com/damolaoladipo",

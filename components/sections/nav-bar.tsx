@@ -12,6 +12,7 @@ import { siteConfig } from "@/_data/site-config";
 const menuItems = [
   { name: "My Playground", href: siteConfig.baseLinks.playground },
   { name: "View my resume", href: siteConfig.baseLinks.resume },
+  { name: "Project Showcase", href: siteConfig.baseLinks.projects },
   { name: "Articles", href: "#link" },
 ];
 
