@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+
 import "./globals.css";
 import { Footer } from "@/components/sections/footer";
 import Header from "@/components/sections/nav-bar";
@@ -7,6 +8,7 @@ import { siteConfig } from "@/_data/site-config";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "next-themes";
+import { metadataKeywords } from "./metadata";
 
 const useSora = Sora({
   variable: "--font-sora",
@@ -20,54 +22,14 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
-  keywords: [
-    "Software Engineer",
-    "Lagos",
-    "Abuja",
-    "London",
-    "Manchester",
-    "Product Manager",
-    "Technical Product Manager",
-    "Portfolio",
-    "Resume",
-    "Mobile Engineer",
-    "Full-Stack Engineer",
-    "Developer"
-  ],
+  keywords: metadataKeywords,
   authors: [
     {
       name: siteConfig.author,
       url: siteConfig.url,
     },
   ],
-  creator: "damolaoladipo",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@damolaoladipo",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  
 };
 
 export default function RootLayout({

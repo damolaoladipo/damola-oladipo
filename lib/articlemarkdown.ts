@@ -2,13 +2,13 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 
-const postsDirectory = join(process.cwd(), "markdown/blogs");
+const postsDirectory = join(process.cwd(), "markdown/articles");
 
-export function getBlogsSlugs() {
+export function getArticleSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getBlogsBySlug(slug: string, fields: string[] = []) {
+export function getArticleBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -50,10 +50,10 @@ export function getBlogsBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
-export function getAllBlogs(fields: string[] = []) {
-  const slugs = getBlogsSlugs();
-  const blogs = slugs
-    .map((slug) => getBlogsBySlug(slug, fields))
+export function getAllArticles(fields: string[] = []) {
+  const slugs = getArticleSlugs();
+  const articles = slugs
+    .map((slug) => getArticleBySlug(slug, fields));
 
-  return blogs;
+  return articles;
 }

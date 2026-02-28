@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props) {
     } else {
         return {
             title: "Not Found",
-            description: "No blog article has been found",
+            description: "No article has been found",
             author: authorName,
             robots: {
                 index: false,

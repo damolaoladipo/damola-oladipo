@@ -1,26 +1,18 @@
 import HeroSection from "@/components/sections/hero-section";
-import LogoCloud from "@/components/sections/logo-cloud";
-import Projects from "@/components/sections/projects";
-import CallToAction from "@/components/sections/call-to-action";
-import PlaygroundTabs from "@/components/sections/playground-tabs";
-import CTAPart from "@/components/containers/cta-part";
-import { CTALoop } from "@/components/containers/cta-loop";
-import MyInterests from "@/components/sections/my-interests";
+import Articles from "@/components/sections/articles";
 
-const Home = () => {
+const Home = ({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) => {
   
   return (
             <>
     
                 <HeroSection />
-                <LogoCloud />
-                <Projects />
-                <CallToAction />
-                <PlaygroundTabs />
-                <MyInterests/>
+                <Articles searchParams={searchParams} />
                 
-                <CTALoop />
-                <CTAPart />
             
             </>
   );
