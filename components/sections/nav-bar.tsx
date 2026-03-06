@@ -11,7 +11,9 @@ const menuItems = [
     { name: 'Essays', href: siteConfig.baseLinks.essays },
     // { name: 'Projects', href: siteConfig.baseLinks.projects },
     // { name: 'Playground', href: siteConfig.baseLinks.playground },
-    
+    // { name: 'Books', href: siteConfig.baseLinks.books },
+    // { name: 'Newsletter', href: siteConfig.baseLinks.newsletter },
+    { name: 'Guides', href: siteConfig.baseLinks.guides },
     { name: 'About', href: siteConfig.baseLinks.about },
 ];
 

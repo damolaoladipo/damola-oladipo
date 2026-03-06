@@ -12,6 +12,9 @@ export const siteConfig = {
     essays: "/essays",
     playground: "/playground",
     projects: "/projects",
+    books: "/books",
+    newsletter: "/newsletter",
+    guides: "/guides",
     sociaLlinks: {
       twitter: "https://www.x.com/damolaoladipo",
       github: "https://github.com/damolaoladipo",
