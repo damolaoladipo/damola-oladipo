@@ -15,18 +15,19 @@ const About = () => {
     return (
         <>
             <AboutHero />
-            <HeroSection />
+            {/* <HeroSection /> */}
             <LogoCloud />
-            <Projects />
+            {/* <Projects />
             <CallToAction />
-            <PlaygroundTabs />
+            <PlaygroundTabs /> 
             <MyInterests />
+            */}
             <LatestWork />
             <PromoBanner />
             <WorkWithMe />
 
-            <CTALoop />
-            <CTAPart />
+            {/* <CTALoop />
+            <CTAPart /> */}
         </>
     );
 };
