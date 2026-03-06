@@ -67,12 +67,12 @@ export function ReadMoreSection({
         <section className="py-12">
             {/* Header row */}
             <div className="flex items-center justify-between gap-4 mb-8">
-                <h2 className="text-xl font-semibold text-foreground">
+                <h2 className="text-[1.4rem] font-semibold text-foreground">
                     More essays
                 </h2>
                 <Link
                     href={siteConfig.baseLinks.essays}
-                    className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    className="inline-flex items-center gap-1 text-[1.0625rem] font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                     View all
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -101,15 +101,15 @@ export function ReadMoreSection({
                                 </div>
                             )}
                             <div className="flex flex-col gap-1.5">
-                                <p className="text-xs text-muted-foreground">
+                                <p className="text-sm text-muted-foreground">
                                     {tag && <>{tag} &bull; </>}
                                     {formattedDate}
                                 </p>
-                                <h3 className="text-base font-semibold text-foreground leading-snug group-hover:opacity-60 transition-opacity line-clamp-2">
+                                <h3 className="text-[1.0625rem] font-semibold text-foreground leading-snug group-hover:opacity-60 transition-opacity line-clamp-2">
                                     {post.data.title}
                                 </h3>
                                 {post.data.description && (
-                                    <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                                    <p className="text-[1.0625rem] text-muted-foreground line-clamp-2 leading-[1.8]">
                                         {post.data.description}
                                     </p>
                                 )}
