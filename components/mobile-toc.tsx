@@ -15,7 +15,7 @@ import { TableOfContents } from '@/components/table-of-contents';
 import { PromoContent } from '@/components/promo-content';
 
 const MOBILE_TOC_TRIGGER_CLASS =
-    'lg:hidden fixed z-[100] rounded-full border border-border bg-primary text-primary-foreground shadow-xl transition-opacity hover:opacity-90 p-4 bottom-[calc(env(safe-area-inset-bottom)+1.5rem)] right-[calc(env(safe-area-inset-right)+1.5rem)]';
+    'lg:hidden fixed z-[100] border border-border bg-primary text-primary-foreground shadow-xl transition-opacity hover:opacity-90 p-4 bottom-[calc(env(safe-area-inset-bottom)+1.5rem)] right-[calc(env(safe-area-inset-right)+1.5rem)]';
 
 export function MobileTableOfContents() {
     const [mounted, setMounted] = useState(false);

@@ -76,16 +76,48 @@ export default async function EssayPost({ params }: PageProps) {
                         >
                             Essays
                         </Link>
-                        {/* <span>/</span>
-            <span className="text-neutral-600 dark:text-neutral-400 truncate max-w-[200px] sm:max-w-xs">
-              {data.title}
-            </span> */}
                     </nav>
 
                     {/* Title */}
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-tight">
                         {data.title}
                     </h1>
+
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                        {/* Written by */}
+                        <div className="flex items-center gap-2">
+                            {(() => {
+                                const author =
+                                    data.author && isValidAuthor(data.author)
+                                        ? getAuthor(data.author)
+                                        : getAuthor('dillion');
+                                return (
+                                    <>
+                                        <span className="text-sm text-muted-foreground whitespace-nowrap">
+                                            {/* Written by{' '} */}
+                                            <span className="font-medium text-foreground">
+                                                {author.name}
+                                            </span>
+                                        </span>
+                                    </>
+                                );
+                            })()}
+                        </div>
+
+                        <span className="text-muted-foreground/40 text-sm">·</span>
+
+                        <time className="text-sm text-muted-foreground whitespace-nowrap">
+                            {formattedDate}
+                        </time>
+                        {data.readTime && (
+                            <>
+                                <span className="text-muted-foreground/40 text-sm">·</span>
+                                <span className="text-sm text-muted-foreground whitespace-nowrap">
+                                    {data.readTime}
+                                </span>
+                            </>
+                        )}
+                    </div>
 
                     {/* Description */}
                     {data.description && (
@@ -94,48 +126,19 @@ export default async function EssayPost({ params }: PageProps) {
                         </p>
                     )}
 
-                    {/* Meta row: author + date */}
-                    <div className="flex flex-wrap items-center gap-4 pt-2">
-                        {/* {data.author && isValidAuthor(data.author) && (() => {
-              const author = getAuthor(data.author);
-              return (
-                <div className="flex items-center gap-2">
-                  {author.avatar && (
-                    <Image
-                      src={author.avatar}
-                      alt={author.name}
-                      width={28}
-                      height={28}
-                      className="rounded-full object-cover"
-                    />
-                  )}
-                  <span className="text-sm font-medium text-foreground">{author.name}</span>
-                </div>
-              );
-            })()} */}
-                        {/* Tags */}
-                        {data.tags && data.tags.length > 0 && (
-                            <div className="flex flex-wrap gap-2">
-                                {data.tags.map((tag: string) => (
-                                    <span
-                                        key={tag}
-                                        className="px-3 py-1 text-[0.7rem] font-medium uppercase tracking-wider bg-muted text-muted-foreground"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
-
-                        <time className="text-sm text-muted-foreground">
-                            {formattedDate}
-                        </time>
-                        {data.readTime && (
-                            <span className="text-sm text-muted-foreground">
-                                {data.readTime}
-                            </span>
-                        )}
-                    </div>
+                    {/* Tags */}
+                    {data.tags && data.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                            {data.tags.map((tag: string) => (
+                                <span
+                                    key={tag}
+                                    className="px-3 py-1 text-[0.7rem] font-medium uppercase tracking-wider bg-muted text-muted-foreground"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </header>
 
