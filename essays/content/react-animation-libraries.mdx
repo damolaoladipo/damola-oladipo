@@ -1,21 +1,21 @@
 ---
-title: "Animation That Works: Making Interfaces Feel Alive"
+title: 'Animation That Works: Making Interfaces Feel Alive'
 description: "Most UI animation is decoration. The best animation is communication. Here's how I think about motion in product interfaces and what separates good animation from noise."
-date: "2025-01-28"
-tags: ["Animation", "UX", "Design Engineering"]
+date: '2025-01-28'
+tags: ['Animation', 'UX', 'Design Engineering']
 featured: false
-readTime: "7 min read"
-author: "damola"
-thumbnail: "/thumbnails/react-animation-libraries.jpg"
+readTime: '7 min read'
+author: 'damola'
+thumbnail: '/thumbnails/react-animation-libraries.jpg'
 ---
 
 There's a version of UI animation that makes designers proud and users annoyed. You've seen it — the landing page where every element fades in as you scroll, each with a slightly different delay, creating a cascade of movement that takes three seconds to resolve before you can read anything. It looks great in a Dribbble shot. It's exhausting to experience.
 
-Good animation is different. Good animation communicates. It answers questions the user didn't know they were asking: *Where did that go? What just happened? What's coming next?* When animation does that work, users don't notice it. They just feel oriented.
+Good animation is different. Good animation communicates. It answers questions the user didn't know they were asking: _Where did that go? What just happened? What's coming next?_ When animation does that work, users don't notice it. They just feel oriented.
 
 ## The Purpose Question
 
-Before writing a single animation, ask: *what is this communicating?*
+Before writing a single animation, ask: _what is this communicating?_
 
 There are five things animation can usefully communicate in a UI:
 
@@ -33,12 +33,12 @@ This is where most animation goes wrong. The defaults in most libraries are too 
 
 My baselines:
 
-| Interaction | Duration |
-|---|---|
+| Interaction                      | Duration  |
+| -------------------------------- | --------- |
 | Micro-interaction (hover, focus) | 100–150ms |
-| Element entry / exit | 200–300ms |
-| Page transition | 300–400ms |
-| Modal / sheet open | 250–350ms |
+| Element entry / exit             | 200–300ms |
+| Page transition                  | 300–400ms |
+| Modal / sheet open               | 250–350ms |
 
 Anything over 400ms will feel sluggish to most users. Anything under 100ms will feel instant — which is sometimes what you want, but usually not for visibility changes.
 
@@ -47,27 +47,22 @@ For easing, I default to `ease-out` for entries (quick start, graceful settle) a
 ```tsx
 // Framer Motion — entry/exit pattern I use everywhere
 const variants = {
-  hidden: { opacity: 0, y: 6 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.25, ease: "easeOut" }
-  },
-  exit: { 
-    opacity: 0, 
-    y: -4,
-    transition: { duration: 0.15, ease: "easeIn" }
-  },
+    hidden: { opacity: 0, y: 6 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.25, ease: 'easeOut' },
+    },
+    exit: {
+        opacity: 0,
+        y: -4,
+        transition: { duration: 0.15, ease: 'easeIn' },
+    },
 };
 
-<motion.div
-  variants={variants}
-  initial="hidden"
-  animate="visible"
-  exit="exit"
->
-  {children}
-</motion.div>
+<motion.div variants={variants} initial="hidden" animate="visible" exit="exit">
+    {children}
+</motion.div>;
 ```
 
 ## Framer Motion in Practice
@@ -79,11 +74,13 @@ I use Framer Motion for most animation work in React. Its declarative model maps
 The magic trick. Add `layout` to a component and Framer Motion automatically animates between layout changes — items reordering in a list, a container expanding, a sidebar opening. This is the hardest animation to write manually and trivially easy with Framer.
 
 ```tsx
-{items.map((item) => (
-  <motion.div key={item.id} layout>
-    {item.content}
-  </motion.div>
-))}
+{
+    items.map((item) => (
+        <motion.div key={item.id} layout>
+            {item.content}
+        </motion.div>
+    ));
+}
 ```
 
 ### AnimatePresence for exit animations
@@ -92,16 +89,16 @@ React removes elements from the DOM immediately. `AnimatePresence` keeps them al
 
 ```tsx
 <AnimatePresence>
-  {isOpen && (
-    <motion.div
-      key="modal"
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.97 }}
-    >
-      <Modal />
-    </motion.div>
-  )}
+    {isOpen && (
+        <motion.div
+            key="modal"
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.97 }}
+        >
+            <Modal />
+        </motion.div>
+    )}
 </AnimatePresence>
 ```
 
@@ -111,14 +108,14 @@ When a list of items appears, staggering their entry adds rhythm without feeling
 
 ```tsx
 const container = {
-  visible: {
-    transition: { staggerChildren: 0.05 }
-  }
+    visible: {
+        transition: { staggerChildren: 0.05 },
+    },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 8 },
-  visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 8 },
+    visible: { opacity: 1, y: 0 },
 };
 ```
 
@@ -132,6 +129,7 @@ className="transition-colors duration-150 hover:bg-muted"
 ```
 
 I reach for JavaScript animation (Framer Motion) when I need:
+
 - Exit animations
 - Spring physics
 - Gesture-driven animation (drag, scroll)
@@ -144,21 +142,19 @@ Everything else: CSS transitions.
 `prefers-reduced-motion` is not optional.[^1] Users who have set this preference have told the OS they find motion uncomfortable. Ignoring it is actively harmful for some users.
 
 In Tailwind:
+
 ```css
 className="transition-transform motion-reduce:transition-none"
 ```
 
 In Framer Motion:
+
 ```tsx
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from 'framer-motion';
 
 function AnimatedComponent() {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      animate={{ x: reduce ? 0 : 100 }}
-    />
-  );
+    const reduce = useReducedMotion();
+    return <motion.div animate={{ x: reduce ? 0 : 100 }} />;
 }
 ```
 
@@ -167,4 +163,5 @@ function AnimatedComponent() {
 The best animation is the one you notice only when it's gone. If removing an animation makes an interface feel abrupt, broken, or disorienting — that animation was doing real work. Keep it. If removing it changes nothing, remove it.[^2]
 
 [^1]: According to the Vestibular Disorders Association, approximately 35% of adults over 40 in the United States have experienced some form of vestibular dysfunction. For these users, parallax scrolling and constant motion can cause genuine physical discomfort including nausea and dizziness.
+
 [^2]: This test — "what breaks when I remove it?" — is the clearest way I know to distinguish functional animation from decorative animation. Apply it ruthlessly before shipping.

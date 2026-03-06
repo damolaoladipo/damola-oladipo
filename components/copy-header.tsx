@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Link } from "lucide-react";
-import { cn } from "@/lib/utils";
+import React from 'react';
+import { Link } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface CopyHeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
     level: number;
@@ -12,16 +12,21 @@ interface CopyHeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
 function generateSlug(text: string): string {
     return text
         .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, "")
-        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
         .trim();
 }
 
-export function CopyHeader({ level, children, className, ...props }: CopyHeaderProps) {
-    const text = typeof children === "string" ? children : "";
+export function CopyHeader({
+    level,
+    children,
+    className,
+    ...props
+}: CopyHeaderProps) {
+    const text = typeof children === 'string' ? children : '';
     const id = generateSlug(text);
 
-    const HeadingTag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    const HeadingTag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
     const copyToClipboard = async () => {
         const url = `${window.location.origin}${window.location.pathname}#${id}`;
@@ -32,11 +37,12 @@ export function CopyHeader({ level, children, className, ...props }: CopyHeaderP
         if (element) {
             const offset = 80;
             const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            const offsetPosition =
+                elementPosition + window.pageYOffset - offset;
 
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth'
+                behavior: 'smooth',
             });
         }
 
@@ -44,11 +50,11 @@ export function CopyHeader({ level, children, className, ...props }: CopyHeaderP
             await navigator.clipboard.writeText(url);
         } catch (err) {
             console.error(err);
-            const textArea = document.createElement("textarea");
+            const textArea = document.createElement('textarea');
             textArea.value = url;
             document.body.appendChild(textArea);
             textArea.select();
-            document.execCommand("copy");
+            document.execCommand('copy');
             document.body.removeChild(textArea);
         }
     };
@@ -60,8 +66,8 @@ export function CopyHeader({ level, children, className, ...props }: CopyHeaderP
             <HeadingTag
                 id={id}
                 className={cn(
-                    "group relative scroll-mt-20 cursor-pointer hover:text-muted-foreground transition-colors duration-200 flex items-center gap-2",
-                    className
+                    'group relative scroll-mt-20 cursor-pointer hover:text-muted-foreground transition-colors duration-200 flex items-center gap-2',
+                    className,
                 )}
                 onClick={copyToClipboard}
                 title="Click to copy link to this section"
@@ -76,10 +82,10 @@ export function CopyHeader({ level, children, className, ...props }: CopyHeaderP
     return (
         <HeadingTag
             id={id}
-            className={cn("scroll-mt-20", className)}
+            className={cn('scroll-mt-20', className)}
             {...props}
         >
             {children}
         </HeadingTag>
     );
-} 
+}

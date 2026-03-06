@@ -1,12 +1,12 @@
 ---
 title: "The Design Engineer's Toolkit: Tools I Actually Use"
 description: "A honest look at the tools, libraries, and workflows that make up my daily design engineering practice — what works, what doesn't, and why."
-date: "2025-01-15"
-tags: ["Design Engineering", "Tools", "Workflow"]
+date: '2025-01-15'
+tags: ['Design Engineering', 'Tools', 'Workflow']
 featured: true
-readTime: "8 min read"
-author: "damola"
-thumbnail: "/thumbnails/react-components-libraries.jpg"
+readTime: '8 min read'
+author: 'damola'
+thumbnail: '/thumbnails/react-components-libraries.jpg'
 ---
 
 Design engineering sits in a strange middle ground. You're expected to think like a designer, write like a developer, and communicate like a product manager — sometimes all in the same afternoon. Over the years I've settled into a set of tools that let me move fluidly across these contexts without constantly switching mental modes.
@@ -33,9 +33,13 @@ My default for anything that needs to be on the web. The App Router changed how 
 
 ```tsx
 // Server Component — fetch right where you need it
-export default async function EssayPage({ params }: { params: { slug: string } }) {
-  const essay = await getEssay(params.slug);
-  return <Article data={essay} />;
+export default async function EssayPage({
+    params,
+}: {
+    params: { slug: string };
+}) {
+    const essay = await getEssay(params.slug);
+    return <Article data={essay} />;
 }
 ```
 
@@ -48,24 +52,21 @@ Polarising choice, I know. But Tailwind eliminates the naming problem. The harde
 The utility class explosion in complex components is real. I manage it with `cva` (Class Variance Authority) for component variants.
 
 ```tsx
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority';
 
-const button = cva(
-  "inline-flex items-center font-medium transition-colors",
-  {
+const button = cva('inline-flex items-center font-medium transition-colors', {
     variants: {
-      intent: {
-        primary: "bg-foreground text-background hover:opacity-90",
-        ghost: "bg-transparent text-foreground hover:bg-muted",
-      },
-      size: {
-        sm: "h-8 px-3 text-sm",
-        md: "h-10 px-5 text-base",
-      },
+        intent: {
+            primary: 'bg-foreground text-background hover:opacity-90',
+            ghost: 'bg-transparent text-foreground hover:bg-muted',
+        },
+        size: {
+            sm: 'h-8 px-3 text-sm',
+            md: 'h-10 px-5 text-base',
+        },
     },
-    defaultVariants: { intent: "primary", size: "md" },
-  }
-);
+    defaultVariants: { intent: 'primary', size: 'md' },
+});
 ```
 
 ### shadcn/ui
@@ -84,11 +85,11 @@ For UI animations. The declarative API maps well to how I think about motion —
 
 ```tsx
 <motion.div
-  initial={{ opacity: 0, y: 8 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.3, ease: "easeOut" }}
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3, ease: 'easeOut' }}
 >
-  {children}
+    {children}
 </motion.div>
 ```
 
@@ -96,7 +97,7 @@ I keep animations short (under 300ms for most micro-interactions) and purposeful
 
 ### Framer (the product)
 
-For client-facing prototypes that need to feel real. Sometimes a stakeholder needs to *feel* the product, not just see a screenshot. Framer lets me build high-fidelity prototypes fast, especially for marketing pages.
+For client-facing prototypes that need to feel real. Sometimes a stakeholder needs to _feel_ the product, not just see a screenshot. Framer lets me build high-fidelity prototypes fast, especially for marketing pages.
 
 ## Writing & Thinking
 

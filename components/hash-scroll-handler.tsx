@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export function HashScrollHandler() {
     useEffect(() => {
@@ -11,10 +11,11 @@ export function HashScrollHandler() {
                 if (element) {
                     const offset = 80;
                     const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    const offsetPosition =
+                        elementPosition + window.pageYOffset - offset;
                     window.scrollTo({
                         top: offsetPosition,
-                        behavior: 'smooth'
+                        behavior: 'smooth',
                     });
                 }
             }
@@ -30,4 +31,4 @@ export function HashScrollHandler() {
     }, []);
 
     return null;
-} 
+}

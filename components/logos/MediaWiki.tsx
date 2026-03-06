@@ -1,4 +1,4 @@
-import { type SVGProps } from 'react'
+import { type SVGProps } from 'react';
 
 export default function MediaWiki(props: SVGProps<SVGSVGElement>) {
     return (
@@ -9,7 +9,8 @@ export default function MediaWiki(props: SVGProps<SVGSVGElement>) {
             viewBox="0 0 50 50"
             width="1em"
             height="1em"
-            {...props}>
+            {...props}
+        >
             <defs id="defs11">
                 <linearGradient
                     id="gradient"
@@ -17,22 +18,11 @@ export default function MediaWiki(props: SVGProps<SVGSVGElement>) {
                     x2={100}
                     y1={100}
                     y2={0}
-                    gradientUnits="userSpaceOnUse">
-                    <stop
-                        id="stop2"
-                        offset="0%"
-                        stopColor="#0a00b2"
-                    />
-                    <stop
-                        id="stop4"
-                        offset="50%"
-                        stopColor="red"
-                    />
-                    <stop
-                        id="stop6"
-                        offset="100%"
-                        stopColor="#fffc00"
-                    />
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop id="stop2" offset="0%" stopColor="#0a00b2" />
+                    <stop id="stop4" offset="50%" stopColor="red" />
+                    <stop id="stop6" offset="100%" stopColor="#fffc00" />
                 </linearGradient>
                 <linearGradient
                     xlinkHref="#gradient"
@@ -264,7 +254,8 @@ export default function MediaWiki(props: SVGProps<SVGSVGElement>) {
             <g
                 id="petals"
                 fill="url(#linearGradient921)"
-                transform="matrix(.5 0 0 .5 0 .026)">
+                transform="matrix(.5 0 0 .5 0 .026)"
+            >
                 <path
                     id="path13"
                     fill="url(#linearGradient873)"
@@ -435,5 +426,5 @@ export default function MediaWiki(props: SVGProps<SVGSVGElement>) {
                 />
             </g>
         </svg>
-    )
+    );
 }

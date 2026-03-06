@@ -1,12 +1,12 @@
 ---
-title: "What Building Mobile Apps Taught Me About Constraints"
-description: "Mobile development forces decisions that web development lets you defer. Working under those constraints changed how I approach every product I build."
-date: "2024-12-20"
-tags: ["Mobile", "React Native", "Product"]
+title: 'What Building Mobile Apps Taught Me About Constraints'
+description: 'Mobile development forces decisions that web development lets you defer. Working under those constraints changed how I approach every product I build.'
+date: '2024-12-20'
+tags: ['Mobile', 'React Native', 'Product']
 featured: false
-readTime: "8 min read"
-author: "damola"
-thumbnail: "/thumbnails/react-native-libraries.jpg"
+readTime: '8 min read'
+author: 'damola'
+thumbnail: '/thumbnails/react-native-libraries.jpg'
 ---
 
 I came to mobile development late. My background was web — HTML, CSS, JavaScript, the browser's forgiving rendering model and essentially infinite screen real estate. Mobile felt like a step down at first. Smaller screens. Fewer APIs. More constraints.
@@ -19,7 +19,7 @@ Every mobile app exists within a contract with the user. That contract has terms
 
 **Permission is explicit.** You can't quietly access location or send push notifications. The user must say yes. This forced explicitness is uncomfortable for product teams used to silent data collection but better for everyone in the long run.
 
-**Network is unreliable.** On the web, you can usually assume a decent connection. On mobile, users are in basements, on trains, in markets with three bars of 3G. Every feature you build needs to answer the question: *what happens when this fails?*
+**Network is unreliable.** On the web, you can usually assume a decent connection. On mobile, users are in basements, on trains, in markets with three bars of 3G. Every feature you build needs to answer the question: _what happens when this fails?_
 
 **The back button is software.** Navigation on mobile isn't implicit. You have to build it, think about the stack, manage state across screens. This is annoying until you realise it forces you to think about your information architecture in ways that web development never demands.
 
@@ -40,11 +40,11 @@ React Native lets web developers build mobile apps without learning Swift or Kot
 ```tsx
 // Same pattern, works on web and native
 function useEssays() {
-  return useQuery({
-    queryKey: ['essays'],
-    queryFn: fetchEssays,
-    staleTime: 5 * 60 * 1000,
-  });
+    return useQuery({
+        queryKey: ['essays'],
+        queryFn: fetchEssays,
+        staleTime: 5 * 60 * 1000,
+    });
 }
 ```
 
@@ -59,9 +59,9 @@ function useEssays() {
 ```tsx
 // react-native-reanimated — runs on UI thread, never drops frames
 const animatedStyle = useAnimatedStyle(() => {
-  return {
-    transform: [{ translateX: withSpring(offset.value) }],
-  };
+    return {
+        transform: [{ translateX: withSpring(offset.value) }],
+    };
 });
 ```
 
@@ -69,7 +69,7 @@ const animatedStyle = useAnimatedStyle(() => {
 
 Building mobile apps changed how I think about web products. A few things that carried over:
 
-**Offline-first thinking.** I now ask, for every web feature: *what happens when the user has no connection?* Even if the answer is "show an error," it's better to have thought about it than to let a blank screen speak for you.
+**Offline-first thinking.** I now ask, for every web feature: _what happens when the user has no connection?_ Even if the answer is "show an error," it's better to have thought about it than to let a blank screen speak for you.
 
 **Progressive disclosure.** Mobile screens force you to be ruthless about what goes above the fold. That discipline applies on web too. Every screen should answer: what's the one thing the user needs to do here?
 
@@ -86,4 +86,5 @@ The original web approach — online forms, real-time sync — failed immediatel
 The tech wasn't revolutionary. What was revealing was how differently I had to think about the product.[^2] Every assumption I'd built up working on consumer web apps had to be interrogated. That interrogation made me a better product thinker — not just for mobile, but for everything after.
 
 [^1]: The WCAG 2.5.5 success criterion recommends a minimum target size of 44×44 CSS pixels for interactive elements. This is often treated as an accessibility concern, but it's really just good design for any user. Fat-finger errors on small targets are frustrating regardless of disability status.
+
 [^2]: This experience is what pushed me toward outcome engineering as a practice. When you're building for users in genuinely constrained environments, you can't afford to ship features that don't directly solve a problem. The feedback is too immediate and too honest.

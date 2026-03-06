@@ -1,29 +1,29 @@
-import React from 'react'
-import { cn } from '@/lib/utils'
+import React from 'react';
+import { cn } from '@/lib/utils';
 
 interface AdsPlaceholderProps {
-    className?: string
-    size?: 'small' | 'medium' | 'large'
-    title?: string
+    className?: string;
+    size?: 'small' | 'medium' | 'large';
+    title?: string;
 }
 
 export function AdsPlaceholder({
     className,
     size = 'medium',
-    title = "Advertisement"
+    title = 'Advertisement',
 }: AdsPlaceholderProps) {
     const sizeClasses = {
         small: 'h-32',
         medium: 'h-48',
-        large: 'h-64'
-    }
+        large: 'h-64',
+    };
 
     return (
         <div
             className={cn(
                 'border border-dashed border-border rounded-lg flex items-center justify-center bg-muted/30',
                 sizeClasses[size],
-                className
+                className,
             )}
         >
             <div className="text-center space-y-2">
@@ -35,5 +35,5 @@ export function AdsPlaceholder({
                 </div>
             </div>
         </div>
-    )
-} 
+    );
+}

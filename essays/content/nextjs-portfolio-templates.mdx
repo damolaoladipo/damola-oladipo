@@ -1,12 +1,12 @@
 ---
-title: "What Building My Portfolio Taught Me About Product Thinking"
+title: 'What Building My Portfolio Taught Me About Product Thinking'
 description: "A portfolio is just a product with one user. Here's what building mine taught me about design decisions, scope, and shipping things that aren't perfect."
-date: "2025-02-01"
-tags: ["Portfolio", "Product", "Next.js"]
+date: '2025-02-01'
+tags: ['Portfolio', 'Product', 'Next.js']
 featured: true
-readTime: "6 min read"
-author: "damola"
-thumbnail: "/thumbnails/nextjs-portfolio-templates.jpg"
+readTime: '6 min read'
+author: 'damola'
+thumbnail: '/thumbnails/nextjs-portfolio-templates.jpg'
 ---
 
 I've rebuilt my portfolio four times. Each rebuild taught me something different — not about design or code, but about product thinking. A portfolio is a deceptively hard product to build because the customer is everyone and no one at once. You're building for recruiters, potential clients, collaborators, and the occasional curious stranger. You're also building for yourself, which is often the hardest customer to satisfy.
@@ -17,7 +17,7 @@ Here's what I've learned.
 
 Professional projects have constraints: deadlines, stakeholders, budgets. Personal projects have none of these, which sounds liberating until you're redesigning the hero section for the sixth time because no one said stop.
 
-My first portfolio had a 3D globe. It looked incredible and took forever to load. My second had a custom cursor. My third had a loading animation. Each one was solving for the wrong thing — I was optimising for *impressive* when I should have been optimising for *useful*.
+My first portfolio had a 3D globe. It looked incredible and took forever to load. My second had a custom cursor. My third had a loading animation. Each one was solving for the wrong thing — I was optimising for _impressive_ when I should have been optimising for _useful_.
 
 The fourth one (this one) has none of those things. It has essays, projects, and a way to contact me. That's it.
 
@@ -34,11 +34,10 @@ Next.js won because of how naturally the App Router handles the mix of static co
 ```tsx
 // MDX content — generated at build time
 export async function generateStaticParams() {
-  const essays = await getEssaySlugs();
-  return essays.map((slug) => ({ slug }));
+    const essays = await getEssaySlugs();
+    return essays.map((slug) => ({ slug }));
 }
 ```
-
 
 ```go
 package main
@@ -153,4 +152,5 @@ Version four of this portfolio is not done. It may never be done. But it's live,
 If you're sitting on a half-built portfolio waiting for the right moment — this is the right moment. Put it up. Fix it later. The people you're building it for would rather see something real than wait for something ideal.
 
 [^1]: Cabinet Grotesk is designed by Fontshare and distributed free for personal and commercial use. It has a slightly geometric quality that works well at large display sizes without feeling cold.
+
 [^2]: Ship it, then improve it. This is advice I give freely and follow reluctantly. The portfolio you see now was pushed live in a state I wasn't fully happy with. Every update since has been made possible only because it was already live and real people were reacting to it.

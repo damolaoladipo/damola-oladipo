@@ -1,12 +1,12 @@
 ---
-title: "Outcome Engineering: The Discipline of Building What Actually Matters"
-description: "Most engineers build features. Outcome engineers build results. The distinction sounds small but changes everything about how you approach a problem."
-date: "2025-02-10"
-tags: ["Product", "Engineering", "Thinking"]
+title: 'Outcome Engineering: The Discipline of Building What Actually Matters'
+description: 'Most engineers build features. Outcome engineers build results. The distinction sounds small but changes everything about how you approach a problem.'
+date: '2025-02-10'
+tags: ['Product', 'Engineering', 'Thinking']
 featured: true
-readTime: "9 min read"
-author: "damola"
-thumbnail: "/thumbnails/react-landing-page-templates.jpg"
+readTime: '9 min read'
+author: 'damola'
+thumbnail: '/thumbnails/react-landing-page-templates.jpg'
 ---
 
 There's a pattern I've seen in every organisation I've worked with or consulted for. The engineering team ships features on time. The product roadmap gets executed. The sprint velocity is healthy. And yet, the business isn't moving. Users aren't engaging the way anyone expected. The metrics that actually matter — retention, activation, revenue — are stubbornly flat.
@@ -19,8 +19,8 @@ Outcome engineering is the discipline of breaking out of that trap.
 
 An outcome is a change in behaviour. A feature is a thing you built. These are not the same thing, and conflating them is the root cause of most product failures.
 
-Feature thinking: *We need to build a notification system.*  
-Outcome thinking: *We need users to come back within 48 hours of signing up. What's the highest-leverage way to achieve that?*
+Feature thinking: _We need to build a notification system._  
+Outcome thinking: _We need users to come back within 48 hours of signing up. What's the highest-leverage way to achieve that?_
 
 The notification system might be the right answer. It might not. Outcome thinking asks the question first, then finds the solution. Feature thinking assumes the solution and skips the question.
 
@@ -29,12 +29,15 @@ The notification system might be the right answer. It might not. Outcome thinkin
 When I start on a new problem, I work through three levels:
 
 ### 1. The Business Outcome
+
 What does the company need to be true? This is usually a metric: retention, conversion, revenue per user, time to value. It should be measurable and have a clear owner.
 
 ### 2. The User Outcome
+
 What does the user need to be able to do, feel, or accomplish? This is where empathy lives. The business outcome can't be achieved without a real user outcome underneath it.
 
 ### 3. The Product Outcome
+
 What specific product change will create the user outcome? This is where engineering begins — not before.
 
 ```
@@ -65,16 +68,16 @@ This forces precision. "Users will love this" is not a success metric. "30-day r
 
 Lean methodology gave us build-measure-learn. It's correct in principle and catastrophically misapplied in practice.
 
-The trap is treating every iteration as equally valuable. Some things you should build and measure. Some things you should learn *without building*. A five-minute user interview might invalidate an assumption that would have taken three weeks to build a test for.
+The trap is treating every iteration as equally valuable. Some things you should build and measure. Some things you should learn _without building_. A five-minute user interview might invalidate an assumption that would have taken three weeks to build a test for.
 
 I use a decision matrix before any significant piece of work:
 
-| Confidence in outcome | Cost to test | Action |
-|---|---|---|
-| High | Low | Build it |
-| High | High | De-risk with a smaller test first |
-| Low | Low | Run a fast experiment |
-| Low | High | Talk to users before touching code |
+| Confidence in outcome | Cost to test | Action                             |
+| --------------------- | ------------ | ---------------------------------- |
+| High                  | Low          | Build it                           |
+| High                  | High         | De-risk with a smaller test first  |
+| Low                   | Low          | Run a fast experiment              |
+| Low                   | High         | Talk to users before touching code |
 
 The bottom-right quadrant kills roadmaps. A low-confidence, high-cost bet is a gamble dressed up as a feature.
 
@@ -100,4 +103,5 @@ These aren't philosophical questions. They're practical tools that surface misal
 Outcome engineering is a practice, not a framework. Frameworks provide structure; practice builds judgment. The judgment to know when a feature is really a question, when a roadmap is really a hypothesis, and when shipping means learning rather than finishing — that's what separates the teams that move fast from the ones that just look like they do.
 
 [^1]: In my experience, the feature trap is most dangerous in organisations with strong engineering culture and weak product culture. When engineers are empowered to ship, they ship. Without product discipline to direct that energy, you get a very well-built product that no one needs.
+
 [^2]: The concept of the design engineer as a bridge role is gaining traction in tech companies. Vercel, Linear, and Figma have all publicly discussed having design engineers embedded in their product teams. The value proposition is consistent: faster, higher-fidelity iteration before committing to full implementation.

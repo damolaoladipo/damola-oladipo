@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, createContext, useContext } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import React, { useState, useEffect, createContext, useContext } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface DrawerContextType {
     isOpen: boolean;
@@ -15,7 +15,7 @@ const DrawerContext = createContext<DrawerContextType | undefined>(undefined);
 const useDrawer = () => {
     const context = useContext(DrawerContext);
     if (!context) {
-        throw new Error("Drawer components must be used within a Drawer");
+        throw new Error('Drawer components must be used within a Drawer');
     }
     return context;
 };
@@ -29,13 +29,13 @@ export function Drawer({ children }: DrawerProps) {
 
     useEffect(() => {
         if (isOpen) {
-            document.body.style.overflow = "hidden";
+            document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = 'unset';
         }
 
         return () => {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = 'unset';
         };
     }, [isOpen]);
 
@@ -55,10 +55,7 @@ export function DrawerTrigger({ children, className }: DrawerTriggerProps) {
     const { setIsOpen } = useDrawer();
 
     return (
-        <button
-            onClick={() => setIsOpen(true)}
-            className={cn(className)}
-        >
+        <button onClick={() => setIsOpen(true)} className={cn(className)}>
             {children}
         </button>
     );
@@ -80,22 +77,22 @@ export function DrawerContent({ children, className }: DrawerContentProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
                         className="fixed inset-0 bg-black/50 z-50"
                         onClick={() => setIsOpen(false)}
                     />
 
                     <motion.div
-                        initial={{ y: "100%", opacity: 0 }}
+                        initial={{ y: '100%', opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: "100%", opacity: 0 }}
+                        exit={{ y: '100%', opacity: 0 }}
                         transition={{
                             duration: 0.25,
-                            ease: [0.16, 1, 0.3, 1]
+                            ease: [0.16, 1, 0.3, 1],
                         }}
                         className={cn(
-                            "fixed bottom-3 left-0 right-0 bg-background border-t border-border z-50 max-h-[70vh] overflow-hidden w-[95%] mx-auto flex flex-col",
-                            className
+                            'fixed bottom-3 left-0 right-0 bg-background border-t border-border z-50 max-h-[70vh] overflow-hidden w-[95%] mx-auto flex flex-col',
+                            className,
                         )}
                     >
                         {children}
@@ -112,11 +109,20 @@ interface DrawerHeaderProps {
     showCloseButton?: boolean;
 }
 
-export function DrawerHeader({ children, className, showCloseButton = true }: DrawerHeaderProps) {
+export function DrawerHeader({
+    children,
+    className,
+    showCloseButton = true,
+}: DrawerHeaderProps) {
     const { setIsOpen } = useDrawer();
 
     return (
-        <div className={cn("flex items-center justify-between p-4 border-b border-border", className)}>
+        <div
+            className={cn(
+                'flex items-center justify-between p-4 border-b border-border',
+                className,
+            )}
+        >
             <div className="flex-1">{children}</div>
             {showCloseButton && (
                 <motion.button
@@ -139,7 +145,7 @@ interface DrawerBodyProps {
 
 export function DrawerBody({ children, className }: DrawerBodyProps) {
     return (
-        <div className={cn("p-4 overflow-y-auto flex-1", className)}>
+        <div className={cn('p-4 overflow-y-auto flex-1', className)}>
             {children}
         </div>
     );
@@ -152,8 +158,8 @@ interface DrawerFooterProps {
 
 export function DrawerFooter({ children, className }: DrawerFooterProps) {
     return (
-        <div className={cn("border-t border-border", className)}>
+        <div className={cn('border-t border-border', className)}>
             {children}
         </div>
     );
-} 
+}

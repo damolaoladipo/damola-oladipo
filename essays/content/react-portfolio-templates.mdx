@@ -1,12 +1,12 @@
 ---
-title: "From Figma to Code: How I Close the Design–Engineering Gap"
+title: 'From Figma to Code: How I Close the Design–Engineering Gap'
 description: "The handoff between design and engineering is where quality goes to die. Here's the workflow I use to keep intent intact from the first frame to the final commit."
-date: "2025-01-08"
-tags: ["Design Engineering", "Figma", "Workflow"]
+date: '2025-01-08'
+tags: ['Design Engineering', 'Figma', 'Workflow']
 featured: true
-readTime: "10 min read"
-author: "damola"
-thumbnail: "/thumbnails/react-portfolio-templates.jpg"
+readTime: '10 min read'
+author: 'damola'
+thumbnail: '/thumbnails/react-portfolio-templates.jpg'
 ---
 
 The design–engineering gap isn't a people problem. It's a process problem. Designers make decisions in a tool that doesn't run in a browser. Engineers implement in a tool that doesn't think in pixels. Somewhere between the two, detail gets lost, intent gets diluted, and the product that ships looks like a photocopy of a photocopy of the original design.
@@ -51,20 +51,20 @@ In Figma, I use variables to define tokens. In code, I use CSS custom properties
 ```css
 /* CSS tokens — mirror Figma variable names exactly */
 :root {
-  --color-foreground: #0a0a0a;
-  --color-background: #fafafa;
-  --color-muted: #f4f4f5;
-  --color-border: #e4e4e7;
+    --color-foreground: #0a0a0a;
+    --color-background: #fafafa;
+    --color-muted: #f4f4f5;
+    --color-border: #e4e4e7;
 
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
 }
 ```
 
@@ -83,22 +83,22 @@ This sounds like documentation overhead. It's actually faster than discovering t
 
 ```tsx
 interface ButtonProps {
-  // Visual variants — map directly from Figma component properties
-  intent?: "primary" | "secondary" | "ghost" | "destructive";
-  size?: "sm" | "md" | "lg";
+    // Visual variants — map directly from Figma component properties
+    intent?: 'primary' | 'secondary' | 'ghost' | 'destructive';
+    size?: 'sm' | 'md' | 'lg';
 
-  // Content slots
-  children: React.ReactNode;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+    // Content slots
+    children: React.ReactNode;
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
 
-  // State
-  isLoading?: boolean;
-  disabled?: boolean;
+    // State
+    isLoading?: boolean;
+    disabled?: boolean;
 
-  // HTML passthrough
-  type?: "button" | "submit" | "reset";
-  onClick?: () => void;
+    // HTML passthrough
+    type?: 'button' | 'submit' | 'reset';
+    onClick?: () => void;
 }
 ```
 
@@ -112,11 +112,11 @@ My breakpoint scale:
 
 ```ts
 const breakpoints = {
-  sm: "640px",   // Large phones
-  md: "768px",   // Tablets
-  lg: "1024px",  // Small laptops
-  xl: "1280px",  // Desktops
-  "2xl": "1536px", // Large screens
+    sm: '640px', // Large phones
+    md: '768px', // Tablets
+    lg: '1024px', // Small laptops
+    xl: '1280px', // Desktops
+    '2xl': '1536px', // Large screens
 };
 ```
 
@@ -138,24 +138,28 @@ The rule I follow: design for mobile first, then add complexity at larger breakp
 Before any design handoff is considered complete, I do a QA pass against the implementation. My checklist:
 
 **Visual accuracy**
+
 - [ ] Spacing matches (use the browser inspector's box model)
 - [ ] Typography matches (size, weight, line height, letter spacing)
 - [ ] Colours match (not "close enough" — use the eyedropper)
 - [ ] Border radius, shadow, opacity match
 
 **Behaviour**
+
 - [ ] All hover/focus states implemented
 - [ ] Keyboard navigation works
 - [ ] Touch targets are adequate on mobile
 - [ ] Animations match the design (duration, easing)
 
 **Edge cases**
+
 - [ ] Long content doesn't break layout
 - [ ] Empty states are handled
 - [ ] Error states are handled
 - [ ] Works with browser default font size increased to 200%
 
 **Accessibility**
+
 - [ ] Colour contrast passes WCAG AA
 - [ ] Focus indicators are visible
 - [ ] ARIA labels on icon-only buttons
@@ -172,4 +176,5 @@ When I design, I'm thinking about how this will be implemented. When I implement
 Design engineering isn't about being good at two things. It's about understanding the gap between them and caring enough to close it.
 
 [^1]: The concept of design tokens was popularised by Salesforce with their Lightning Design System in 2014. The W3C Design Tokens Community Group is currently working on a standard format for design token files (.json), which would allow tokens to be shared across tools without manual translation.
+
 [^2]: This is the compound interest argument for quality. A button component that renders correctly in 90% of cases will produce visible inconsistencies in every product surface that uses it. Fix the component once, and you fix every instance simultaneously. The QA investment pays back immediately and continues paying indefinitely.

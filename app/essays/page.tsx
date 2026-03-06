@@ -1,9 +1,9 @@
-import Essays from "@/components/sections/essays";
+import Essays from '@/components/sections/essays';
 
 export default function EssaysPage({
-  searchParams,
+    searchParams,
 }: {
-  searchParams: Promise<{ tag?: string }>;
+    searchParams: Promise<{ tag?: string }>;
 }) {
-  return <Essays searchParams={searchParams} />;
+    return <Essays searchParams={searchParams} />;
 }
