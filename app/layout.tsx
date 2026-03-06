@@ -5,8 +5,8 @@ import "./globals.css";
 import { Footer } from "@/components/sections/footer";
 import Header from "@/components/sections/nav-bar";
 import { siteConfig } from "@/_data/site-config";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "next-themes";
 import { metadataKeywords } from "./metadata";
 
@@ -29,7 +29,6 @@ export const metadata: Metadata = {
       url: siteConfig.url,
     },
   ],
-  
 };
 
 export default function RootLayout({
@@ -40,27 +39,22 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${useSora.variable} antialiased`}>
-
-
-
         <ThemeProvider
           attribute="class"
           enableSystem
           defaultTheme="system"
           disableTransitionOnChange
         >
-
           <div className="relative flex flex-col w-full min-h-screen inset-0 ">
             <Header />
-            <main className="flex-grow">{children}
+            <main className="flex-grow">
+              {children}
               <Analytics />
               <SpeedInsights />
             </main>
             <Footer />
           </div>
-
         </ThemeProvider>
-
       </body>
     </html>
   );

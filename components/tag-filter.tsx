@@ -34,19 +34,19 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
         <button
           key={tag}
           onClick={() => handleTagClick(tag)}
-          className={`h-8 flex items-center px-1 pl-3 rounded-lg cursor-pointer border text-sm transition-colors ${
+          className={`h-8 flex items-center px-1 pl-3 cursor-pointer border text-sm transition-colors ${
             selectedTag === tag
-              ? "border-primary bg-primary text-primary-foreground"
+              ? "border-foreground bg-foreground text-background"
               : "border-border hover:bg-muted"
           }`}
         >
           <span>{tag}</span>
           {tagCounts?.[tag] && (
             <span
-              className={`ml-2 text-xs border rounded-md h-6 min-w-6 font-medium flex items-center justify-center ${
+              className={`ml-2 text-xs border h-6 min-w-6 font-medium flex items-center justify-center ${
                 selectedTag === tag
-                  ? "border-border/40 dark:border-primary-foreground bg-background text-primary"
-                  : "border-border dark:border-border"
+                  ? "border-background/40 bg-background/10 text-background"
+                  : "border-border"
               }`}
             >
               {tagCounts[tag]}
@@ -59,7 +59,7 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
 
   const MobileTagFilter = () => (
     <Drawer>
-      <DrawerTrigger className="md:hidden w-full flex items-center justify-between px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors">
+      <DrawerTrigger className="md:hidden w-full flex items-center justify-between px-4 py-2 border border-border hover:bg-muted transition-colors">
         <span className="capitalize text-sm font-medium">{selectedTag}</span>
         <ChevronDown className="h-4 w-4" />
       </DrawerTrigger>
@@ -87,7 +87,7 @@ export function TagFilter({ tags, selectedTag, tagCounts }: TagFilterProps) {
                   {tag}
                 </span>
                 {tagCounts?.[tag] && (
-                  <span className="flex-shrink-0 ml-2 border border-border rounded-md h-6 min-w-6 flex items-center justify-center">
+                  <span className="flex-shrink-0 ml-2 border border-border h-6 min-w-6 flex items-center justify-center">
                     {tagCounts[tag]}
                   </span>
                 )}

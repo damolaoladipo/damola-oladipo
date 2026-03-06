@@ -22,7 +22,7 @@ export function PromoContent({
           />
           <div className="flex-1 min-w-0">
             <p className="text-xs font-medium text-foreground/90 truncate">
-              Try Magic UI Pro
+            Try Pacepard for free
             </p>
             <p className="text-xs text-muted-foreground truncate">
               Beautiful design system
@@ -42,17 +42,17 @@ export function PromoContent({
 
   return (
     <div
-      className={cn("border border-border rounded-lg p-4 bg-card", className)}
+      className={cn("border border-border p-4 bg-card", className)}
     >
       <div className="flex flex-col gap-4">
         <img
           src="/magicui-pro.png"
           alt="Magic UI"
-          className="w-full h-40 rounded-md object-cover"
+          className="w-full h-40 object-cover"
         />
         <div className="flex flex-col gap-1">
           <h3 className="text-lg font-semibold tracking-tighter">
-            Try Magic UI Pro
+           Try Pacepard for free
           </h3>
           <p className="text-sm text-muted-foreground">
             Magic UI Pro is a design system for building beautiful and

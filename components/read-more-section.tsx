@@ -3,15 +3,16 @@ import { docs, meta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import Link from "next/link";
+import type { EssayPage } from "@/types/essay";
 
 const mdxSource = createMDXSource(docs, meta);
-const articleSource = loader({
-  baseUrl: "/articles",
+const essaySource = loader({
+  baseUrl: "/essays",
   source: {
     get files() {
-      return mdxSource.files();
+      return (mdxSource as unknown as { files(): unknown[] }).files();
     },
-  },
+  } as Parameters<typeof loader>[0]["source"],
 });
 
 const formatDate = (date: Date): string => {
@@ -22,23 +23,6 @@ const formatDate = (date: Date): string => {
   });
 };
 
-interface ArticleData {
-  title: string;
-  description: string;
-  date: string;
-  tags?: string[];
-  featured?: boolean;
-  readTime?: string;
-  author?: string;
-  authorImage?: string;
-  thumbnail?: string;
-}
-
-interface ArticlePage {
-  url: string;
-  data: ArticleData;
-}
-
 interface ReadMoreSectionProps {
   currentSlug: string[];
   currentTags?: string[];
@@ -48,9 +32,9 @@ export function ReadMoreSection({
   currentSlug,
   currentTags = [],
 }: ReadMoreSectionProps) {
-  const allPages = articleSource.getPages() as ArticlePage[];
+  const allPages = essaySource.getPages() as unknown as EssayPage[];
 
-  const currentUrl = `/articles/${currentSlug.join("/")}`;
+  const currentUrl = `/essays/${currentSlug.join("/")}`;
 
   const otherPosts = allPages
     .filter((page) => page.url !== currentUrl)

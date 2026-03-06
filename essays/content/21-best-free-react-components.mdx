@@ -9,7 +9,7 @@ author: "arghya"
 thumbnail: "/thumbnails/react-components-libraries.jpg"
 ---
 
-Building modern React applications requires a solid foundation of reusable components. Whether you're starting a new project or looking to enhance an existing one, having access to high-quality component libraries can significantly accelerate your development process.
+Building modern React applications requires a solid foundation of reusable components[^1]. Whether you're starting a new project or looking to enhance an existing one, having access to high-quality component libraries can significantly accelerate your development process.
 
 ## Why Use Component Libraries?
 
@@ -24,7 +24,7 @@ Component libraries offer several advantages:
 
 ### 1. Material-UI (MUI)
 
-Material-UI is one of the most popular React component libraries, implementing Google's Material Design principles.
+Material-UI is one of the most popular React component libraries, implementing Google's Material Design principles[^2].
 
 ```tsx
 import Button from "@mui/material/Button";
@@ -50,7 +50,7 @@ export default function BasicButtons() {
 
 ### 2. Ant Design
 
-A design language and React components library with a focus on enterprise-class UI design language.
+A design language and React components library with a focus on enterprise-class UI design language[^3].
 
 ```tsx
 import { Button, Space } from "antd";
@@ -120,7 +120,7 @@ function BasicExample() {
 
 When choosing a component library, consider:
 
-- **Bundle size impact**: Use tree-shaking to reduce bundle size
+- **Bundle size impact**: Use tree-shaking to reduce bundle size[^4]
 - **Server-side rendering**: Ensure compatibility with SSR
 - **Loading performance**: Lazy load components when possible
 - **Accessibility**: Choose libraries with built-in a11y features
@@ -137,3 +137,8 @@ When choosing a component library, consider:
 The React ecosystem offers numerous high-quality component libraries, each with its own strengths. Whether you prefer the comprehensive approach of Material-UI, the enterprise focus of Ant Design, or the simplicity of Chakra UI, there's a solution that fits your project needs.
 
 Remember to evaluate libraries based on your specific requirements, including design philosophy, bundle size, community support, and long-term maintenance.
+
+[^1]: The React component ecosystem has grown to over 3,500 published component libraries on npm as of 2024, reflecting the framework's dominance in frontend development.
+[^2]: Material Design is Google's open-source design system, first introduced in 2014. MUI (formerly Material-UI) has over 90k GitHub stars, making it the most popular React UI library.
+[^3]: Ant Design was created by the Ant Group (formerly Ant Financial, an Alibaba affiliate) and is widely used across Chinese and international enterprise applications.
+[^4]: Tree-shaking is a dead-code elimination technique used by modern bundlers like webpack and Rollup. It can reduce bundle sizes by 30-60% when importing from large component libraries.

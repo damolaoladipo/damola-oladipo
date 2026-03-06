@@ -1,20 +1,12 @@
-import HeroSection from "@/components/sections/hero-section";
-import Articles from "@/components/sections/articles";
+import IntroSection from "@/components/sections/intro-section";
+import LatestEssays from "@/components/sections/latest-essays";
 
-const Home = ({
-  searchParams,
-}: {
-  searchParams: Promise<{ tag?: string }>;
-}) => {
-  
+const Home = () => {
   return (
-            <>
-    
-                <HeroSection />
-                <Articles searchParams={searchParams} />
-                
-            
-            </>
+    <>
+      <IntroSection />
+      <LatestEssays />
+    </>
   );
 };
 

@@ -1,135 +1,161 @@
-
-
-import Herobanner from "@/components/containers/hero-banner";
-import { getProjectsBySlug } from "@/lib/markdown";
-import markdownToHtml from "@/lib/markdownToHtml";
+import { getProjectsBySlug, getAllProjects } from "@/lib/markdown";
 import Image from "next/image";
-import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type Props = {
-    params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
-    const { slug } = await params;
-
-    const project = getProjectsBySlug(slug, ["title", "ScopeOfWork", "industry", "raised", "website", "description", "coverImage", "gallery", "content"]);
-
-    const siteName = process.env.SITE_NAME || "Your Site Name";
-    const authorName = process.env.AUTHOR_NAME || "Your Author Name";
-
-    if (project) {
-        const metadata = {
-            title: `${project.title || "Single Post Page"} | ${siteName}`,
-            robots: {
-                index: true,
-                follow: true,
-                nocache: true,
-                googleBot: {
-                    index: true,
-                    follow: false,
-                    "max-video-preview": -1,
-                    "max-image-preview": "large",
-                    "max-snippet": -1,
-                },
-            },
-        };
-
-        return metadata;
-    } else {
-        return {
-            title: "Not Found",
-            description: "No article has been found",
-            author: authorName,
-            robots: {
-                index: false,
-                follow: false,
-                nocache: false,
-                googleBot: {
-                    index: false,
-                    follow: false,
-                    "max-video-preview": -1,
-                    "max-image-preview": "large",
-                    "max-snippet": -1,
-                },
-            },
-        };
-    }
+export async function generateStaticParams() {
+  const projects = getAllProjects(["slug"]);
+  return projects.map((p) => ({ slug: p.slug as string }));
 }
 
-export default async function Post({ params }: Props) {
-    const { slug } = await params;
-    const project = getProjectsBySlug(slug, [
-        "title", "ScopeOfWork", "industry", "raised", "technology", "website", "description", "coverImage", "gallery", "content"
-    ]);
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const project = getProjectsBySlug(slug, ["title", "introduction"]);
+  if (!project?.title) return { title: "Not Found" };
+  return {
+    title: project.title,
+    description: project.introduction ?? "",
+  };
+}
 
-    const content = await markdownToHtml(project.content || "");
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const project = getProjectsBySlug(slug, [
+    "title",
+    "dateRange",
+    "coverImage",
+    "introduction",
+    "role",
+    "designProcess",
+    "gallery",
+    "outcome",
+    "technology",
+    "website",
+  ]);
 
+  if (!project?.title) notFound();
 
-    return (
-        <>
-            <Herobanner
-                bannerimage={project.coverImage}
-                heading={project.title}
-                desc={project.description} />
-            <div className="dark:bg-darkblack">
-                <div className="mx-auto max-w-5xl px-6">
-                    <div className="flex flex-col gap-12 md:gap-24 py-20 xl:py-40">
-                        <div className="flex flex-col gap-10">
-                            <div>
-                                <Link href="/projects" className="group flex gap-3 items-center w-fit bg-primary hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30 rounded-full transition-all duration-500 ease-in-out">
-                                    <Image src={"/images/Icon/back-btn.svg"} alt="Image" width={42} height={42} className="group-hover:translate-x-16.5 transform transition-transform duration-500 ease-in-out" />
-                                    <span className="pr-4 text-lg font-bold text-secondary group-hover:text-white group-hover:-translate-x-10 transform transition-transform duration-500 ease-in-out">Back</span>
-                                </Link>
-                            </div>
-                            <div className="flex flex-col md:flex-row gap-5 lg:gap-10">
-                                <div className="flex flex-col gap-2 border-b md:border-b-0 md:border-r border-secondary/12 dark:border-white/12 pb-5 md:pr-5 lg:pr-10">
-                                    <span className="text-base text-secondary/70 dark:text-white/70">Scope of work</span>
-                                    <p className="font-medium">{project.ScopeOfWork.join(", ")}</p>
-                                </div>
-                                <div className="flex flex-col gap-2 border-b md:border-b-0 md:border-r border-secondary/12 dark:border-white/12 pb-5 md:pr-5 lg:pr-10">
-                                    <span className="text-base text-secondary/70 dark:text-white/70">Industry</span>
-                                    <p className="font-medium">{project.industry}</p>
-                                </div>
-                                <div className="flex flex-col gap-2 border-b md:border-b-0 md:border-r border-secondary/12 dark:border-white/12 pb-5 md:pr-5 lg:pr-10">
-                                    <span className="text-base text-secondary/70 dark:text-white/70">Technology</span>
-                                    <p className="font-medium">{project.technology}</p>
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <span className="text-base text-secondary/70 dark:text-white/70">Website</span>
-                                    <p className="font-medium">{project.website}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="flex flex-col xl:flex xl:flex-row items-start gap-8">
-                                <div className="flex items-center gap-4 md:gap-8 w-full max-w-xl">
-                                    <h2 className="text-4xl lg:text-5xl xl:text-56">Description</h2>
-                                </div>
-                                <div className="flex flex-col gap-11">
-                                    <div className="project-descp flex flex-col gap-5">
-                                        <div dangerouslySetInnerHTML={{ __html: content }}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="grid gap-8">
-                            {project.gallery.map((image: string, index: number) => (
-                                index === 0 ? (
-                                    <div key={index} className="col-span-2 ">
-                                        <Image src={image} alt="image" width={1600} height={750} className="w-full h-full object-cover" />
-                                    </div>
-                                ) : (
-                                    <div key={index} className="col-span-2 md:col-span-1 ">
-                                        <Image src={image} alt="image" width={805} height={750} className="w-full h-full object-cover" />
-                                    </div>
-                                )
-                            ))}
-                        </div>
+  const designProcess: string[] = Array.isArray(project.designProcess)
+    ? (project.designProcess as string[])
+    : [];
 
-                    </div>
-                </div>
+  const gallery: string[] = Array.isArray(project.gallery)
+    ? (project.gallery as string[])
+    : [];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="max-w-[824px] mx-auto px-6 py-12 md:py-20 flex flex-col gap-0">
+
+        {/* Hero */}
+        <div className="pb-10 md:pb-14">
+          <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-tight tracking-tight text-foreground">
+            {project.title as string}
+          </h1>
+        </div>
+
+        {/* Divider + Cover Image */}
+        <div className="flex flex-col gap-6">
+          <hr className="border-t border-[#e9e9e7] dark:border-border" />
+
+          {project.coverImage && (
+            <div className="relative w-full aspect-square rounded-[11px] overflow-hidden bg-muted">
+              <Image
+                src={project.coverImage as string}
+                alt={project.title as string}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 824px"
+                priority
+              />
             </div>
-        </>
-    );
+          )}
+        </div>
+
+        {/* Content sections */}
+        <div className="flex flex-col mt-12 md:mt-16">
+
+          {/* Introduction */}
+          {project.introduction && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 py-8 border-b border-[#e9e9e7] dark:border-border">
+              <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
+                Introduction
+              </h2>
+              <p className="text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
+                {project.introduction as string}
+              </p>
+            </div>
+          )}
+
+          {/* My Role */}
+          {project.role && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 py-8 border-b border-[#e9e9e7] dark:border-border">
+              <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
+                My Role
+              </h2>
+              <p className="text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
+                {project.role as string}
+              </p>
+            </div>
+          )}
+
+          {/* Design Process */}
+          {designProcess.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 py-8 border-b border-[#e9e9e7] dark:border-border">
+              <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
+                Design Process
+              </h2>
+              <ol className="flex flex-col gap-2 text-base leading-relaxed text-[#787673] dark:text-muted-foreground list-decimal list-inside">
+                {designProcess.map((step, i) => (
+                  <li key={i}>{step}</li>
+                ))}
+              </ol>
+            </div>
+          )}
+
+          {/* Output */}
+          {gallery.length > 0 && (
+            <div className="flex flex-col gap-6 py-8 border-b border-[#e9e9e7] dark:border-border">
+              <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
+                Output
+              </h2>
+              <div className="flex flex-col gap-4">
+                {gallery.map((src, i) => (
+                  <div
+                    key={i}
+                    className="relative w-full overflow-hidden rounded-[11px] bg-muted"
+                    style={{ aspectRatio: i === 0 ? "16/9" : "4/3" }}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Output ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 824px"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Outcome */}
+          {project.outcome && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 py-8">
+              <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
+                Outcome
+              </h2>
+              <p className="text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
+                {project.outcome as string}
+              </p>
+            </div>
+          )}
+
+        </div>
+      </div>
+    </div>
+  );
 }

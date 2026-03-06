@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Articles - Magic UI";
+export const alt = "Essays - Damola Oladipo";
 export const size = {
   width: 1200,
   height: 630,
@@ -113,9 +113,9 @@ export default async function Image() {
               width={100}
               height={100}
             />
-            <h1 style={styles.title}>Articles</h1>
+            <h1 style={styles.title}>Essays</h1>
             <p style={styles.description}>
-              Articles about design, development, and other things.
+              Essays about design, development, and other things.
             </p>
           </div>
         </div>

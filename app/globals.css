@@ -120,3 +120,53 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* GFM Footnotes */
+.prose .footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.prose .footnotes h2 {
+  display: none;
+}
+
+.prose .footnotes ol {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.prose .footnotes li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose .footnotes li p {
+  margin: 0;
+  display: inline;
+}
+
+.prose .footnotes .data-footnote-backref,
+.prose .footnotes a[data-footnote-backref] {
+  text-decoration: none;
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+.prose sup a[data-footnote-ref] {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+
+.prose sup a[data-footnote-ref]::before {
+  content: "[";
+}
+
+.prose sup a[data-footnote-ref]::after {
+  content: "]";
+}

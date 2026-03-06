@@ -3,12 +3,12 @@ import { GitHubIcon, LinkedInIcon, XIcon } from "@/constantz/social-icons";
 export function Footer() {
   return (
     <footer className="mx-auto max-w-6xl w-full relative">
-      <div className="  px-6 py-12 border-t border-neutral-800 mt-36 pt-8 ">
+      <div className="  px-6 py-12 border-t border-neutral-300 dark:border-neutral-700 mt-36 pt-8 ">
         <div className="flex mt-6 flex-col md:flex-row md:flex-wrap lg:flex-row lg:justify-between gap-10 lg:gap-24">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-[#a3f443] rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#a3f443] flex items-center justify-center">
                 <span className="text-neutral-900 font-medium text-lg">d</span>
               </div>
               <span className="text-xl font-semibold text-black dark:text-white">Damola.</span>
@@ -24,23 +24,22 @@ export function Footer() {
             <div className="flex space-x-3">
               <a
                 href="https://www.x.com/damolaoladipo"
-                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-800 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] flex items-center justify-center transition-colors rounded-full"
                 aria-label="Twitter"
               >
                 <XIcon className="w-4 h-6" />
               </a>
               <a
                 href="https://www.linkedin.com/in/damolaoladipo"
-                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
-                aria-label="Instagram"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-800 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] flex items-center justify-center transition-colors rounded-full"
+                aria-label="LinkedIn"
               >
                 <LinkedInIcon className="w-4 h-4" />
               </a>
-
               <a
                 href="https://github.com/damolaoladipo/"
-                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-500 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] rounded-lg flex items-center justify-center transition-colors"
-                aria-label="LinkedIn"
+                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-800 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] flex items-center justify-center transition-colors rounded-full"
+                aria-label="GitHub"
               >
                 <GitHubIcon className="w-4 h-4" />
               </a>
@@ -91,7 +90,7 @@ export function Footer() {
                     href="#"
                     className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
                   >
-                    Articles
+                    Essays
                   </a>
                 </li>
                 <li>
@@ -129,7 +128,7 @@ export function Footer() {
           </span>
         </div>
 
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row mt-10 md:mt32 border-t border-neutral-800 pt-8">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row mt-10 md:mt32 border-t border-neutral-300 dark:border-neutral-700 pt-8">
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
             <p className="text-sm text-neutral-500">
               {" "}

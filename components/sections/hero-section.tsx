@@ -1,7 +1,17 @@
-import GooeyButton from "@/components/containers/gooey-button";
+import Link from "next/link";
 import { HexagonBackground } from "@/components/ui/hexagon";
-import { DotIcon } from "lucide-react";
+import { DotIcon, ArrowUpRight } from "lucide-react";
 import React from "react";
+
+
+const skills = [
+  "Product Engineering",
+  "UI / UX Design",
+  "React & Next.js",
+  "Mobile Apps",
+  "API Design",
+  "NLP Research",
+];
 
 function HeroSection() {
   return (
@@ -22,13 +32,35 @@ function HeroSection() {
                 A Product and Design Engineer exploring ML and NLP research.
               </h1>
 
-              <div className="mt-6 flex gap-4">
-                <GooeyButton variant="default" href="mailto:iam@damolaoladipo.com">
+                     {/* Skill tags */}
+          <div className="flex flex-wrap gap-2">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-neutral-800/80 border border-neutral-800/20 bg-neutral-800/5"
+              >
+                <span className="w-3 h-3 border border-neutral-800/40 inline-block flex-shrink-0" />
+                {skill}
+              </span>
+            ))}
+          </div>
+
+
+              <div className="mt-6 flex gap-3">
+                <Link
+                  href="mailto:iam@damolaoladipo.com"
+                  className="inline-flex items-center gap-2 h-[38px] px-5 text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
+                >
                   Start a project
-                </GooeyButton>
-                <GooeyButton variant="secondary" href="#playground">
-                  My playground
-                </GooeyButton>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/essays"
+                  className="inline-flex items-center gap-2 h-[38px] px-5 text-sm font-medium border border-border bg-background text-foreground hover:bg-muted transition-colors"
+                >
+                  Read essays
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>

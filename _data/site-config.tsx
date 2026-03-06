@@ -8,8 +8,10 @@ export const siteConfig = {
   baseLinks: {
     home: "/",
     resume: "https://damolaoladipo.com/resume",
-    playground: "#playground",
-    projects: "https://www.damolaoladipo.com/projects/troott-mobile",
+    about: "/about",
+    essays: "/essays",
+    playground: "/playground",
+    projects: "/projects",
     sociaLlinks: {
       twitter: "https://www.x.com/damolaoladipo",
       github: "https://github.com/damolaoladipo",

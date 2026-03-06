@@ -1,3 +1,4 @@
+import AboutHero from "@/components/sections/about-hero";
 import HeroSection from "@/components/sections/hero-section";
 import LogoCloud from "@/components/sections/logo-cloud";
 import Projects from "@/components/sections/projects";
@@ -11,7 +12,7 @@ const About = () => {
   
   return (
             <>
-    
+                <AboutHero />
                 <HeroSection />
                 <LogoCloud />
                 <Projects />

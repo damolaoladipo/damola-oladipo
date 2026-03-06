@@ -8,10 +8,15 @@ import { useEffect, useState } from "react";
 
 const AvatarContainer = ({
   className,
+  children,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) => {
-  return <div className={clsx(className, "h-48 w-48 pr-10")} {...props} />;
-}
+  return (
+    <div className={clsx(className, "h-48 w-48 pr-10")} {...props}>
+      {children}
+    </div>
+  );
+};
 
 const Avatar = (data: IAvatar) => {
   const { large, className, ...rest } = data;
@@ -27,7 +32,7 @@ const Avatar = (data: IAvatar) => {
   }
 
   const imageSrc =
-  theme === "dark" ? "/images/damola-dark.svg" : "/images/damola-light.svg";
+  theme === "dark" ? "/blocks/damola-light.svg" : "/blocks/damola-dark.svg";
   
   // Only pass valid div props (filter out any props not valid for div)
   const divProps: React.HTMLAttributes<HTMLDivElement> = {};

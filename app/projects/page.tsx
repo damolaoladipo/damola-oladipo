@@ -1,20 +1,11 @@
-import Herobanner from "@/components/containers/hero-banner";
-import ProjectList from "@/components/containers/project-list";
-import { getAllProjects } from "@/lib/markdown";
 import { Metadata } from "next";
+import Projects from "@/components/sections/projects";
+
 export const metadata: Metadata = {
-    title: "Projects | Studiova",
+  title: "Projects — Damola Oladipo",
+  description: "A showcase of web, mobile, and API projects I've designed and built.",
 };
 
-export default function Page() {
-    const projects = getAllProjects();
-    return (
-        <>
-            <Herobanner
-                bannerimage="/images/"
-                heading="Projects"
-                desc="A <span>showcase of creativity</span>, strategy, and results explore the projects that define us." />
-            <ProjectList />    
-        </>
-    );
-};
+export default function ProjectsPage() {
+  return <Projects />;
+}
