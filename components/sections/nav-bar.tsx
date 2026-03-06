@@ -65,7 +65,7 @@ const Header = () => {
                 href={siteConfig.baseLinks.sociaLlinks.email}
                 className="inline-flex items-center gap-2 justify-center h-[38px] px-5 text-base font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
               >
-                Start a project
+                Work with me  
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
@@ -124,7 +124,7 @@ const Header = () => {
                 onClick={() => setMenuOpen(false)}
                 className="inline-flex items-center gap-2 h-12 px-6 text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity w-fit"
               >
-                Start a project
+                Work with me
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
       

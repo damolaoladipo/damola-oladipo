@@ -1,328 +1,156 @@
 ---
-title: "23 NextJS Portfolio Template Examples For Design Inspiration"
-description: "Explore the best NextJS portfolio templates and examples to showcase your work professionally and stand out from the competition."
-date: "2024-11-28"
-tags: ["Landing Page Examples"]
+title: "What Building My Portfolio Taught Me About Product Thinking"
+description: "A portfolio is just a product with one user. Here's what building mine taught me about design decisions, scope, and shipping things that aren't perfect."
+date: "2025-02-01"
+tags: ["Portfolio", "Product", "Next.js"]
 featured: true
-readTime: "17 min read"
-author: "arghya"
+readTime: "6 min read"
+author: "damola"
 thumbnail: "/thumbnails/nextjs-portfolio-templates.jpg"
 ---
 
-Your portfolio is often the first impression potential clients or employers have of your work[^1]. In today's competitive landscape, having a well-designed, fast, and responsive portfolio website is crucial for standing out.
+I've rebuilt my portfolio four times. Each rebuild taught me something different — not about design or code, but about product thinking. A portfolio is a deceptively hard product to build because the customer is everyone and no one at once. You're building for recruiters, potential clients, collaborators, and the occasional curious stranger. You're also building for yourself, which is often the hardest customer to satisfy.
 
-<ImageViewer
-  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&auto=format&fit=crop&q=60"
-  alt="Portfolio Website Design"
-  caption="Modern portfolio website showcasing creative work"
-/>
+Here's what I've learned.
 
-## Why Choose NextJS for Your Portfolio?
+## Scope Creep Hits Hardest on Personal Projects
 
-NextJS offers several advantages for portfolio websites[^2]:
+Professional projects have constraints: deadlines, stakeholders, budgets. Personal projects have none of these, which sounds liberating until you're redesigning the hero section for the sixth time because no one said stop.
 
-- **Performance**: Built-in optimization and static generation[^3]
-- **SEO**: Server-side rendering for better search visibility[^4]
-- **Developer Experience**: Hot reload, TypeScript support, and modern tooling
-- **Flexibility**: Can be deployed anywhere and scales easily
+My first portfolio had a 3D globe. It looked incredible and took forever to load. My second had a custom cursor. My third had a loading animation. Each one was solving for the wrong thing — I was optimising for *impressive* when I should have been optimising for *useful*.
 
-<Accordion type="multiple" className="w-full not-prose flex flex-col gap-2">
-  <AccordionItem value="item-1" className="flex flex-col gap-2">
-    <AccordionTrigger className="cursor-pointer">Features</AccordionTrigger>
-    <AccordionContent className="flex flex-col gap-4">
-      <ul className="list-disc space-y-2 pl-4">
-        <li>
-          <strong>Redesigned navigation menu</strong> with improved organization
-          and visual hierarchy
-        </li>
-        <li>
-          Enhanced accessibility features with full keyboard navigation support
-        </li>
-        <li>High contrast mode for users with visual impairments</li>
-        <li>Optimized touch targets for better mobile interaction</li>
-        <li>Enhanced swipe gestures and mobile-specific navigation</li>
-      </ul>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-2" className="flex flex-col gap-2">
-    <AccordionTrigger className="cursor-pointer">Bug Fixes</AccordionTrigger>
-    <AccordionContent className="flex flex-col gap-4 text-balance">
-      <ul className="list-disc space-y-2 pl-4">
-        <li>
-          Fixed inconsistent button placement across different screen sizes
-        </li>
-        <li>Resolved color contrast issues affecting readability</li>
-        <li>Corrected tab order problems in form navigation</li>
-        <li>Fixed device orientation change handling on mobile devices</li>
-        <li>Improved ARIA label compatibility with screen readers</li>
-      </ul>
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+The fourth one (this one) has none of those things. It has essays, projects, and a way to contact me. That's it.
 
-## Essential Portfolio Sections
+> Constraints aren't limitations. They're the thing that forces clarity.
 
-### Hero Section
+![The current portfolio homepage — essays, projects, contact. Nothing else.](/images/home/portfolio/portfolio_img_1.png)
 
-Your hero section should immediately communicate who you are and what you do.
+## Next.js Was the Right Call
+
+I evaluated a few options before settling on Next.js with the App Router. The alternatives were Astro (great for content, less flexible for dynamic features) and plain SvelteKit (genuinely considered it, the syntax is beautiful).
+
+Next.js won because of how naturally the App Router handles the mix of static content and dynamic routes. My essays are statically generated from MDX — fast, cacheable, SEO-friendly. My projects page can be dynamic when I need it. The mental model of "server first, client when necessary" maps well to how I think about performance.
 
 ```tsx
-export default function Hero() {
-  return (
-    <section className="min-h-screen flex items-center justify-center">
-      <div className="text-center space-y-6">
-        <h1 className="text-4xl md:text-6xl font-bold">
-          Hi, I'm <span className="text-blue-600">John Doe</span>
-        </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Full-stack developer passionate about creating beautiful, functional
-          web experiences
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Button variant="primary">View My Work</Button>
-          <Button variant="outline">Contact Me</Button>
-        </div>
-      </div>
-    </section>
-  );
+// MDX content — generated at build time
+export async function generateStaticParams() {
+  const essays = await getEssaySlugs();
+  return essays.map((slug) => ({ slug }));
 }
 ```
 
-### Project Showcase
 
-Display your best work with engaging visuals and clear descriptions.
+```go
+package main
 
-```tsx
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  liveUrl?: string;
-  githubUrl?: string;
+import (
+	"fmt"
+	"strconv"
+)
+
+type Node struct {
+	Text     *string
+	Number   *int
+	Children []Node
 }
 
-export default function ProjectGrid({ projects }: { projects: Project[] }) {
-  return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map((project) => (
-        <div
-          key={project.id}
-          className="group relative overflow-hidden rounded-lg"
-        >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-48 object-cover transition-transform group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="absolute bottom-4 left-4 right-4">
-              <h3 className="text-white font-semibold">{project.title}</h3>
-              <p className="text-gray-200 text-sm">{project.description}</p>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+func ExtractText(node Node) string {
+	if node.Text != nil {
+		return *node.Text
+	}
+
+	if node.Number != nil {
+		return strconv.Itoa(*node.Number)
+	}
+
+	result := ""
+	for _, child := range node.Children {
+		result += ExtractText(child)
+	}
+
+	return result
 }
-```
 
-## Design Trends for 2024
+func main() {
+	text := "Hello "
+	num := 123
+	world := "world"
 
-### Minimalist Layouts
+	tree := Node{
+		Children: []Node{
+			{Text: &text},
+			{Number: &num},
+			{
+				Children: []Node{
+					{Text: &world},
+				},
+			},
+		},
+	}
 
-Clean, focused designs that put your work front and center:
-
-- Generous white space
-- Typography-first approach
-- Subtle animations and transitions
-- Limited color palettes
-
-### Interactive Elements
-
-Engage visitors with interactive components:
-
-```tsx
-import { useState } from "react";
-
-export default function InteractiveSkillBar() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
-  const skills = [
-    { name: "React", level: 90 },
-    { name: "TypeScript", level: 85 },
-    { name: "NextJS", level: 88 },
-  ];
-
-  return (
-    <div className="space-y-4">
-      {skills.map((skill) => (
-        <div
-          key={skill.name}
-          onMouseEnter={() => setHoveredSkill(skill.name)}
-          onMouseLeave={() => setHoveredSkill(null)}
-          className="relative"
-        >
-          <div className="flex justify-between mb-1">
-            <span className="font-medium">{skill.name}</span>
-            <span className="text-sm text-gray-600">{skill.level}%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div
-              className="bg-blue-600 h-2 rounded-full transition-all duration-700 ease-out"
-              style={{
-                width: hoveredSkill === skill.name ? `${skill.level}%` : "0%",
-              }}
-            />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+	fmt.Println(ExtractText(tree))
 }
 ```
 
-### Dark Mode Support
+```rust
+#[derive(Debug)]
+enum Node {
+    Text(String),
+    Number(i32),
+    Children(Vec<Node>),
+}
 
-Implement dark mode for better user experience:
+fn extract_text(node: &Node) -> String {
+    match node {
+        Node::Text(s) => s.clone(),
+        Node::Number(n) => n.to_string(),
+        Node::Children(children) => {
+            children.iter().map(extract_text).collect()
+        }
+    }
+}
 
-```tsx
-"use client";
+fn main() {
+    let tree = Node::Children(vec![
+        Node::Text("Hello ".to_string()),
+        Node::Number(123),
+        Node::Children(vec![
+            Node::Text("world".to_string())
+        ])
+    ]);
 
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
-
-export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
-  return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800"
-    >
-      {theme === "dark" ? "☀️" : "🌙"}
-    </button>
-  );
+    let result = extract_text(&tree);
+    println!("{}", result);
 }
 ```
 
-## Performance Optimization
+Fumadocs handles the MDX pipeline — parsing frontmatter, generating the source, handling the routing. The thing I'd change if I started again: set up the content schema strictly from day one. I added fields like `readTime` and `featured` mid-project and had to backfill every file.
 
-### Image Optimization
+## Design Decisions Are Product Decisions
 
-Use NextJS Image component for optimal loading[^5]:
+Every visual choice on a portfolio is also a content strategy decision. Some examples:
 
-```tsx
-import Image from "next/image";
+**Dark mode**: I ship both. Not because I think everyone uses dark mode (they don't), but because not shipping it signals that I didn't think about it. For a design engineer, that signal matters.
 
-export default function OptimizedPortfolioImage() {
-  return (
-    <Image
-      src="/project-screenshot.jpg"
-      alt="Project Screenshot"
-      width={600}
-      height={400}
-      placeholder="blur"
-      blurDataURL="data:image/jpeg;base64,..."
-      className="rounded-lg"
-    />
-  );
-}
-```
+**No animations on first load**: Every animation has a cost — either performance or attention. I removed the entry animations from the homepage and added them back only where they serve a purpose (hover states, page transitions). The page felt snappier and more confident without them.
 
-### Static Generation
+**Typography**: I use Cabinet Grotesk for display and system fonts for body text. The custom display font is a personality choice. The system font is a performance choice. Both are intentional.[^1]
 
-Pre-generate pages for better performance:
+**Navigation**: Five links maximum. If you need more, you're trying to say too many things at once. A portfolio should have a point of view.
 
-```tsx
-export async function getStaticProps() {
-  const projects = await getProjects();
+![Typography and spacing details — Cabinet Grotesk at display size, generous leading in body copy.](/images/home/portfolio/portfolio_img_2.png)
 
-  return {
-    props: {
-      projects,
-    },
-    revalidate: 3600, // Revalidate every hour
-  };
-}
-```
+## The Hardest Part Wasn't the Code
 
-## SEO Best Practices
+It was deciding what to leave out. Every project I've worked on isn't on here. Every skill I have isn't listed. That's by design — a portfolio that lists everything says nothing.
 
-### Meta Tags
+The essays section was the last thing I added and the best decision I made. Code shows what you can build. Writing shows how you think. Hiring managers and clients want both.
 
-```tsx
-import Head from "next/head";
+## Shipping Imperfect Things
 
-export default function Portfolio() {
-  return (
-    <>
-      <Head>
-        <title>John Doe - Full Stack Developer</title>
-        <meta
-          name="description"
-          content="Portfolio of John Doe, a full-stack developer specializing in React and NextJS"
-        />
-        <meta property="og:title" content="John Doe - Full Stack Developer" />
-        <meta
-          property="og:description"
-          content="Portfolio showcasing modern web development projects"
-        />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-      {/* Your portfolio content */}
-    </>
-  );
-}
-```
+Version four of this portfolio is not done. It may never be done. But it's live, and being live matters more than being perfect. The act of publishing forces decisions that iteration avoids.[^2]
 
-### Structured Data
+If you're sitting on a half-built portfolio waiting for the right moment — this is the right moment. Put it up. Fix it later. The people you're building it for would rather see something real than wait for something ideal.
 
-Add JSON-LD structured data for better search visibility:
-
-```tsx
-const portfolioSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "John Doe",
-  jobTitle: "Full Stack Developer",
-  url: "https://johndoe.dev",
-  sameAs: ["https://github.com/johndoe", "https://linkedin.com/in/johndoe"],
-};
-
-export default function Portfolio() {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
-      />
-      {/* Your content */}
-    </>
-  );
-}
-```
-
-## Conclusion
-
-Creating an effective NextJS portfolio requires thoughtful planning, clean design, and optimal performance. Focus on showcasing your best work, ensuring fast load times, and providing a great user experience across all devices.
-
-Remember to regularly update your portfolio with new projects and keep your content fresh and relevant to your target audience.
-
-[^1]: According to a 2023 CareerBuilder survey, 57% of employers are less likely to interview a candidate who doesn't have an online presence.
-[^2]: Next.js is built on top of React and maintained by Vercel. It consistently ranks among the top meta-frameworks in the State of JS survey.
-[^3]: Next.js supports Static Site Generation (SSG), Incremental Static Regeneration (ISR), and Server-Side Rendering (SSR) out of the box, letting you choose the best strategy per page.
-[^4]: Server-side rendering ensures search engine crawlers receive fully rendered HTML, improving indexation and Core Web Vitals scores.
-[^5]: The `next/image` component automatically serves images in modern formats like WebP and AVIF, applies lazy loading, and generates multiple sizes for responsive display.
+[^1]: Cabinet Grotesk is designed by Fontshare and distributed free for personal and commercial use. It has a slightly geometric quality that works well at large display sizes without feeling cold.
+[^2]: Ship it, then improve it. This is advice I give freely and follow reluctantly. The portfolio you see now was pushed live in a state I wasn't fully happy with. Every update since has been made possible only because it was already live and real people were reacting to it.

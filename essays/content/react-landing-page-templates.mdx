@@ -1,367 +1,103 @@
 ---
-title: "21 Best React Landing Page Templates To Inspire Yours"
-description: "Discover stunning React landing page templates and learn the design principles that make them convert visitors into customers."
-date: "2024-11-22"
-tags: ["Landing Page Examples", "React", "Templates"]
-featured: false
-readTime: "21 min read"
-author: "dillion"
+title: "Outcome Engineering: The Discipline of Building What Actually Matters"
+description: "Most engineers build features. Outcome engineers build results. The distinction sounds small but changes everything about how you approach a problem."
+date: "2025-02-10"
+tags: ["Product", "Engineering", "Thinking"]
+featured: true
+readTime: "9 min read"
+author: "damola"
 thumbnail: "/thumbnails/react-landing-page-templates.jpg"
 ---
 
-A well-designed landing page can be the difference between a visitor and a customer[^1]. In the competitive digital landscape, your landing page needs to capture attention instantly, communicate value clearly, and guide users toward action.
+There's a pattern I've seen in every organisation I've worked with or consulted for. The engineering team ships features on time. The product roadmap gets executed. The sprint velocity is healthy. And yet, the business isn't moving. Users aren't engaging the way anyone expected. The metrics that actually matter — retention, activation, revenue — are stubbornly flat.
 
-<ImageViewer
-  src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&auto=format&fit=crop&q=60"
-  alt="Landing Page Design"
-  caption="Modern landing page showcasing clean design and clear call-to-action"
-/>
+This is what I call the feature trap. You measure progress by what ships, not by what changes.
 
-## Essential Landing Page Elements
+Outcome engineering is the discipline of breaking out of that trap.
 
-### Hero Section
+## What Is Outcome Engineering?
 
-Your hero section has seconds to make an impression[^2]. It should clearly communicate your value proposition.
+An outcome is a change in behaviour. A feature is a thing you built. These are not the same thing, and conflating them is the root cause of most product failures.
 
-```tsx
-export default function HeroSection() {
-  return (
-    <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Build Amazing Apps Faster
-        </h1>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          Our React components help you ship products 10x faster with beautiful,
-          accessible, and production-ready components.
-        </p>
-        <div className="space-x-4">
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
-            Get Started Free
-          </button>
-          <button className="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600">
-            Watch Demo
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
+Feature thinking: *We need to build a notification system.*  
+Outcome thinking: *We need users to come back within 48 hours of signing up. What's the highest-leverage way to achieve that?*
+
+The notification system might be the right answer. It might not. Outcome thinking asks the question first, then finds the solution. Feature thinking assumes the solution and skips the question.
+
+## The Outcome Stack
+
+When I start on a new problem, I work through three levels:
+
+### 1. The Business Outcome
+What does the company need to be true? This is usually a metric: retention, conversion, revenue per user, time to value. It should be measurable and have a clear owner.
+
+### 2. The User Outcome
+What does the user need to be able to do, feel, or accomplish? This is where empathy lives. The business outcome can't be achieved without a real user outcome underneath it.
+
+### 3. The Product Outcome
+What specific product change will create the user outcome? This is where engineering begins — not before.
+
+```
+Business outcome: Increase 30-day retention by 15%
+    ↓
+User outcome: Users feel successful in their first session
+    ↓
+Product outcome: Reduce time-to-first-value from 12 minutes to under 5
+    ↓
+Feature: Guided onboarding flow with inline contextual help
 ```
 
-### Social Proof
+The feature is the last thing you decide, not the first. This sequence feels obvious when written out. It's violated constantly in practice.[^1]
 
-Build trust with testimonials, logos, and statistics[^3]:
+## Measuring What You Change
 
-```tsx
-interface Testimonial {
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  avatar: string;
-}
+Outcome engineering requires instrumentation. You cannot know if you achieved an outcome without measuring it before and after.
 
-export default function SocialProof({
-  testimonials,
-}: {
-  testimonials: Testimonial[];
-}) {
-  return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Trusted by thousands of developers
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-              <p className="text-gray-600 mb-4">"{testimonial.content}"</p>
-              <div className="flex items-center">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4"
-                />
-                <div>
-                  <h4 className="font-semibold">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-500">
-                    {testimonial.role} at {testimonial.company}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-```
+Before writing any code for a new feature, I define:
 
-## Conversion Optimization Strategies
+**Success metric**: The specific number that should move, with a target and a timeframe.  
+**Counter metric**: The thing that shouldn't get worse. (Fixing retention at the cost of satisfaction is not a win.)  
+**Leading indicator**: A signal you can see within days that predicts the lagging metric you'll see in weeks.
 
-### Clear Call-to-Action
+This forces precision. "Users will love this" is not a success metric. "30-day retention for new users increases from 34% to 40% within 8 weeks" is.
 
-Make your CTA impossible to miss[^4]:
+## The Build-Measure-Learn Trap
 
-```tsx
-export default function CTASection() {
-  return (
-    <section className="bg-gray-900 text-white py-20">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold mb-4">
-          Ready to Transform Your Development?
-        </h2>
-        <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-          Join thousands of developers who are building faster with our
-          components
-        </p>
-        <button className="bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transform hover:scale-105 transition-all">
-          Start Building Today
-        </button>
-        <p className="text-sm text-gray-400 mt-4">
-          No credit card required • Free 14-day trial
-        </p>
-      </div>
-    </section>
-  );
-}
-```
+Lean methodology gave us build-measure-learn. It's correct in principle and catastrophically misapplied in practice.
 
-### Features Section
+The trap is treating every iteration as equally valuable. Some things you should build and measure. Some things you should learn *without building*. A five-minute user interview might invalidate an assumption that would have taken three weeks to build a test for.
 
-Highlight key benefits with visual hierarchy:
+I use a decision matrix before any significant piece of work:
 
-```tsx
-interface Feature {
-  icon: React.ComponentType;
-  title: string;
-  description: string;
-}
+| Confidence in outcome | Cost to test | Action |
+|---|---|---|
+| High | Low | Build it |
+| High | High | De-risk with a smaller test first |
+| Low | Low | Run a fast experiment |
+| Low | High | Talk to users before touching code |
 
-export default function FeaturesSection({ features }: { features: Feature[] }) {
-  return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Everything You Need</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive tools to build modern applications with confidence
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-```
+The bottom-right quadrant kills roadmaps. A low-confidence, high-cost bet is a gamble dressed up as a feature.
 
-## Advanced Techniques
+## Design Engineering's Unique Advantage
 
-### Interactive Elements
+Here's where I think design engineers have an edge that neither pure designers nor pure engineers have: we can prototype high-fidelity experiences fast enough to test outcomes before full implementation.
 
-Add engaging interactions to increase time on page:
+A designer's prototype can't be measured in production. A backend engineer's implementation takes too long to be disposable. A design engineer can ship a real, instrumented version of an idea in a timeframe that still allows for course correction.[^2]
 
-```tsx
-import { useState } from "react";
+I've shipped features that were intentionally incomplete — functional enough to measure, rough enough to throw away if the outcome didn't materialise. Most of them got thrown away. That's not failure. That's the whole point.
 
-export default function InteractiveDemo() {
-  const [activeTab, setActiveTab] = useState(0);
-  const tabs = ["Design", "Code", "Deploy"];
+## Questions I Ask Every Sprint
 
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">
-          See It In Action
-        </h2>
-        <div className="max-w-4xl mx-auto">
-          <div className="flex justify-center mb-8">
-            {tabs.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveTab(index)}
-                className={`px-6 py-3 mx-2 rounded-lg font-semibold ${
-                  activeTab === index
-                    ? "bg-blue-500 text-white"
-                    : "bg-white text-gray-600 hover:bg-gray-100"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            {activeTab === 0 && (
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold mb-4">
-                  Beautiful Design System
-                </h3>
-                <p>
-                  Consistent, modern components that work together seamlessly
-                </p>
-              </div>
-            )}
-            {activeTab === 1 && (
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold mb-4">
-                  Clean, Maintainable Code
-                </h3>
-                <p>
-                  TypeScript-first components with excellent developer
-                  experience
-                </p>
-              </div>
-            )}
-            {activeTab === 2 && (
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold mb-4">Deploy Anywhere</h3>
-                <p>Works with any React framework and deployment platform</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-```
+- What outcome are we trying to create this sprint?
+- How will we know if we succeeded?
+- What's the fastest way to find out if this is the right solution?
+- What's the riskiest assumption we're making?
 
-### Animated Statistics
+These aren't philosophical questions. They're practical tools that surface misalignments before they become expensive mistakes.
 
-Show impressive numbers with animated counters:
+---
 
-```tsx
-import { useState, useEffect, useRef } from "react";
+Outcome engineering is a practice, not a framework. Frameworks provide structure; practice builds judgment. The judgment to know when a feature is really a question, when a roadmap is really a hypothesis, and when shipping means learning rather than finishing — that's what separates the teams that move fast from the ones that just look like they do.
 
-export default function AnimatedStats() {
-  const [counts, setCounts] = useState([0, 0, 0]);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const stats = [
-    { label: "Active Users", target: 10000, suffix: "+" },
-    { label: "Components", target: 150, suffix: "+" },
-    { label: "GitHub Stars", target: 2500, suffix: "+" },
-  ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          stats.forEach((stat, index) => {
-            let start = 0;
-            const increment = stat.target / 100;
-            const timer = setInterval(() => {
-              start += increment;
-              if (start >= stat.target) {
-                setCounts((prev) => {
-                  const newCounts = [...prev];
-                  newCounts[index] = stat.target;
-                  return newCounts;
-                });
-                clearInterval(timer);
-              } else {
-                setCounts((prev) => {
-                  const newCounts = [...prev];
-                  newCounts[index] = Math.floor(start);
-                  return newCounts;
-                });
-              }
-            }, 20);
-          });
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [hasAnimated]);
-
-  return (
-    <section ref={ref} className="py-20 bg-blue-900 text-white">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          {stats.map((stat, index) => (
-            <div key={index}>
-              <div className="text-4xl font-bold mb-2">
-                {counts[index].toLocaleString()}
-                {stat.suffix}
-              </div>
-              <div className="text-blue-200">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-```
-
-## Mobile Optimization
-
-Ensure your landing page works perfectly on mobile:
-
-```tsx
-export default function MobileOptimizedHero() {
-  return (
-    <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-      <div className="container mx-auto px-4 py-12 lg:py-20">
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2 mb-8 lg:mb-0">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 lg:mb-6">
-              Mobile-First Development
-            </h1>
-            <p className="text-lg lg:text-xl mb-6 lg:mb-8">
-              Build responsive applications that work beautifully on every
-              device
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold w-full sm:w-auto">
-                Get Started
-              </button>
-              <button className="border-2 border-white px-6 py-3 rounded-lg font-semibold w-full sm:w-auto">
-                Learn More
-              </button>
-            </div>
-          </div>
-          <div className="lg:w-1/2">
-            <img
-              src="/hero-image.jpg"
-              alt="Product Screenshot"
-              className="w-full max-w-md mx-auto lg:max-w-none rounded-lg shadow-2xl"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-```
-
-## Conclusion
-
-Creating effective React landing pages requires combining compelling design with technical excellence. Focus on clear messaging, strong visual hierarchy, and smooth user experience to maximize conversions.
-
-Remember to test different variations, optimize for mobile, and continuously iterate based on user feedback and analytics data.
-
-[^1]: According to Unbounce's Conversion Benchmark Report, the median landing page conversion rate across industries is 4.3%, but top-performing pages achieve over 11%.
-[^2]: Eye-tracking studies by the Nielsen Norman Group show that users typically spend only 5.59 seconds looking at a website's written content before deciding to stay or leave.
-[^3]: Social proof is a psychological phenomenon described by Robert Cialdini in his book "Influence" (1984). Landing pages with testimonials see an average 34% increase in conversions.
-[^4]: A/B testing research by HubSpot found that personalized CTAs convert 202% better than default versions, and button color contrast can affect click-through rates by up to 21%.
+[^1]: In my experience, the feature trap is most dangerous in organisations with strong engineering culture and weak product culture. When engineers are empowered to ship, they ship. Without product discipline to direct that energy, you get a very well-built product that no one needs.
+[^2]: The concept of the design engineer as a bridge role is gaining traction in tech companies. Vercel, Linear, and Figma have all publicly discussed having design engineers embedded in their product teams. The value proposition is consistent: faster, higher-fidelity iteration before committing to full implementation.

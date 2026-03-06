@@ -1,5 +1,4 @@
 import { docs, meta } from "@/.source";
-import { DocsBody } from "fumadocs-ui/page";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { notFound } from "next/navigation";
@@ -150,10 +149,29 @@ export default async function EssayPost({ params }: PageProps) {
       {/* ── Body + sidebar ── */}
       <div className="max-w-5xl mx-auto px-6 py-10 flex gap-12 items-start">
         <main className="flex-1 min-w-0">
-          <div className="prose dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-lg">
-            <DocsBody>
-              <MDX />
-            </DocsBody>
+          <div className="
+            prose dark:prose-invert max-w-none
+
+            prose-p:text-[1.0625rem] prose-p:leading-[1.8] prose-p:text-neutral-700 dark:prose-p:text-neutral-300
+            prose-p:mt-0 prose-p:mb-6
+
+            prose-headings:scroll-mt-24 prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-neutral-900 dark:prose-headings:text-neutral-50
+            prose-h2:text-[1.4rem] prose-h2:mt-12 prose-h2:mb-4
+            prose-h3:text-[1.15rem] prose-h3:mt-9 prose-h3:mb-3
+
+            prose-a:text-neutral-900 dark:prose-a:text-neutral-100 prose-a:font-medium prose-a:underline prose-a:underline-offset-[3px] prose-a:decoration-neutral-400 dark:prose-a:decoration-neutral-600 hover:prose-a:decoration-neutral-900 dark:hover:prose-a:decoration-neutral-100
+
+            prose-strong:text-neutral-900 dark:prose-strong:text-neutral-100 prose-strong:font-semibold
+
+            prose-ul:my-6 prose-ul:pl-5 prose-ol:my-6 prose-ol:pl-5
+            prose-li:text-[1.0625rem] prose-li:leading-[1.8] prose-li:text-neutral-700 dark:prose-li:text-neutral-300 prose-li:my-2
+
+            prose-hr:border-neutral-200 dark:prose-hr:border-neutral-800 prose-hr:my-12
+
+            prose-code:before:content-none prose-code:after:content-none
+            prose-img:rounded-xl
+          ">
+            <MDX />
           </div>
           <div className="mt-16">
             <ReadMoreSection currentSlug={[slug]} currentTags={data.tags} />

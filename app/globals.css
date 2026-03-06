@@ -121,6 +121,67 @@
   }
 }
 
+/* ── Code blocks (Shiki dual-theme: github-light / github-dark) ── */
+
+/* Apply light-theme token colors by default */
+pre code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", Menlo, monospace;
+}
+
+/* Switch to dark-theme token colors in dark mode */
+.dark pre code span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
+}
+
+/* Each line from Shiki is a <span data-line> */
+pre code {
+  counter-reset: line;
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", Menlo, monospace;
+  tab-size: 2;
+}
+
+pre code > [data-line] {
+  display: block;
+  padding-left: 3.25rem;
+  padding-right: 1.25rem;
+  position: relative;
+  min-height: 1.5em;
+  line-height: 1.625;
+}
+
+/* Line numbers via CSS counter */
+pre code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  width: 2.5rem;
+  text-align: right;
+  padding-right: 0.75rem;
+  color: oklch(0.55 0 0 / 35%);
+  font-size: 0.72rem;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1.625;
+}
+
+/* Thin horizontal scrollbar */
+pre::-webkit-scrollbar { height: 4px; }
+pre::-webkit-scrollbar-track { background: transparent; }
+pre::-webkit-scrollbar-thumb {
+  background: oklch(0.5 0 0 / 20%);
+  border-radius: 9999px;
+}
+
 /* GFM Footnotes */
 .prose .footnotes {
   margin-top: 3rem;

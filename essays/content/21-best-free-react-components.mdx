@@ -1,144 +1,125 @@
 ---
-title: "21 Best Free React Components Libraries To Kickstart Projects"
-description: "Discover the most powerful and popular React component libraries that will accelerate your development workflow and help you build stunning UIs."
-date: "2024-12-01"
-tags: ["UI Frameworks", "React", "Components"]
+title: "The Design Engineer's Toolkit: Tools I Actually Use"
+description: "A honest look at the tools, libraries, and workflows that make up my daily design engineering practice — what works, what doesn't, and why."
+date: "2025-01-15"
+tags: ["Design Engineering", "Tools", "Workflow"]
 featured: true
-readTime: "16 min read"
-author: "arghya"
+readTime: "8 min read"
+author: "damola"
 thumbnail: "/thumbnails/react-components-libraries.jpg"
 ---
 
-Building modern React applications requires a solid foundation of reusable components[^1]. Whether you're starting a new project or looking to enhance an existing one, having access to high-quality component libraries can significantly accelerate your development process.
+Design engineering sits in a strange middle ground. You're expected to think like a designer, write like a developer, and communicate like a product manager — sometimes all in the same afternoon. Over the years I've settled into a set of tools that let me move fluidly across these contexts without constantly switching mental modes.
 
-## Why Use Component Libraries?
+This is not a sponsored post. This is the actual stack I open every morning.
 
-Component libraries offer several advantages:
+## Design
 
-- **Consistency**: Maintain a unified design language across your application
-- **Speed**: Rapid prototyping and development
-- **Accessibility**: Built-in accessibility features and best practices
-- **Customization**: Flexible theming and styling options
+### Figma
 
-## Top React Component Libraries
+The obvious one. But what makes Figma indispensable for me isn't just the design canvas — it's the way it collapses the gap between design and handoff. Variables, component properties, and auto layout mean I can build components in Figma that map almost directly to the React components I'll write. When design tokens live in Figma variables and your CSS variables reference the same names, the whole team speaks one language.
 
-### 1. Material-UI (MUI)
+I use Figma for everything from wireframes to final specs. I rarely use it for prototyping interactions — code does that better.
 
-Material-UI is one of the most popular React component libraries, implementing Google's Material Design principles[^2].
+### FigJam
+
+For early-stage thinking. When a problem is still fuzzy, I reach for FigJam before Figma. It's the space where I can diagram user flows, map out system states, and argue with myself in sticky notes before committing anything to pixels.
+
+## Development
+
+### Next.js
+
+My default for anything that needs to be on the web. The App Router changed how I think about data fetching — colocating server logic with the component that needs it feels right in a way that prop-drilling data down from a layout never did.
 
 ```tsx
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-
-export default function BasicButtons() {
-  return (
-    <Stack spacing={2} direction="row">
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-    </Stack>
-  );
+// Server Component — fetch right where you need it
+export default async function EssayPage({ params }: { params: { slug: string } }) {
+  const essay = await getEssay(params.slug);
+  return <Article data={essay} />;
 }
 ```
 
-**Key Features:**
+The blurred line between server and client is still something I navigate carefully. My rule of thumb: start server, opt into client only when you need interactivity or browser APIs.
 
-- Comprehensive component set
-- Built-in dark mode support
-- Excellent TypeScript support
-- Active community and regular updates
+### Tailwind CSS
 
-### 2. Ant Design
+Polarising choice, I know. But Tailwind eliminates the naming problem. The hardest part of writing CSS isn't the properties — it's deciding whether a `div` is a `card`, a `panel`, or a `container`. Tailwind sidesteps that entirely. The styles live with the markup, and the markup tells the whole story.
 
-A design language and React components library with a focus on enterprise-class UI design language[^3].
+The utility class explosion in complex components is real. I manage it with `cva` (Class Variance Authority) for component variants.
 
 ```tsx
-import { Button, Space } from "antd";
+import { cva } from "class-variance-authority";
 
-const App = () => (
-  <Space wrap>
-    <Button type="primary">Primary Button</Button>
-    <Button>Default Button</Button>
-    <Button type="dashed">Dashed Button</Button>
-    <Button type="text">Text Button</Button>
-    <Button type="link">Link Button</Button>
-  </Space>
+const button = cva(
+  "inline-flex items-center font-medium transition-colors",
+  {
+    variants: {
+      intent: {
+        primary: "bg-foreground text-background hover:opacity-90",
+        ghost: "bg-transparent text-foreground hover:bg-muted",
+      },
+      size: {
+        sm: "h-8 px-3 text-sm",
+        md: "h-10 px-5 text-base",
+      },
+    },
+    defaultVariants: { intent: "primary", size: "md" },
+  }
 );
 ```
 
-**Key Features:**
+### shadcn/ui
 
-- Enterprise-focused design
-- Comprehensive internationalization
-- Advanced data handling components
-- Built-in form validation
+Not a component library in the traditional sense — you own the code. That distinction matters enormously. I copy the components I need, delete the parts I don't, and modify the rest. It's the only UI component approach that doesn't eventually fight you.
 
-### 3. Chakra UI
+### TypeScript
 
-A modular and accessible component library that gives you the building blocks to build React applications.
+Non-negotiable. Not because I enjoy fighting the compiler (I don't), but because the feedback loop is faster with types than without. The autocomplete alone pays for the overhead.
 
-```tsx
-import { Button, ButtonGroup } from "@chakra-ui/react";
+## Prototyping & Animation
 
-function Example() {
-  return (
-    <ButtonGroup variant="outline" spacing="6">
-      <Button colorScheme="blue">Save</Button>
-      <Button>Cancel</Button>
-    </ButtonGroup>
-  );
-}
-```
+### Framer Motion
 
-**Key Features:**
-
-- Simple and modular
-- Dark mode support
-- Accessibility-first approach
-- Easy theming system
-
-### 4. React Bootstrap
-
-Bootstrap components built for React, providing familiar Bootstrap styling with React functionality.
+For UI animations. The declarative API maps well to how I think about motion — define the states, let Framer handle the interpolation.
 
 ```tsx
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-
-function BasicExample() {
-  return (
-    <ButtonGroup aria-label="Basic example">
-      <Button variant="secondary">Left</Button>
-      <Button variant="secondary">Middle</Button>
-      <Button variant="secondary">Right</Button>
-    </ButtonGroup>
-  );
-}
+<motion.div
+  initial={{ opacity: 0, y: 8 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.3, ease: "easeOut" }}
+>
+  {children}
+</motion.div>
 ```
 
-## Performance Considerations
+I keep animations short (under 300ms for most micro-interactions) and purposeful. Animation should clarify, not decorate.
 
-When choosing a component library, consider:
+### Framer (the product)
 
-- **Bundle size impact**: Use tree-shaking to reduce bundle size[^4]
-- **Server-side rendering**: Ensure compatibility with SSR
-- **Loading performance**: Lazy load components when possible
-- **Accessibility**: Choose libraries with built-in a11y features
+For client-facing prototypes that need to feel real. Sometimes a stakeholder needs to *feel* the product, not just see a screenshot. Framer lets me build high-fidelity prototypes fast, especially for marketing pages.
 
-## Getting Started
+## Writing & Thinking
 
-1. **Choose your library**: Consider your project needs and design requirements
-2. **Install dependencies**: Follow the library's installation guide
-3. **Configure theming**: Set up your design tokens and theme
-4. **Start building**: Begin with basic components and expand
+### Obsidian
 
-## Conclusion
+Where I think before I build. Product decisions, system design notes, essay drafts — all of it lives here in plain markdown. The graph view occasionally reveals connections I missed.
 
-The React ecosystem offers numerous high-quality component libraries, each with its own strengths. Whether you prefer the comprehensive approach of Material-UI, the enterprise focus of Ant Design, or the simplicity of Chakra UI, there's a solution that fits your project needs.
+### Linear
 
-Remember to evaluate libraries based on your specific requirements, including design philosophy, bundle size, community support, and long-term maintenance.
+For project management. Clean, fast, and opinionated in the right ways. The keyboard shortcuts actually work.
 
-[^1]: The React component ecosystem has grown to over 3,500 published component libraries on npm as of 2024, reflecting the framework's dominance in frontend development.
-[^2]: Material Design is Google's open-source design system, first introduced in 2014. MUI (formerly Material-UI) has over 90k GitHub stars, making it the most popular React UI library.
-[^3]: Ant Design was created by the Ant Group (formerly Ant Financial, an Alibaba affiliate) and is widely used across Chinese and international enterprise applications.
-[^4]: Tree-shaking is a dead-code elimination technique used by modern bundlers like webpack and Rollup. It can reduce bundle sizes by 30-60% when importing from large component libraries.
+---
+
+## What I've Stopped Using
+
+**Storybook** — Valuable for large teams. For solo work or small teams, the maintenance overhead outweighs the benefit. I test components in context, not in isolation.
+
+**CSS Modules** — I used to reach for these by default. Tailwind replaced them almost entirely.
+
+**Redux** — React Query + Zustand covers most of what I needed Redux for, with less ceremony.
+
+---
+
+The best toolkit is the one you've outgrown and replaced. This list will look different in a year, and that's fine. The goal isn't to find the perfect stack — it's to stay curious about what could be better.[^1]
+
+[^1]: The design engineering role is still being defined. Some companies embed design engineers in product teams; others treat them as a bridge role between design and engineering. What's consistent is the expectation that you can translate intent into implementation without losing quality at either end.
