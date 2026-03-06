@@ -3,7 +3,7 @@ import { GitHubIcon, LinkedInIcon, XIcon } from '@/constantz/social-icons';
 export function Footer() {
     return (
         <footer className="mx-auto max-w-6xl w-full relative">
-            <div className="  px-6 py-12 border-t border-neutral-300 dark:border-neutral-700 mt-36 pt-8 ">
+            <div className="  px-6 py-12 border-t border-neutral-300 dark:border-neutral-700 mt-3 pt-8 ">
                 <div className="flex mt-6 flex-col md:flex-row md:flex-wrap lg:flex-row lg:justify-between gap-10 lg:gap-24">
                     {/* Brand Section */}
                     <div className="space-y-4">
@@ -100,6 +100,9 @@ export function Footer() {
                                         className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
                                     >
                                         Essays
+                                        <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 text-[10px] font-light uppercase tracking-wide bg-[#a3f443] text-neutral-900 leading-none">
+                                            New
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
@@ -131,8 +134,8 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-16 flex justify-center">
-                    <span className="text-[6.2rem] md:text-[12rem] lg:text-[18.5rem] font-bold select-none leading-none bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-neutral-200 dark:to-neutral-800 inset-x-0">
+                <div className="mt-16 w-full overflow-hidden flex justify-center">
+                    <span className="text-[6.2rem] md:text-[12rem] lg:text-[18.5rem] font-bold select-none leading-none bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-neutral-200 dark:to-neutral-800 whitespace-nowrap">
                         Damola.
                     </span>
                 </div>

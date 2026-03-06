@@ -9,10 +9,10 @@ import { siteConfig } from '@/_data/site-config';
 
 const menuItems = [
     { name: 'Essays', href: siteConfig.baseLinks.essays },
-    { name: 'Speaking', href: siteConfig.baseLinks.projects },
-    { name: 'Playground', href: siteConfig.baseLinks.playground },
+    // { name: 'Projects', href: siteConfig.baseLinks.projects },
+    // { name: 'Playground', href: siteConfig.baseLinks.playground },
+    
     { name: 'About', href: siteConfig.baseLinks.about },
-    { name: 'Projects', href: siteConfig.baseLinks.projects },
 ];
 
 const Header = () => {

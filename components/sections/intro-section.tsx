@@ -72,14 +72,7 @@ export default function IntroSection() {
                             >
                                 <Twitter className="w-3.5 h-3.5" />
                             </Link>
-                            <Link
-                                href={siteConfig.baseLinks.sociaLlinks.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
-                            >
-                                <Github className="w-3.5 h-3.5" />
-                            </Link>
+                    
                             <Link
                                 href={siteConfig.baseLinks.sociaLlinks.linkedin}
                                 target="_blank"
@@ -87,6 +80,14 @@ export default function IntroSection() {
                                 className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
                             >
                                 <Linkedin className="w-3.5 h-3.5" />
+                            </Link>
+                            <Link
+                                href={siteConfig.baseLinks.sociaLlinks.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
+                            >
+                                <Github className="w-3.5 h-3.5" />
                             </Link>
                         </div>
                     </div>

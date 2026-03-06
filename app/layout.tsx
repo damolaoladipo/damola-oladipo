@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from 'next-themes';
 import { metadataKeywords } from './metadata';
+import Newsletter from '@/components/sections/newsletter';
 
 const useSora = Sora({
     variable: '--font-sora',
@@ -45,13 +46,14 @@ export default function RootLayout({
                     defaultTheme="system"
                     disableTransitionOnChange
                 >
-                    <div className="relative flex flex-col w-full min-h-screen inset-0 ">
+                    <div className="relative flex flex-col w-full min-h-screen inset-0 overflow-x-hidden">
                         <Header />
                         <main className="flex-grow">
                             {children}
                             <Analytics />
                             <SpeedInsights />
                         </main>
+                        <Newsletter />
                         <Footer />
                     </div>
                 </ThemeProvider>

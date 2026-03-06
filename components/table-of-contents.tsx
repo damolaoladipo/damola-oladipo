@@ -11,28 +11,46 @@ interface Heading {
 
 interface TableOfContentsProps {
     className?: string;
+    /** Re-run heading detection after this delay (ms). Use when mounting inside a drawer so DOM is ready. */
+    refreshDelay?: number;
 }
 
-export function TableOfContents({ className }: TableOfContentsProps) {
+function getHeadingsFromDOM(): Heading[] {
+    const headingElements = document.querySelectorAll('h1, h2');
+    const headingsArray: Heading[] = [];
+
+    headingElements.forEach((element) => {
+        if (element.id) {
+            headingsArray.push({
+                id: element.id,
+                text: element.textContent || '',
+                level: parseInt(element.tagName.charAt(1)),
+            });
+        }
+    });
+
+    return headingsArray;
+}
+
+export function TableOfContents({
+    className,
+    refreshDelay = 150,
+}: TableOfContentsProps) {
     const [headings, setHeadings] = useState<Heading[]>([]);
     const [activeId, setActiveId] = useState<string>('');
 
     useEffect(() => {
-        const headingElements = document.querySelectorAll('h1, h2');
-        const headingsArray: Heading[] = [];
-
-        headingElements.forEach((element) => {
-            if (element.id) {
-                headingsArray.push({
-                    id: element.id,
-                    text: element.textContent || '',
-                    level: parseInt(element.tagName.charAt(1)),
-                });
-            }
-        });
-
-        setHeadings(headingsArray);
+        setHeadings(getHeadingsFromDOM());
     }, []);
+
+    useEffect(() => {
+        if (refreshDelay <= 0) return;
+        const t = setTimeout(() => {
+            const next = getHeadingsFromDOM();
+            setHeadings((prev) => (next.length > 0 ? next : prev));
+        }, refreshDelay);
+        return () => clearTimeout(t);
+    }, [refreshDelay]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -161,33 +179,37 @@ export function TableOfContents({ className }: TableOfContentsProps) {
         }
     };
 
-    if (headings.length === 0) return null;
-
     return (
         <div className={cn('space-y-2', className)}>
             <h4 className="text-sm font-semibold text-foreground mb-4">
                 On this page
             </h4>
-            <nav>
-                <ul className="space-y-2">
-                    {headings.map((heading) => (
-                        <li key={heading.id}>
-                            <button
-                                onClick={() => handleClick(heading.id)}
-                                className={cn(
-                                    'block w-full text-left text-sm transition-colors hover:text-foreground text-muted-foreground',
-                                    {
-                                        'text-primary font-medium underline underline-offset-4':
-                                            activeId === heading.id,
-                                    },
-                                )}
-                            >
-                                {heading.text}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            {headings.length === 0 ? (
+                <p className="text-sm text-muted-foreground">
+                    No sections in this essay.
+                </p>
+            ) : (
+                <nav>
+                    <ul className="space-y-2">
+                        {headings.map((heading) => (
+                            <li key={heading.id}>
+                                <button
+                                    onClick={() => handleClick(heading.id)}
+                                    className={cn(
+                                        'block w-full text-left text-sm transition-colors hover:text-foreground text-muted-foreground',
+                                        {
+                                            'text-primary font-medium underline underline-offset-4':
+                                                activeId === heading.id,
+                                        },
+                                    )}
+                                >
+                                    {heading.text}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            )}
         </div>
     );
 }

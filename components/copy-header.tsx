@@ -9,6 +9,18 @@ interface CopyHeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
     children: React.ReactNode;
 }
 
+function extractText(node: React.ReactNode): string {
+    if (typeof node === 'string' || typeof node === 'number')
+        return String(node);
+    if (Array.isArray(node)) return node.map(extractText).join('');
+    if (React.isValidElement(node) && node.props) {
+        return extractText(
+            (node.props as { children?: React.ReactNode }).children,
+        );
+    }
+    return '';
+}
+
 function generateSlug(text: string): string {
     return text
         .toLowerCase()
@@ -23,7 +35,7 @@ export function CopyHeader({
     className,
     ...props
 }: CopyHeaderProps) {
-    const text = typeof children === 'string' ? children : '';
+    const text = extractText(children);
     const id = generateSlug(text);
 
     const HeadingTag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -64,6 +76,7 @@ export function CopyHeader({
     if (showCopyFunctionality) {
         return (
             <HeadingTag
+                {...props}
                 id={id}
                 className={cn(
                     'group relative scroll-mt-20 cursor-pointer hover:text-muted-foreground transition-colors duration-200 flex items-center gap-2',
@@ -71,7 +84,6 @@ export function CopyHeader({
                 )}
                 onClick={copyToClipboard}
                 title="Click to copy link to this section"
-                {...props}
             >
                 {children}
                 <Link className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0" />
@@ -81,9 +93,9 @@ export function CopyHeader({
 
     return (
         <HeadingTag
+            {...props}
             id={id}
             className={cn('scroll-mt-20', className)}
-            {...props}
         >
             {children}
         </HeadingTag>

@@ -231,3 +231,21 @@ pre::-webkit-scrollbar-thumb {
 .prose sup a[data-footnote-ref]::after {
   content: "]";
 }
+
+@keyframes marquee-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes marquee-down {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-marquee-up {
+  animation: marquee-up 7s linear infinite;
+}
+
+.animate-marquee-down {
+  animation: marquee-down 7s linear infinite;
+}

@@ -55,7 +55,11 @@ export function DrawerTrigger({ children, className }: DrawerTriggerProps) {
     const { setIsOpen } = useDrawer();
 
     return (
-        <button onClick={() => setIsOpen(true)} className={cn(className)}>
+        <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            className={cn(className)}
+        >
             {children}
         </button>
     );
