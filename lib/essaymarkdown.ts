@@ -18,7 +18,7 @@ export function getEssayBySlug(slug: string, fields: string[] = []) {
         [key: string]: string | object;
     };
 
-    const items: any = {};
+    const items: Items = {};
 
     function processImages(content: string) {
         return content.replace(/!\[.*?\]\((.*?)\)/g, '<img src="$1" alt="" />');

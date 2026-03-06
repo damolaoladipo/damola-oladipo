@@ -85,12 +85,10 @@ const IntegrationCard = ({
     title,
     description,
     children,
-    link = 'https://github.com/meschacirung/cnblocks',
 }: {
     title: string;
     description: string;
     children: React.ReactNode;
-    link?: string;
 }) => {
     return (
         <Card

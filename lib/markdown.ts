@@ -15,11 +15,10 @@ export function getProjectsBySlug(slug: string, fields: string[] = []) {
     const { data, content } = matter(fileContents);
 
     type Items = {
-        // [key: string]: string;
         [key: string]: string | object;
     };
 
-    const items: any = {};
+    const items: Items = {};
 
     function processImages(content: string) {
         // You can modify this function to handle image processing

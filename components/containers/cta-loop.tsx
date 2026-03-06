@@ -7,7 +7,7 @@ export function CTALoop() {
             <div className="flex flex-col group gap-0 relative px-6 md:px-0 mx-auto max-w-4xl">
                 <div className="flex flex-row items-start md:items-center space-y-2 md:space-y-0 space-x-2 md:space-x-4">
                     <p className="text-4xl md:text-[70px] transition-colors duration-300 group-hover:text-[#a3f443]">
-                        Let's make
+                        Let&apos;s make
                     </p>
                     <ArrowRight
                         size={32}

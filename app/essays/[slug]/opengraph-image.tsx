@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck — next/og ImageResponse JSX; global JSX from types/react-jsx.d.ts not applied by IDE here.
 import React from 'react';
 import { ImageResponse } from 'next/og';
