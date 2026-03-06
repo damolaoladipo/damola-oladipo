@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 

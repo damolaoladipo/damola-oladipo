@@ -19,7 +19,7 @@ const AvatarContainer = ({
 };
 
 const Avatar = (data: IAvatar) => {
-    const { large: _large, className, ...rest } = data;
+    const { className, ...rest } = data;
     const { theme } = useTheme();
     const [mounted, setMounted] = useState(false);
 

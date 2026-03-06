@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { getAllProjects } from '@/lib/markdown';
 import Link from 'next/link';
 
@@ -10,13 +11,13 @@ const ProjectList = () => {
         coverImage: string;
     };
 
-    const projects: Project[] = getAllProjects([
+    const projects = getAllProjects([
         'title',
         'slug',
         'ScopeOfWork',
         'industry',
         'coverImage',
-    ]);
+    ]) as unknown as Project[];
 
     return (
         <section className="dark:bg-darkblack py-20 md:py-40">
