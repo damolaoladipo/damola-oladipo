@@ -3,7 +3,9 @@ import { docs, meta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { EssayPage } from "@/types/essay";
+import { siteConfig } from "@/_data/site-config";
 
 const mdxSource = createMDXSource(docs, meta);
 const essaySource = loader({
@@ -62,46 +64,51 @@ export function ReadMoreSection({
   }
 
   return (
-    <section className="border-t border-border p-0">
-      <div className="p-6 lg:p-10">
-        <h2 className="text-2xl font-medium mb-8">Read more</h2>
+    <section className="py-12">
+      {/* Header row */}
+      <div className="flex items-center justify-between gap-4 mb-8">
+        <h2 className="text-lg font-semibold text-foreground">More essays</h2>
 
-        <div className="flex flex-col gap-8">
-          {otherPosts.map((post) => {
-            const formattedDate = formatDate(post.date);
+      </div>
 
-            return (
-              <Link
-                key={post.url}
-                href={post.url}
-                className="group grid grid-cols-1 lg:grid-cols-12 items-center gap-4 cursor-pointer"
-              >
-                {post.data.thumbnail && (
-                  <div className="flex-shrink-0 col-span-1 lg:col-span-4">
-                    <div className="relative w-full h-full">
-                      <img
-                        src={post.data.thumbnail}
-                        alt={post.data.title}
-                        className="w-full h-full object-cover rounded-lg group-hover:opacity-80 transition-opacity"
-                      />
-                    </div>
-                  </div>
-                )}
-                <div className="space-y-2 flex-1 col-span-1 lg:col-span-8">
-                  <h3 className="text-lg group-hover:underline underline-offset-4 font-semibold text-card-foreground group-hover:text-primary transition-colors line-clamp-2">
-                    {post.data.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm line-clamp-3 group-hover:underline underline-offset-4">
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {otherPosts.map((post) => {
+          const formattedDate = formatDate(post.date);
+          const tag = post.data.tags?.[0] ?? "";
+
+          return (
+            <Link
+              key={post.url}
+              href={post.url}
+              className="group flex flex-col gap-3"
+            >
+              {post.data.thumbnail && (
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-muted">
+                  <img
+                    src={post.data.thumbnail}
+                    alt={post.data.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col gap-1">
+                <p className="text-[0.7rem] text-muted-foreground">
+                  {tag && <>{tag} &bull; </>}
+                  {formattedDate}
+                </p>
+                <h3 className="text-sm font-semibold text-foreground leading-snug group-hover:opacity-60 transition-opacity line-clamp-2">
+                  {post.data.title}
+                </h3>
+                {post.data.description && (
+                  <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
                     {post.data.description}
                   </p>
-                  <time className="block text-xs font-medium text-muted-foreground">
-                    {formattedDate}
-                  </time>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+                )}
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
