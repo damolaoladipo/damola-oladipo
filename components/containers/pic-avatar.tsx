@@ -12,7 +12,7 @@ const AvatarContainer = ({
     ...props
 }: React.ComponentPropsWithoutRef<'div'>) => {
     return (
-        <div className={clsx(className, 'h-48 w-48 pr-10')} {...props}>
+        <div className={clsx(className, 'h-48 w-48')} {...props}>
             {children}
         </div>
     );

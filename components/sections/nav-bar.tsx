@@ -45,7 +45,7 @@ const Header = () => {
             >
                 <div
                     className={cn(
-                        'mx-auto w-full px-6 transition-all duration-300',
+                        'mx-auto w-full px-3 lg:px-6 transition-all duration-300',
                         'lg:z-auto z-20',
                         isScrolled &&
                             'bg-background/80 backdrop-blur-md border-b border-border',
