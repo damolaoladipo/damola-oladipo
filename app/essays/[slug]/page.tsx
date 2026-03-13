@@ -128,7 +128,7 @@ export default async function EssayPost({ params }: PageProps) {
 
                     {/* Description */}
                     {data.description && (
-                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
+                        <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
                             {data.description}
                         </p>
                     )}
@@ -171,7 +171,7 @@ export default async function EssayPost({ params }: PageProps) {
                         className="
             prose dark:prose-invert max-w-none
 
-            prose-p:text-[1.0625rem] prose-p:leading-[1.8] prose-p:text-neutral-700 dark:prose-p:text-neutral-300
+            prose-p:text-lg md:prose-p:text-[1.0625rem] prose-p:leading-[1.8] prose-p:text-neutral-700 dark:prose-p:text-neutral-300
             prose-p:mt-0 prose-p:mb-6
 
             prose-headings:scroll-mt-24 prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-neutral-900 dark:prose-headings:text-neutral-50
@@ -183,7 +183,7 @@ export default async function EssayPost({ params }: PageProps) {
             prose-strong:text-neutral-900 dark:prose-strong:text-neutral-100 prose-strong:font-semibold
 
             prose-ul:my-6 prose-ul:pl-5 prose-ol:my-6 prose-ol:pl-5
-            prose-li:text-[1.0625rem] prose-li:leading-[1.8] prose-li:text-neutral-700 dark:prose-li:text-neutral-300 prose-li:my-2
+            prose-li:text-lg md:prose-li:text-[1.0625rem] prose-li:leading-[1.8] prose-li:text-neutral-700 dark:prose-li:text-neutral-300 prose-li:my-2
 
             prose-hr:border-neutral-200 dark:prose-hr:border-neutral-800 prose-hr:my-12
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function AboutHero() {
     return (
-        <section className="bg-[#F2F0ED] dark:bg-neutral-900 min-h-screen">
+        <section className=" dark:bg-neutral-900 min-h-screen">
             <div className="max-w-6xl mx-auto px-8 md:px-14 lg:px-20 pt-32 md:pt-40 pb-20">
                 {/* Breadcrumb */}
                 <nav className="flex items-center gap-1.5 text-[0.72rem] text-neutral-400 dark:text-neutral-500 mb-12 md:mb-16">
@@ -32,7 +32,7 @@ export default function AboutHero() {
                 {/* Image + content grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-4">
                     {/* Left: tall portrait photo */}
-                    <div className="relative w-full aspect-[3/4] lg:aspect-auto lg:min-h-[600px] overflow-hidden rounded-2xl">
+                    <div className="relative w-full aspect-[3/4] lg:aspect-auto lg:min-h-[600px] overflow-hidden">
                         <Image
                             src="/blocks/damola.png"
                             alt="Damola Oladipo"
@@ -48,29 +48,24 @@ export default function AboutHero() {
                         {/* Top row: small image + text */}
                         <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.2fr] gap-4 flex-1">
                             {/* Top-right image */}
-                            <div className="relative w-full aspect-[4/3] sm:aspect-auto overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-800">
+                            <div className="relative w-full aspect-[4/3] sm:aspect-auto overflow-hidden bg-neutral-200 dark:bg-neutral-800">
                                 <Image
-                                    src="/images/projects/projectlist/project1-cover.png"
+                                    src="/blocks/dml.png"
                                     alt="Project"
                                     fill
-                                    className="object-cover"
+                                    className="object-cover object-[center_5%] md:object-center"
                                     sizes="(max-width: 640px) 100vw, 20vw"
                                 />
                             </div>
 
                             {/* Text block */}
                             <div className="flex flex-col justify-center gap-5 py-2">
-                                <p className="text-[0.85rem] text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
                                     I&apos;m passionate about designing and
-                                    building memorable digital experiences. My
-                                    main focus when working on such projects is
-                                    to translate business ideas and vision into
-                                    functional, user-friendly, and beautiful
+                                    building memorable digital experiences. 
                                     digital products that solve real problems.
                                 </p>
-                                <p className="text-[0.85rem] text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    With expertise in not only design, but also
-                                    product engineering and development,
+                                <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
                                     I&apos;m able to work on projects from the
                                     very first research &amp; design stages all
                                     the way to pushing it live.
@@ -79,9 +74,9 @@ export default function AboutHero() {
                         </div>
 
                         {/* Bottom row: wide photo */}
-                        <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-800">
+                        <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] overflow-hidden  bg-neutral-200 dark:bg-neutral-800">
                             <Image
-                                src="/images/projects/projectlist/project2-cover.png"
+                                src="/blocks/nn.png"
                                 alt="Work"
                                 fill
                                 className="object-cover"

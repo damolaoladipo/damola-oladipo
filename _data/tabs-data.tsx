@@ -23,19 +23,19 @@ const tabs: Tab[] = [
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           <div className="glass-card p-6 rounded-xl">
             <h4 className="font-semibold text-foreground mb-3">Hero Sections</h4>
-            <p className="text-sm text-muted-foreground">Compelling headers that capture attention</p>
+            <p className="text-lg md:text-sm text-muted-foreground">Compelling headers that capture attention</p>
           </div>
           <div className="glass-card p-6 rounded-xl">
             <h4 className="font-semibold text-foreground mb-3">Feature Blocks</h4>
-            <p className="text-sm text-muted-foreground">Showcase your product capabilities</p>
+            <p className="text-lg md:text-sm text-muted-foreground">Showcase your product capabilities</p>
           </div>
           <div className="glass-card p-6 rounded-xl">
             <h4 className="font-semibold text-foreground mb-3">Testimonials</h4>
-            <p className="text-sm text-muted-foreground">Build trust with social proof</p>
+            <p className="text-lg md:text-sm text-muted-foreground">Build trust with social proof</p>
           </div>
           <div className="glass-card p-6 rounded-xl">
             <h4 className="font-semibold text-foreground mb-3">Call to Action</h4>
-            <p className="text-sm text-muted-foreground">Convert visitors into customers</p>
+            <p className="text-lg md:text-sm text-muted-foreground">Convert visitors into customers</p>
           </div>
         </div>
       </div>
@@ -93,17 +93,17 @@ const tabs: Tab[] = [
           <div className="glass-card p-6 rounded-xl text-center">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-teal-400 rounded-lg mx-auto mb-4"></div>
             <h4 className="font-bold text-lg text-foreground mb-2">Colors</h4>
-            <p className="text-muted-foreground text-sm">Brand colors and themes</p>
+            <p className="text-muted-foreground text-lg md:text-sm">Brand colors and themes</p>
           </div>
           <div className="glass-card p-6 rounded-xl text-center">
             <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg mx-auto mb-4"></div>
             <h4 className="font-bold text-lg text-foreground mb-2">Typography</h4>
-            <p className="text-muted-foreground text-sm">Fonts and text styles</p>
+            <p className="text-muted-foreground text-lg md:text-sm">Fonts and text styles</p>
           </div>
           <div className="glass-card p-6 rounded-xl text-center">
             <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-400 rounded-lg mx-auto mb-4"></div>
             <h4 className="font-bold text-lg text-foreground mb-2">Layout</h4>
-            <p className="text-muted-foreground text-sm">Spacing and structure</p>
+            <p className="text-muted-foreground text-lg md:text-sm">Spacing and structure</p>
           </div>
         </div>
       </div>
@@ -124,17 +124,17 @@ const tabs: Tab[] = [
           <div className="glass-card p-6 rounded-xl text-center">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-teal-400 rounded-lg mx-auto mb-4"></div>
             <h4 className="font-bold text-lg text-foreground mb-2">Colors</h4>
-            <p className="text-muted-foreground text-sm">Brand colors and themes</p>
+            <p className="text-muted-foreground text-lg md:text-sm">Brand colors and themes</p>
           </div>
           <div className="glass-card p-6 rounded-xl text-center">
             <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg mx-auto mb-4"></div>
             <h4 className="font-bold text-lg text-foreground mb-2">Typography</h4>
-            <p className="text-muted-foreground text-sm">Fonts and text styles</p>
+            <p className="text-muted-foreground text-lg md:text-sm">Fonts and text styles</p>
           </div>
           <div className="glass-card p-6 rounded-xl text-center">
             <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-400 rounded-lg mx-auto mb-4"></div>
             <h4 className="font-bold text-lg text-foreground mb-2">Layout</h4>
-            <p className="text-muted-foreground text-sm">Spacing and structure</p>
+            <p className="text-muted-foreground text-lg md:text-sm">Spacing and structure</p>
           </div>
         </div>
       </div>

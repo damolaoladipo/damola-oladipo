@@ -32,7 +32,7 @@ export default function IntroSection() {
                             <p className="text-[0.75rem] text-neutral-500 dark:text-neutral-400 mt-0.5">
                                 Product &amp; Design Engineer
                             </p>
-                            <p className="mt-3 text-[0.85rem] text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-[280px]">
+                            <p className="mt-3 text-lg md:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-[280px]">
                                 From ideation to launch, I blend product
                                 thinking with design craft — helping teams build
                                 digital experiences that are intuitive,

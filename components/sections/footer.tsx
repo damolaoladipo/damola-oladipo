@@ -18,7 +18,7 @@ export function Footer() {
                             </span>
                         </div>
 
-                        <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
+                        <p className="text-lg md:text-sm text-neutral-400 leading-relaxed max-w-sm">
                             Damola is product and design engineer from Nigeria.
                             I design and build beautiful, intuitive, and
                             responsive web and mobile applications. Let’s work
@@ -142,12 +142,12 @@ export function Footer() {
 
                 <div className="flex flex-col items-start justify-between gap-6 sm:flex-row mt-10 md:mt32 border-t border-neutral-300 dark:border-neutral-700 pt-8">
                     <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
-                        <p className="text-sm text-neutral-500">
+                        <p className="text-lg md:text-sm text-neutral-500">
                             {' '}
                             Made with ❤️ from Nigeria
                         </p>
                     </div>
-                    <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                    <p className="text-lg md:text-sm text-neutral-500 dark:text-neutral-500">
                         &copy; {new Date().getFullYear()}{' '}
                         <a
                             href="https://github.com/damolaoladipo"

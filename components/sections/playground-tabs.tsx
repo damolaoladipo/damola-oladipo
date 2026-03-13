@@ -64,7 +64,7 @@ export default function PlaygroundTabs() {
                     >
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                <div className="flex items-center gap-2 text-base">
+                                <div className="flex items-center gap-2 text-lg md:text-base">
                                     <Database className="size-4" />
                                     Web Playground
                                 </div>
@@ -76,7 +76,7 @@ export default function PlaygroundTabs() {
                         </AccordionItem>
                         <AccordionItem value="item-2">
                             <AccordionTrigger>
-                                <div className="flex items-center gap-2 text-base">
+                                <div className="flex items-center gap-2 text-lg md:text-base">
                                     <Fingerprint className="size-4" />
                                     Mobile Playground
                                 </div>
@@ -89,7 +89,7 @@ export default function PlaygroundTabs() {
                         </AccordionItem>
                         <AccordionItem value="item-3">
                             <AccordionTrigger>
-                                <div className="flex items-center gap-2 text-base">
+                                <div className="flex items-center gap-2 text-lg md:text-base">
                                     <IdCard className="size-4" />
                                     API Playground
                                 </div>
@@ -101,7 +101,7 @@ export default function PlaygroundTabs() {
                         </AccordionItem>
                         <AccordionItem value="item-4">
                             <AccordionTrigger>
-                                <div className="flex items-center gap-2 text-base">
+                                <div className="flex items-center gap-2 text-lg md:text-base">
                                     <ChartBarIncreasingIcon className="size-4" />
                                     ML Playground
                                 </div>

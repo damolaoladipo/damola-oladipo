@@ -39,7 +39,7 @@ export function EssayCard({
                     <h3 className="font-semibold text-base md:text-lg text-foreground group-hover:underline underline-offset-4 leading-snug">
                         {title}
                     </h3>
-                    <p className="text-muted-foreground text-sm line-clamp-2 md:line-clamp-3 leading-relaxed">
+                    <p className="text-muted-foreground text-lg md:text-sm line-clamp-2 md:line-clamp-3 leading-relaxed">
                         {description}
                     </p>
                 </div>

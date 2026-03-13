@@ -50,7 +50,7 @@ const Projects = () => {
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col gap-0">
                         <hr className="border-t border-[#e9e9e7] dark:border-border" />
-                        <p className="mt-4 text-base font-medium text-[#787673] dark:text-muted-foreground uppercase tracking-wide">
+                        <p className="mt-4 text-lg md:text-base font-medium text-[#787673] dark:text-muted-foreground uppercase tracking-wide">
                             My Works
                         </p>
                     </div>
@@ -73,7 +73,7 @@ const Projects = () => {
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <p className="text-base font-medium text-[#787673] dark:text-muted-foreground">
+                                    <p className="text-lg md:text-base font-medium text-[#787673] dark:text-muted-foreground">
                                         {project.dateRange}
                                     </p>
                                     <h3 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground/70 group-hover:text-foreground transition-colors underline underline-offset-4 decoration-foreground/30 group-hover:decoration-foreground/70">

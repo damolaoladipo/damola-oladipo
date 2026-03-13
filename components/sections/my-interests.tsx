@@ -18,7 +18,7 @@ export default function MyInterests() {
         <section>
             <div className="py-32">
                 <div className="mx-auto max-w-5xl px-6">
-                    <div className="flex mt-0 items-center text-sm text-neutral-700 dark:text-neutral-400">
+                    <div className="flex mt-0 items-center text-lg md:text-sm text-neutral-700 dark:text-neutral-400">
                         <DotIcon className="h-10 w-10 -ml-3" /> Where you will
                         find me
                     </div>

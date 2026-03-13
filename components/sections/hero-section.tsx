@@ -21,7 +21,7 @@ function HeroSection() {
 
                     <div className="flex flex-col">
                         <div className="flex-1">
-                            <div className="flex mt-0 items-center text-sm text-neutral-700 dark:text-neutral-400">
+                            <div className="flex mt-0 items-center text-lg md:text-sm text-neutral-700 dark:text-neutral-400">
                                 <DotIcon className="h-10 w-10 -ml-3" /> Hi, I’m
                                 Damola Oladipo 👋
                             </div>
@@ -68,7 +68,7 @@ function HeroSection() {
                 </div>
 
                 <div className="mt-32 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-16 md:gap-24 lg:gap-36 xl:gap-72">
-                    <div className="flex items-center pt-1 text-sm text-neutral-700 dark:text-neutral-400 whitespace-nowrap">
+                    <div className="flex items-center pt-1 text-lg md:text-sm text-neutral-700 dark:text-neutral-400 whitespace-nowrap">
                         <DotIcon className="h-10 w-10 -ml-4 align-middle inline-block" />
                         Who I am
                     </div>

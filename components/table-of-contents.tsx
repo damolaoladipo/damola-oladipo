@@ -196,11 +196,11 @@ export function TableOfContents({
 
     return (
         <div className={cn('space-y-2', className)}>
-            <h4 className="text-sm font-semibold text-foreground mb-4">
+            <h4 className="text-lg md:text-sm font-semibold text-foreground mb-4">
                 On this page
             </h4>
             {headings.length === 0 ? (
-                <p className="text-sm text-muted-foreground">
+                <p className="text-lg md:text-sm text-muted-foreground">
                     No sections in this essay.
                 </p>
             ) : (
@@ -211,7 +211,7 @@ export function TableOfContents({
                                 <button
                                     onClick={() => handleClick(heading.id)}
                                     className={cn(
-                                        'block w-full text-left text-sm transition-colors hover:text-foreground text-muted-foreground',
+                                        'block w-full text-left text-lg md:text-sm transition-colors hover:text-foreground text-muted-foreground',
                                         {
                                             'text-primary font-medium underline underline-offset-4':
                                                 activeId === heading.id,

@@ -101,7 +101,7 @@ export function ReadMoreSection({
                                 </div>
                             )}
                             <div className="flex flex-col gap-1.5">
-                                <p className="text-sm text-muted-foreground">
+                                <p className="text-lg md:text-sm text-muted-foreground">
                                     {tag && <>{tag} &bull; </>}
                                     {formattedDate}
                                 </p>

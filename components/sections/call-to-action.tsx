@@ -47,7 +47,7 @@ export default function CallToAction() {
                         Let&apos;s build your best product yet.
                     </h2>
 
-                    <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-md">
+                    <p className="text-lg md:text-lg text-white/60 leading-relaxed max-w-md">
                         {siteConfig.description}
                     </p>
 

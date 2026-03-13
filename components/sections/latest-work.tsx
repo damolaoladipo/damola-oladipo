@@ -38,7 +38,7 @@ export default function LatestWork() {
                         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-2">
                             My latest work
                         </h2>
-                        <p className="text-sm md:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                        <p className="text-lg md:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
                             I present my top-tier projects, meticulously crafted
                             with unwavering passion, simplicity, boundless
                             creativity, and unparalleled attention to detail.
@@ -86,7 +86,7 @@ export default function LatestWork() {
                                 >
                                     {project.name}
                                 </h3>
-                                <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                <p className="text-lg md:text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
                                     {project.description}
                                 </p>
                                 <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-1 font-medium">

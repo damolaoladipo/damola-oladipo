@@ -75,7 +75,7 @@ export default async function Essays({
                             <h1 className="font-semibold text-3xl md:text-4xl tracking-tight text-foreground">
                                 Essays
                             </h1>
-                            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                            <p className="text-muted-foreground text-lg md:text-base leading-relaxed">
                                 Essays, tips, and tutorials on design
                                 engineering, React, and building great products.
                             </p>

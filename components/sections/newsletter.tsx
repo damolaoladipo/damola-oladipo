@@ -115,7 +115,7 @@ export default function Newsletter() {
                         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 leading-snug">
                             Our Newsletter
                         </h2>
-                        <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                        <p className="text-lg md:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
                             Subscribe now so you don&apos;t miss any of the
                             latest updates, and you&apos;ll also receive a 20%
                             discount code.

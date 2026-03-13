@@ -142,7 +142,7 @@ function P({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
     return (
         <p
             {...props}
-            className="text-[1.0625rem] leading-[1.8] text-neutral-700 dark:text-neutral-300 mb-6 mt-0"
+            className="text-lg md:text-[1.0625rem] leading-[1.8] text-neutral-700 dark:text-neutral-300 mb-6 mt-0"
         >
             {children}
         </p>
@@ -176,7 +176,7 @@ function Li({ children, ...props }: React.HTMLAttributes<HTMLLIElement>) {
     return (
         <li
             {...props}
-            className="text-[1.0625rem] leading-[1.8] text-neutral-700 dark:text-neutral-300 pl-1"
+            className="text-lg md:text-[1.0625rem] leading-[1.8] text-neutral-700 dark:text-neutral-300 pl-1"
         >
             {children}
         </li>

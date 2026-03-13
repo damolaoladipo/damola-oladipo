@@ -63,7 +63,7 @@ export default function WorkWithMe() {
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
                         Work with Me
                     </h2>
-                    <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                    <p className="text-lg md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
                         Partnering with me means embarking on a journey of
                         creativity, innovation, and excellence. With years of
                         experience in product design, web design, and
@@ -85,7 +85,7 @@ export default function WorkWithMe() {
                         <p className="text-lg md:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
                             Can&apos;t decide or custom request?
                         </p>
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                        <p className="text-lg md:text-sm text-neutral-500 dark:text-neutral-400">
                             I&apos;m flexible and probably have a plan for you.
                         </p>
                     </div>
@@ -126,10 +126,10 @@ function ServiceCard({
                     <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 leading-snug">
                         {service.title}
                     </h3>
-                    <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                    <p className="text-lg md:text-sm font-medium text-neutral-500 dark:text-neutral-400">
                         {service.price}
                     </p>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed line-clamp-3">
+                    <p className="text-lg md:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed line-clamp-3">
                         {service.description}
                     </p>
                 </div>

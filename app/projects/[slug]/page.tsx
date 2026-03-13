@@ -82,7 +82,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                             <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
                                 Introduction
                             </h2>
-                            <p className="text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
+                            <p className="text-lg md:text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
                                 {project.introduction as string}
                             </p>
                         </div>
@@ -94,7 +94,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                             <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
                                 My Role
                             </h2>
-                            <p className="text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
+                            <p className="text-lg md:text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
                                 {project.role as string}
                             </p>
                         </div>
@@ -106,7 +106,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                             <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
                                 Design Process
                             </h2>
-                            <ol className="flex flex-col gap-2 text-base leading-relaxed text-[#787673] dark:text-muted-foreground list-decimal list-inside">
+                            <ol className="flex flex-col gap-2 text-lg md:text-base leading-relaxed text-[#787673] dark:text-muted-foreground list-decimal list-inside">
                                 {designProcess.map((step, i) => (
                                     <li key={i}>{step}</li>
                                 ))}
@@ -149,7 +149,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                             <h2 className="text-2xl md:text-[30px] font-semibold leading-snug text-foreground">
                                 Outcome
                             </h2>
-                            <p className="text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
+                            <p className="text-lg md:text-base leading-relaxed text-[#787673] dark:text-muted-foreground">
                                 {project.outcome as string}
                             </p>
                         </div>

@@ -28,7 +28,7 @@ export default function PromoBanner() {
                         <p className="text-base md:text-lg font-bold text-neutral-900 dark:text-neutral-100 leading-snug">
                             Thoughts on product, design, and engineering.
                         </p>
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                        <p className="text-lg md:text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
                             I write about building digital products — the
                             process, the decisions, the tradeoffs, and the
                             lessons learned shipping real things with real

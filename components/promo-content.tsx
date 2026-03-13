@@ -57,7 +57,7 @@ export function PromoContent({
                     <h3 className="text-lg font-semibold tracking-tighter">
                         Try Pacepard for free
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-lg md:text-sm text-muted-foreground">
                         Magic UI Pro is a design system for building beautiful
                         and responsive web applications.
                     </p>
