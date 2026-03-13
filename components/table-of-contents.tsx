@@ -15,18 +15,43 @@ interface TableOfContentsProps {
     refreshDelay?: number;
 }
 
+function isInFootnotes(element: Element | null): boolean {
+    if (!element) return false;
+    return !!(
+        element.closest('.footnotes') ||
+        element.closest('[class*="footnote"]')
+    );
+}
+
+function isFootnoteHeading(element: Element): boolean {
+    if (element.closest('.footnotes')) return true;
+    if (element.closest('[class*="footnote"]')) return true;
+    const id = element.id.toLowerCase();
+    if (id === 'footnotes') return true;
+    if (id.startsWith('fn-') || id.startsWith('user-content-fn')) return true;
+    return false;
+}
+
+/** Returns the viewport top of the heading for active detection, or Infinity if in footnotes (so it is never selected). */
+function getHeadingTop(id: string): number {
+    const el = document.getElementById(id);
+    if (!el) return Infinity;
+    if (isInFootnotes(el)) return Infinity;
+    return el.getBoundingClientRect().top;
+}
+
 function getHeadingsFromDOM(): Heading[] {
     const headingElements = document.querySelectorAll('h1, h2');
     const headingsArray: Heading[] = [];
 
     headingElements.forEach((element) => {
-        if (element.id) {
-            headingsArray.push({
-                id: element.id,
-                text: element.textContent || '',
-                level: parseInt(element.tagName.charAt(1)),
-            });
-        }
+        if (!element.id) return;
+        if (isFootnoteHeading(element)) return;
+        headingsArray.push({
+            id: element.id,
+            text: element.textContent || '',
+            level: parseInt(element.tagName.charAt(1)),
+        });
     });
 
     return headingsArray;
@@ -55,15 +80,10 @@ export function TableOfContents({
     useEffect(() => {
         const observer = new IntersectionObserver(
             () => {
-                const headingPositions = headings.map((heading) => {
-                    const element = document.getElementById(heading.id);
-                    return {
-                        id: heading.id,
-                        top: element
-                            ? element.getBoundingClientRect().top
-                            : Infinity,
-                    };
-                });
+                const headingPositions = headings.map((heading) => ({
+                    id: heading.id,
+                    top: getHeadingTop(heading.id),
+                }));
 
                 let activeHeading = headingPositions.find(
                     (heading) => heading.top >= 0 && heading.top <= 100,
@@ -104,15 +124,10 @@ export function TableOfContents({
         });
 
         const handleScroll = () => {
-            const headingPositions = headings.map((heading) => {
-                const element = document.getElementById(heading.id);
-                return {
-                    id: heading.id,
-                    top: element
-                        ? element.getBoundingClientRect().top
-                        : Infinity,
-                };
-            });
+            const headingPositions = headings.map((heading) => ({
+                id: heading.id,
+                top: getHeadingTop(heading.id),
+            }));
 
             let activeHeading = headingPositions.find(
                 (heading) => heading.top >= -50 && heading.top <= 100,

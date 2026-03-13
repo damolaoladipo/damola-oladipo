@@ -46,7 +46,7 @@ export default function RootLayout({
                     defaultTheme="system"
                     disableTransitionOnChange
                 >
-                    <div className="relative flex flex-col w-full min-h-screen inset-0 overflow-x-hidden">
+                    <div className="relative flex flex-col w-full min-h-screen inset-0 overflow-x-clip">
                         <Header />
                         <main className="flex-grow">
                             {children}
