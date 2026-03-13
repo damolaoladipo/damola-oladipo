@@ -23,10 +23,19 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = React.useState(false);
 
     React.useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 50);
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+            setMenuOpen(false);
+        };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    React.useEffect(() => {
+        window.dispatchEvent(
+            new CustomEvent('mobilemenuchange', { detail: { open: menuOpen } }),
+        );
+    }, [menuOpen]);
 
     return (
         <header>
@@ -39,14 +48,19 @@ const Header = () => {
                         'mx-auto w-full px-6 transition-all duration-300',
                         isScrolled &&
                             'bg-background/80 backdrop-blur-md border-b border-border',
+                        menuOpen &&
+                            'lg:hidden z-20 bg-background border-b border-border',
                     )}
                 >
                     <div className="flex items-center justify-between h-14">
-                        {/* Logo */}
+                        {/* Logo — stays visible above overlay when menu open */}
                         <Link
                             href="/"
                             aria-label="Home"
-                            className="flex items-center"
+                            className={cn(
+                                'flex items-center shrink-0',
+                                menuOpen && 'lg:hidden relative z-20',
+                            )}
                         >
                             <Avatar />
                         </Link>
@@ -85,7 +99,7 @@ const Header = () => {
                                 aria-label={
                                     menuOpen ? 'Close menu' : 'Open menu'
                                 }
-                                className="relative z-20 p-1 cursor-pointer"
+                                className="relative z-20 p-1 cursor-pointer text-foreground"
                             >
                                 <Menu
                                     className={cn(

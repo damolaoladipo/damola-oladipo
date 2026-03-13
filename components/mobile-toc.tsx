@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { List } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import {
     Drawer,
     DrawerTrigger,
@@ -19,16 +20,30 @@ const MOBILE_TOC_TRIGGER_CLASS =
 
 export function MobileTableOfContents() {
     const [mounted, setMounted] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        const handle = (e: CustomEvent<{ open: boolean }>) =>
+            setMobileMenuOpen(e.detail?.open ?? false);
+        window.addEventListener('mobilemenuchange', handle as EventListener);
+        return () =>
+            window.removeEventListener('mobilemenuchange', handle as EventListener);
     }, []);
 
     if (!mounted || typeof document === 'undefined') return null;
 
     const drawer = (
         <Drawer>
-            <DrawerTrigger className={MOBILE_TOC_TRIGGER_CLASS}>
+            <DrawerTrigger
+                className={cn(
+                    MOBILE_TOC_TRIGGER_CLASS,
+                    mobileMenuOpen && 'invisible pointer-events-none',
+                )}
+            >
                 <List size={22} aria-label="Open table of contents" />
             </DrawerTrigger>
 
