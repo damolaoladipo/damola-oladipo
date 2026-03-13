@@ -4,6 +4,9 @@ import { createMDXSource } from 'fumadocs-mdx';
 import { siteConfig } from '@/_data/site-config';
 import type { EssayPage } from '@/types/essay';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
+
 const mdxSource = createMDXSource(docs, meta);
 const essaySource = loader({
     baseUrl: '/essays',
