@@ -57,7 +57,7 @@ export default function IntroSection() {
                             href={siteConfig.baseLinks.sociaLlinks.email}
                             className="text-[0.85rem] text-neutral-900 dark:text-neutral-100 hover:opacity-50 transition-opacity"
                         >
-                            iam@damolaoladipo.com
+                            mail@damolaoladipo.com
                         </Link>
 
                         <p className="text-[0.6rem] uppercase tracking-[0.16em] text-neutral-400 dark:text-neutral-500 mt-2">

@@ -47,7 +47,7 @@ function HeroSection() {
 
                                 <div className="mt-6 flex gap-3">
                                     <Link
-                                        href="mailto:iam@damolaoladipo.com"
+                                        href="mailto:mail@damolaoladipo.com"
                                         className="inline-flex items-center gap-2 h-[38px] px-5 text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
                                     >
                                         Start a project

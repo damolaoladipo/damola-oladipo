@@ -37,12 +37,15 @@ export async function generateMetadata({
         }
 
         const ogUrl = `${siteConfig.url}/essays/${slug}`;
-        const ogImage = `${ogUrl}/opengraph-image`;
-        const thumbnailUrl = page.data.thumbnail
-            ? page.data.thumbnail.startsWith('http')
-                ? page.data.thumbnail
-                : `${siteConfig.url}${page.data.thumbnail}`
-            : null;
+        const baseUrl = siteConfig.url.replace(/\/$/, '');
+        const thumbnailPath = page.data.thumbnail;
+        const thumbnailUrl =
+            thumbnailPath &&
+            (thumbnailPath.startsWith('http')
+                ? thumbnailPath
+                : `${baseUrl}${thumbnailPath.startsWith('/') ? thumbnailPath : `/${thumbnailPath}`}`);
+
+        const ogImageUrl = thumbnailUrl || `${ogUrl}/opengraph-image`;
 
         return {
             title: page.data.title,
@@ -86,7 +89,7 @@ export async function generateMetadata({
                 tags: page.data.tags,
                 images: [
                     {
-                        url: thumbnailUrl || ogImage,
+                        url: ogImageUrl,
                         width: 1200,
                         height: 630,
                         alt: page.data.title,
@@ -98,7 +101,7 @@ export async function generateMetadata({
                 card: 'summary_large_image',
                 title: page.data.title,
                 description: page.data.description,
-                images: [thumbnailUrl || ogImage],
+                images: [ogImageUrl],
                 creator: '@damolaoladipo',
                 site: '@damolaoladipo',
             },
