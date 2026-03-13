@@ -1,11 +1,24 @@
 'use client';
 import Link from 'next/link';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Github, Linkedin } from 'lucide-react';
 import React from 'react';
 import { cn } from '@/lib/utils';
 import ThemeToggle from '@/components/containers/theme-toggle';
 import { Avatar } from '@/components/containers/pic-avatar';
 import { siteConfig } from '@/_data/site-config';
+
+function XIcon({ className }: { className?: string }) {
+    return (
+        <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className={cn('shrink-0', className)}
+            aria-hidden
+        >
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+    );
+}
 
 const menuItems = [
     { name: 'Essays', href: siteConfig.baseLinks.essays },
@@ -14,7 +27,7 @@ const menuItems = [
     // { name: 'Books', href: siteConfig.baseLinks.books },
     // { name: 'Newsletter', href: siteConfig.baseLinks.newsletter },
     { name: 'Guides', href: siteConfig.baseLinks.guides },
-    
+
     { name: 'About', href: siteConfig.baseLinks.about },
 ];
 
@@ -35,6 +48,26 @@ const Header = () => {
         window.dispatchEvent(
             new CustomEvent('mobilemenuchange', { detail: { open: menuOpen } }),
         );
+    }, [menuOpen]);
+
+    React.useEffect(() => {
+        if (!menuOpen) return;
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setMenuOpen(false);
+        };
+        document.addEventListener('keydown', handleEscape);
+        return () => document.removeEventListener('keydown', handleEscape);
+    }, [menuOpen]);
+
+    React.useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
     }, [menuOpen]);
 
     return (
@@ -118,8 +151,10 @@ const Header = () => {
                     </div>
                 </div>
 
-                {/* Mobile menu — full screen overlay */}
+                {/* Mobile menu — full screen overlay; click backdrop to close */}
                 <div
+                    aria-hidden={!menuOpen}
+                    onClick={() => setMenuOpen(false)}
                     className={cn(
                         'lg:hidden fixed inset-0 z-10 bg-background flex flex-col transition-all duration-300',
                         menuOpen
@@ -127,14 +162,17 @@ const Header = () => {
                             : 'opacity-0 pointer-events-none',
                     )}
                 >
-                    <div className="flex flex-col justify-between h-full px-6 pt-24 pb-12">
+                    <div
+                        className="flex flex-col h-full px-6 pt-24 pb-12 gap-6"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         <ul className="flex flex-col gap-2">
                             {menuItems.map((item) => (
                                 <li key={item.href}>
                                     <Link
                                         href={item.href}
                                         onClick={() => setMenuOpen(false)}
-                                        className="block text-4xl font-semibold tracking-tight text-foreground hover:opacity-50 transition-opacity py-2"
+                                        className="block text-4xl font-semibold tracking-tight text-foreground hover:opacity-70 active:opacity-50 transition-opacity py-2 rounded-lg active:scale-[0.98]"
                                     >
                                         {item.name}
                                     </Link>
@@ -142,16 +180,66 @@ const Header = () => {
                             ))}
                         </ul>
 
-                        <div className="flex flex-col gap-6">
-                            <div className="border-t border-border" />
+                        <div className="flex items-left">
                             <Link
                                 href={siteConfig.baseLinks.sociaLlinks.email}
                                 onClick={() => setMenuOpen(false)}
-                                className="inline-flex items-center gap-2 h-12 px-6 text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity w-fit"
+                                className="inline-flex items-center gap-2 h-12 px-6 text-sm font-medium bg-foreground text-background hover:opacity-90 active:opacity-80 transition-opacity active:scale-[0.98]"
                             >
                                 Work with me
                                 <ArrowUpRight className="w-4 h-4" />
                             </Link>
+                        </div>
+
+                        <div className="flex flex-col gap-6 mt-auto">
+                            <span className="text-lg font-medium text-foreground/80 -mb-4">
+                                @damola - simplyfing systems design
+                            </span>
+
+                            <div className="border-t border-border" />
+
+                            <div className="flex flex-wrap items-center -mt-4 gap-1">
+                                <span className="text-lg font-medium text-foreground/80 pr-2">
+                                    Follow me:
+                                </span>
+                                <Link
+                                    href={
+                                        siteConfig.baseLinks.sociaLlinks.twitter
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
+                                    aria-label="X"
+                                >
+                                    <XIcon className="w-3.5 h-3.5" />
+                                </Link>
+                                <Link
+                                    href={
+                                        siteConfig.baseLinks.sociaLlinks
+                                            .linkedin
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
+                                    aria-label="LinkedIn"
+                                >
+                                    <Linkedin className="w-3.5 h-3.5" />
+                                </Link>
+                                <Link
+                                    href={
+                                        siteConfig.baseLinks.sociaLlinks.github
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
+                                    aria-label="GitHub"
+                                >
+                                    <Github className="w-3.5 h-3.5" />
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
