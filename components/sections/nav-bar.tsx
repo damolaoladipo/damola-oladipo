@@ -46,21 +46,19 @@ const Header = () => {
                 <div
                     className={cn(
                         'mx-auto w-full px-6 transition-all duration-300',
+                        'lg:z-auto z-20',
                         isScrolled &&
                             'bg-background/80 backdrop-blur-md border-b border-border',
                         menuOpen &&
-                            'lg:hidden z-20 bg-background border-b border-border',
+                            'lg:hidden bg-background border-b border-border',
                     )}
                 >
                     <div className="flex items-center justify-between h-14">
-                        {/* Logo — stays visible above overlay when menu open */}
+                        {/* Logo — always above overlay on mobile */}
                         <Link
                             href="/"
                             aria-label="Home"
-                            className={cn(
-                                'flex items-center shrink-0',
-                                menuOpen && 'lg:hidden relative z-20',
-                            )}
+                            className="flex items-center shrink-0 relative z-20"
                         >
                             <Avatar />
                         </Link>
