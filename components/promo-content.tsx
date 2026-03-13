@@ -21,8 +21,8 @@ export function PromoContent({
             >
                 <div className="flex items-center gap-3">
                     <img
-                        src="/magicui-logo.png"
-                        alt="Magic UI"
+                        src="/blocks/pacepard-logo.png"
+                        alt="Pacepard UI"
                         className="w-8 h-8 rounded object-cover flex-shrink-0"
                     />
                     <div className="flex-1 min-w-0">
@@ -30,11 +30,13 @@ export function PromoContent({
                             Try Pacepard for free
                         </p>
                         <p className="text-xs text-muted-foreground truncate">
-                            Beautiful design system
+                            Learn and grow by doing.
                         </p>
                     </div>
                     <a
-                        href="#"
+                        href="https://pacepard.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-xs text-primary hover:text-primary/80 font-medium"
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -49,8 +51,8 @@ export function PromoContent({
         <div className={cn('border border-border p-4 bg-card', className)}>
             <div className="flex flex-col gap-4">
                 <img
-                    src="/magicui-pro.png"
-                    alt="Magic UI"
+                    src="/blocks/pacepard-pro.png"
+                    alt="Pacepard UI"
                     className="w-full h-40 object-cover"
                 />
                 <div className="flex flex-col gap-1">
@@ -58,8 +60,7 @@ export function PromoContent({
                         Try Pacepard for free
                     </h3>
                     <p className="text-lg md:text-sm text-muted-foreground">
-                        Magic UI Pro is a design system for building beautiful
-                        and responsive web applications.
+                    Upgrade your skills by recreating popular systems and building socio-good products that you will ship out with your team.
                     </p>
                 </div>
             </div>

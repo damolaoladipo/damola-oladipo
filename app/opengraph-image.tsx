@@ -15,16 +15,14 @@ const getAssetData = async () => {
         const fontUrls = {
             clashDisplay: `${baseUrl}/fonts/ClashDisplay-Semibold.ttf`,
             cabinetGrotesk: `${baseUrl}/fonts/CabinetGrotesk-Medium.ttf`,
-            logo: `${baseUrl}/magicui-logo.png`,
+            logo: `${baseUrl}/blocks/damola-light.svg`,
         };
 
-        const [clashDisplayRes, cabinetGroteskRes, logoRes] = await Promise.all(
-            [
-                fetch(fontUrls.clashDisplay),
-                fetch(fontUrls.cabinetGrotesk),
-                fetch(fontUrls.logo),
-            ],
-        );
+        const [clashDisplayRes, cabinetGroteskRes, logoRes] = await Promise.all([
+            fetch(fontUrls.clashDisplay),
+            fetch(fontUrls.cabinetGrotesk),
+            fetch(fontUrls.logo),
+        ]);
 
         if (!clashDisplayRes.ok || !cabinetGroteskRes.ok || !logoRes.ok) {
             return null;
@@ -108,9 +106,9 @@ export default async function Image() {
                     <img
                         src={
                             assetData?.logoBase64 ||
-                            `${process.env.NEXT_PUBLIC_SITE_URL}/magicui-logo.png`
+                            `${process.env.NEXT_PUBLIC_SITE_URL}/blocks/damola-light.svg`
                         }
-                        alt="MagicUI Logo"
+                        alt="Damola Oladipo Logo"
                         width={100}
                         height={100}
                     />
