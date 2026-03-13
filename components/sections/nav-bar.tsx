@@ -14,6 +14,7 @@ const menuItems = [
     // { name: 'Books', href: siteConfig.baseLinks.books },
     // { name: 'Newsletter', href: siteConfig.baseLinks.newsletter },
     { name: 'Guides', href: siteConfig.baseLinks.guides },
+    
     { name: 'About', href: siteConfig.baseLinks.about },
 ];
 

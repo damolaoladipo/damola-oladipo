@@ -52,13 +52,13 @@ interface DrawerTriggerProps {
 }
 
 export function DrawerTrigger({ children, className }: DrawerTriggerProps) {
-    const { setIsOpen } = useDrawer();
+    const { isOpen, setIsOpen } = useDrawer();
 
     return (
         <button
             type="button"
             onClick={() => setIsOpen(true)}
-            className={cn(className)}
+            className={cn(className, isOpen && 'invisible pointer-events-none')}
         >
             {children}
         </button>

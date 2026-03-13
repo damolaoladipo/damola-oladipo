@@ -38,6 +38,11 @@ export async function generateMetadata({
 
         const ogUrl = `${siteConfig.url}/essays/${slug}`;
         const ogImage = `${ogUrl}/opengraph-image`;
+        const thumbnailUrl = page.data.thumbnail
+            ? page.data.thumbnail.startsWith('http')
+                ? page.data.thumbnail
+                : `${siteConfig.url}${page.data.thumbnail}`
+            : null;
 
         return {
             title: page.data.title,
@@ -81,7 +86,7 @@ export async function generateMetadata({
                 tags: page.data.tags,
                 images: [
                     {
-                        url: page.data.thumbnail || ogImage,
+                        url: thumbnailUrl || ogImage,
                         width: 1200,
                         height: 630,
                         alt: page.data.title,
@@ -93,7 +98,7 @@ export async function generateMetadata({
                 card: 'summary_large_image',
                 title: page.data.title,
                 description: page.data.description,
-                images: [page.data.thumbnail || ogImage],
+                images: [thumbnailUrl || ogImage],
                 creator: '@damolaoladipo',
                 site: '@damolaoladipo',
             },

@@ -11,7 +11,9 @@ import { AuthorCard } from '@/components/author-card';
 import { ReadMoreSection } from '@/components/read-more-section';
 import { PromoContent } from '@/components/promo-content';
 import { getAuthor, isValidAuthor } from '@/_data/authors';
+import { siteConfig } from '@/_data/site-config';
 import { HashScrollHandler } from '@/components/hash-scroll-handler';
+import { EssayShareButtons } from '@/components/essay-share-buttons';
 import type { EssayPageData } from '@/types/essay';
 
 interface PageProps {
@@ -119,6 +121,11 @@ export default async function EssayPost({ params }: PageProps) {
                         )}
                     </div>
 
+                    <EssayShareButtons
+                        title={data.title}
+                        url={`${siteConfig.url}/essays/${slug}`}
+                    />
+
                     {/* Description */}
                     {data.description && (
                         <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
@@ -186,6 +193,12 @@ export default async function EssayPost({ params }: PageProps) {
                     >
                         <MDX />
                     </div>
+
+                    <EssayShareButtons
+                        title={data.title}
+                        url={`${siteConfig.url}/essays/${slug}`}
+                    />
+
                     <div className="mt-16">
                         <ReadMoreSection
                             currentSlug={[slug]}
@@ -198,7 +211,7 @@ export default async function EssayPost({ params }: PageProps) {
                     {data.author && isValidAuthor(data.author) && (
                         <AuthorCard author={getAuthor(data.author)} />
                     )}
-                    <div className="border border-border bg-card p-5">
+                    <div className="border border-border bg-card p-5 max-h-[calc(100vh-8rem)] overflow-y-auto">
                         <TableOfContents />
                     </div>
                     <PromoContent variant="desktop" />
