@@ -21,7 +21,7 @@ export function PromoContent({
             >
                 <div className="flex items-center gap-3">
                     <img
-                        src="/blocks/pacepard-logo.png"
+                        src="/blocks/pacepard-pro.png"
                         alt="Pacepard UI"
                         className="w-8 h-8 rounded object-cover flex-shrink-0"
                     />
@@ -48,22 +48,32 @@ export function PromoContent({
     }
 
     return (
-        <div className={cn('border border-border p-4 bg-card', className)}>
+        <a
+            href="https://pacepard.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+                'block border border-border p-4 bg-card transition-colors hover:border-primary/30 hover:bg-card/80 cursor-pointer',
+                className,
+            )}
+        >
             <div className="flex flex-col gap-4">
                 <img
                     src="/blocks/pacepard-pro.png"
                     alt="Pacepard UI"
-                    className="w-full h-40 object-cover"
+                    className="w-full h-40 object-cover "
                 />
                 <div className="flex flex-col gap-1">
                     <h3 className="text-lg font-semibold tracking-tighter">
                         Try Pacepard for free
                     </h3>
                     <p className="text-lg md:text-sm text-muted-foreground">
-                    Upgrade your skills by recreating popular systems and building socio-good products that you will ship out with your team.
+                        Upgrade your skills by recreating popular systems and
+                        building socio-good products that you will ship out with
+                        your team.
                     </p>
                 </div>
             </div>
-        </div>
+        </a>
     );
 }
