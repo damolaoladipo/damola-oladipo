@@ -3,13 +3,16 @@ import { docs, meta } from '@/.source';
 import { loader } from 'fumadocs-core/source';
 import { createMDXSource } from 'fumadocs-mdx';
 import { siteConfig } from '@/_data/site-config';
+import type { EssayPageData } from '@/types/essay';
 
 const mdxSource = createMDXSource(docs, meta);
 const essaySource = loader({
     baseUrl: '/essays',
     source: {
-        files: mdxSource.files,
-    },
+        get files() {
+            return (mdxSource as unknown as { files(): unknown[] }).files();
+        },
+    } as Parameters<typeof loader>[0]['source'],
 });
 
 export async function generateMetadata({
@@ -36,23 +39,35 @@ export async function generateMetadata({
             };
         }
 
+        const data = page.data as EssayPageData;
         const ogUrl = `${siteConfig.url}/essays/${slug}`;
         const baseUrl = siteConfig.url.replace(/\/$/, '');
-        const thumbnailPath = page.data.thumbnail;
+        const thumbnailPath = data.thumbnail;
         const thumbnailUrl =
             thumbnailPath &&
             (thumbnailPath.startsWith('http')
                 ? thumbnailPath
                 : `${baseUrl}${thumbnailPath.startsWith('/') ? thumbnailPath : `/${thumbnailPath}`}`);
 
-        const ogImageUrl = thumbnailUrl || `${ogUrl}/opengraph-image`;
+        const generatedOgUrl = `${ogUrl}/opengraph-image`;
+        const ogImageUrl = thumbnailUrl || generatedOgUrl;
+        const ogImages = thumbnailUrl
+            ? [{ url: ogImageUrl, alt: data.title }]
+            : [
+                  {
+                      url: ogImageUrl,
+                      width: 1200,
+                      height: 630,
+                      alt: data.title,
+                  },
+              ];
 
         return {
-            title: page.data.title,
-            description: page.data.description,
+            title: data.title,
+            description: data.description,
             keywords: [
-                page.data.title,
-                ...(page.data.tags || []),
+                data.title,
+                ...(data.tags || []),
                 'Essays',
                 'Essay',
                 'Web Development',
@@ -62,11 +77,11 @@ export async function generateMetadata({
             ],
             authors: [
                 {
-                    name: page.data.author || 'Damola Oladipo',
+                    name: data.author || 'Damola Oladipo',
                     url: siteConfig.url,
                 },
             ],
-            creator: page.data.author || 'Damola Oladipo',
+            creator: data.author || 'Damola Oladipo',
             publisher: 'Damola Oladipo',
             robots: {
                 index: true,
@@ -80,27 +95,20 @@ export async function generateMetadata({
                 },
             },
             openGraph: {
-                title: page.data.title,
-                description: page.data.description,
+                title: data.title,
+                description: data.description,
                 type: 'article',
                 url: ogUrl,
-                publishedTime: page.data.date,
-                authors: [page.data.author || 'Damola Oladipo'],
-                tags: page.data.tags,
-                images: [
-                    {
-                        url: ogImageUrl,
-                        width: 1200,
-                        height: 630,
-                        alt: page.data.title,
-                    },
-                ],
+                publishedTime: data.date,
+                authors: [data.author || 'Damola Oladipo'],
+                tags: data.tags,
+                images: ogImages,
                 siteName: siteConfig.name,
             },
             twitter: {
                 card: 'summary_large_image',
-                title: page.data.title,
-                description: page.data.description,
+                title: data.title,
+                description: data.description,
                 images: [ogImageUrl],
                 creator: '@damolaoladipo',
                 site: '@damolaoladipo',

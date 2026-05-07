@@ -16,6 +16,8 @@ import { HashScrollHandler } from '@/components/hash-scroll-handler';
 import { EssayShareButtons } from '@/components/essay-share-buttons';
 import type { EssayPageData } from '@/types/essay';
 
+export { generateMetadata } from './metadata';
+
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
