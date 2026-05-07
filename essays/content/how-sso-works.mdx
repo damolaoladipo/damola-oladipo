@@ -1,0 +1,126 @@
+---
+title: "Understanding How SSO Actually Works Behind the Scenes"
+description: "A honest look at the tools, libraries, and workflows that make up my daily design engineering practice — what works, what doesn't, and why."
+date: '2026-04-15'
+tags: ['System Design', 'Product Thinking', 'System Design']
+featured: true
+readTime: '8 min read'
+author: 'damola'
+thumbnail: '/essays/sso.png'
+---
+
+Design engineering sits in a strange middle ground. You're expected to think like a designer, write like a developer, and communicate like a product manager — sometimes all in the same afternoon. Over the years I've settled into a set of tools that let me move fluidly across these contexts without constantly switching mental modes.
+
+This is not a sponsored post. This is the actual stack I open every morning.
+
+## Design
+
+### Figma
+
+The obvious one. But what makes Figma indispensable for me isn't just the design canvas — it's the way it collapses the gap between design and handoff. Variables, component properties, and auto layout mean I can build components in Figma that map almost directly to the React components I'll write. When design tokens live in Figma variables and your CSS variables reference the same names, the whole team speaks one language.
+
+I use Figma for everything from wireframes to final specs. I rarely use it for prototyping interactions — code does that better.
+
+### FigJam
+
+For early-stage thinking. When a problem is still fuzzy, I reach for FigJam before Figma. It's the space where I can diagram user flows, map out system states, and argue with myself in sticky notes before committing anything to pixels.
+
+## Development
+
+### Next.js
+
+My default for anything that needs to be on the web. The App Router changed how I think about data fetching — colocating server logic with the component that needs it feels right in a way that prop-drilling data down from a layout never did.
+
+```tsx
+// Server Component — fetch right where you need it
+export default async function EssayPage({
+    params,
+}: {
+    params: { slug: string };
+}) {
+    const essay = await getEssay(params.slug);
+    return <Article data={essay} />;
+}
+```
+
+The blurred line between server and client is still something I navigate carefully. My rule of thumb: start server, opt into client only when you need interactivity or browser APIs.
+
+### Tailwind CSS
+
+Polarising choice, I know. But Tailwind eliminates the naming problem. The hardest part of writing CSS isn't the properties — it's deciding whether a `div` is a `card`, a `panel`, or a `container`. Tailwind sidesteps that entirely. The styles live with the markup, and the markup tells the whole story.
+
+The utility class explosion in complex components is real. I manage it with `cva` (Class Variance Authority) for component variants.
+
+```tsx
+import { cva } from 'class-variance-authority';
+
+const button = cva('inline-flex items-center font-medium transition-colors', {
+    variants: {
+        intent: {
+            primary: 'bg-foreground text-background hover:opacity-90',
+            ghost: 'bg-transparent text-foreground hover:bg-muted',
+        },
+        size: {
+            sm: 'h-8 px-3 text-sm',
+            md: 'h-10 px-5 text-base',
+        },
+    },
+    defaultVariants: { intent: 'primary', size: 'md' },
+});
+```
+
+### shadcn/ui
+
+Not a component library in the traditional sense — you own the code. That distinction matters enormously. I copy the components I need, delete the parts I don't, and modify the rest. It's the only UI component approach that doesn't eventually fight you.
+
+### TypeScript
+
+Non-negotiable. Not because I enjoy fighting the compiler (I don't), but because the feedback loop is faster with types than without. The autocomplete alone pays for the overhead.
+
+## Prototyping & Animation
+
+### Framer Motion
+
+For UI animations. The declarative API maps well to how I think about motion — define the states, let Framer handle the interpolation.
+
+```tsx
+<motion.div
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3, ease: 'easeOut' }}
+>
+    {children}
+</motion.div>
+```
+
+I keep animations short (under 300ms for most micro-interactions) and purposeful. Animation should clarify, not decorate.
+
+### Framer (the product)
+
+For client-facing prototypes that need to feel real. Sometimes a stakeholder needs to _feel_ the product, not just see a screenshot. Framer lets me build high-fidelity prototypes fast, especially for marketing pages.
+
+## Writing & Thinking
+
+### Obsidian
+
+Where I think before I build. Product decisions, system design notes, essay drafts — all of it lives here in plain markdown. The graph view occasionally reveals connections I missed.
+
+### Linear
+
+For project management. Clean, fast, and opinionated in the right ways. The keyboard shortcuts actually work.
+
+---
+
+## What I've Stopped Using
+
+**Storybook** — Valuable for large teams. For solo work or small teams, the maintenance overhead outweighs the benefit. I test components in context, not in isolation.
+
+**CSS Modules** — I used to reach for these by default. Tailwind replaced them almost entirely.
+
+**Redux** — React Query + Zustand covers most of what I needed Redux for, with less ceremony.
+
+---
+
+The best toolkit is the one you've outgrown and replaced. This list will look different in a year, and that's fine. The goal isn't to find the perfect stack — it's to stay curious about what could be better.[^1]
+
+[^1]: The design engineering role is still being defined. Some companies embed design engineers in product teams; others treat them as a bridge role between design and engineering. What's consistent is the expectation that you can translate intent into implementation without losing quality at either end.
