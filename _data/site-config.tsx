@@ -21,6 +21,7 @@ export const siteConfig = {
     sociaLlinks: {
       twitter: "https://www.x.com/damolaoladipo",
       github: "https://github.com/damolaoladipo",
+      bluesky: "https://bsky.app/profile/madebydamola.tngl.sh",
       linkedin: "https://www.linkedin.com/in/damolaoladipo",
       email: "mailto:mail@damolaoladipo.com",
     },

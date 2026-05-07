@@ -9,7 +9,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from 'next-themes';
 import { metadataKeywords } from './metadata';
-import Newsletter from '@/components/sections/newsletter';
+//import Newsletter from '@/components/sections/newsletter';
 
 const useSora = Sora({
     variable: '--font-sora',
@@ -30,6 +30,10 @@ export const metadata: Metadata = {
             url: siteConfig.url,
         },
     ],
+    icons: {
+        icon: [{ url: '/blocks/damola.svg', type: 'image/svg+xml' }],
+        shortcut: '/blocks/damola.svg',
+    },
 };
 
 export default function RootLayout({
@@ -53,7 +57,7 @@ export default function RootLayout({
                             <Analytics />
                             <SpeedInsights />
                         </main>
-                        <Newsletter />
+                        {/* <Newsletter /> */}
                         <Footer />
                     </div>
                 </ThemeProvider>
