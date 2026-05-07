@@ -9,9 +9,9 @@ const About = () => {
         <>
             <AboutHero />
             <LogoCloud />
-            <LatestWork />
+           {/* <LatestWork />
             <PromoBanner />
-            <WorkWithMe />
+            <WorkWithMe /> */}
         </>
     );
 };

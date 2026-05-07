@@ -20,14 +20,27 @@ function XIcon({ className }: { className?: string }) {
     );
 }
 
+function BlueskyIcon({ className }: { className?: string }) {
+    return (
+        <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className={cn('shrink-0', className)}
+            aria-hidden
+        >
+            <path d="M5.34 4.5c2.18 1.64 4.52 4.96 5.66 7.22 1.14-2.26 3.48-5.58 5.66-7.22 1.58-1.19 4.14-2.1 4.14.82 0 .58-.33 4.9-.53 5.6-.69 2.44-3.2 3.07-5.43 2.69 3.89.66 4.88 2.84 2.75 5.02-4.05 4.15-5.82-1.04-6.27-2.37-.08-.24-.12-.35-.12-.25 0-.1-.04.01-.12.25-.45 1.33-2.22 6.52-6.27 2.37-2.13-2.18-1.14-4.36 2.75-5.02-2.23.38-4.74-.25-5.43-2.69-.2-.7-.53-5.02-.53-5.6 0-2.92 2.56-2.01 4.14-.82z" />
+        </svg>
+    );
+}
+
 const menuItems = [
     { name: 'Essays', href: siteConfig.baseLinks.essays },
     // { name: 'Projects', href: siteConfig.baseLinks.projects },
     // { name: 'Playground', href: siteConfig.baseLinks.playground },
     // { name: 'Books', href: siteConfig.baseLinks.books },
     // { name: 'Newsletter', href: siteConfig.baseLinks.newsletter },
-    { name: 'Guides', href: siteConfig.baseLinks.guides },
-
+    // { name: 'Guides', href: siteConfig.baseLinks.guides },
+    //{ name: 'Projects', href: siteConfig.baseLinks.projects },
     { name: 'About', href: siteConfig.baseLinks.about },
 ];
 
@@ -213,6 +226,19 @@ const Header = () => {
                                     aria-label="X"
                                 >
                                     <XIcon className="w-3.5 h-3.5" />
+                                </Link>
+                                <Link
+                                    href={
+                                        siteConfig.baseLinks.sociaLlinks
+                                            .bluesky
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
+                                    aria-label="Bluesky"
+                                >
+                                    <BlueskyIcon className="w-3.5 h-3.5" />
                                 </Link>
                                 <Link
                                     href={

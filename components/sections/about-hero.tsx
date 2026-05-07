@@ -19,14 +19,51 @@ export default function AboutHero() {
                     </span>
                 </nav>
 
+                {/* My
+                                name is Elena Verna. I’m a growth and B2B SaaS
+                                growth operator with over 15 years of experience
+                                in scaling companies through product-led
+                                strategies. I’ve held leadership roles at
+                                companies like Lovable, Miro, SurveyMonkey,
+                                Amplitude, and Dropbox, across product-led
+                                growth, marketing, and analytics roles. I’ve
+                                also advised dozens of companies like
+                                Superhuman, Sanity, Veed, and MongoDB. I’m an
+                                avid learner and Reforge lover (and course
+                                creator). I write this newsletter to help you:
+                                Become successful at work Pass the system design
+                                interview Learn system design through simplified
+                                concepts 
+                                
+                                 You’d enjoy this if you like long form essays on
+                                startups, user growth, product development, and
+                                engineering. 
+                                
+                                Damola is a Growth Engineer. He
+                                delights in work where things are at infancy, as
+                                it sets the stage to establish best practices
+                                that shape the long-term outcomes we want. He is
+                                a master at finding opportunities and
+                                engineering implementations that help users
+                                complete important tasks and brings them back
+                                every day. He writes TypeScript, Go, and Rust.
+                                He builds web, mobile and desktop apps. */}
+
                 {/* Large intro paragraph */}
-                <p className="text-xl md:text-2xl lg:text-[1.65rem] font-medium text-neutral-900 dark:text-neutral-100 leading-[1.45] max-w-4xl mb-14 md:mb-20">
-                    Hello, I am Damola, a product and design engineer based in
-                    Nigeria. I have a deep passion for all aspects of digital
-                    product design and engineering. I take pleasure in
-                    collaborating with teams and like-minded individuals who are
-                    driven to tackle challenges through the creation of stunning
-                    designs and exceptional experiences.
+                <p className="text-2xl font-light text-neutral-900 dark:text-neutral-100 leading-snug py-4">
+                    Hey, I&apos;m Damola Oladipo
+                </p>
+
+                <p className="text-xl md:text-2xl lg:text-[1.65rem] text-neutral-900 dark:text-neutral-200 leading-[1.45] max-w-4xl mb-4">
+                    A software engineer and growth operator. I publish deeply
+                    researched pieces that simplify concepts around system
+                    design, building products, driving growth, and advancing
+                    your career.
+                </p>
+
+                <p className="text-xl md:text-2xl lg:text-[1.65rem] text-neutral-900 dark:text-neutral-200 leading-[1.45] max-w-4xl mb-14 md:mb-20">
+                    I transitioned from product management to software
+                    engineering in 2024 after 5 years. I come from an arts background. If I can do it, you can too.
                 </p>
 
                 {/* Image + content grid */}
@@ -60,15 +97,22 @@ export default function AboutHero() {
 
                             {/* Text block */}
                             <div className="flex flex-col justify-center gap-5 py-2">
-                                <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    I&apos;m passionate about designing and
-                                    building memorable digital experiences. 
-                                    digital products that solve real problems.
+                                <p className="text-lg text-neutral-600 dark:text-neutral-200 leading-relaxed">
+                                    I delight in work where things are at
+                                    infancy, as it sets the stage to establish
+                                    best practices that shape the long-term
+                                    outcomes we want.
                                 </p>
-                                <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    I&apos;m able to work on projects from the
-                                    very first research &amp; design stages all
-                                    the way to pushing it live.
+                                <p className="text-lg text-neutral-600 dark:text-neutral-200 leading-relaxed">
+                                    I&apos;m a master at finding opportunities
+                                    and engineering implementations that help
+                                    users complete important tasks and brings
+                                    them back every day.
+                                </p>
+
+                                <p className="text-lg text-neutral-600 dark:text-neutral-200 leading-relaxed">
+                                    I write TypeScript, Go, and Rust. I builds
+                                    web, mobile and desktop apps.
                                 </p>
                             </div>
                         </div>

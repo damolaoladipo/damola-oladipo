@@ -1,4 +1,8 @@
+import { siteConfig } from '@/_data/site-config';
 import { GitHubIcon, LinkedInIcon, XIcon } from '@/constantz/social-icons';
+import Link from 'next/link';
+import { BlueskyIcon } from './intro-section';
+import { Github, Linkedin } from 'lucide-react';
 
 export function Footer() {
     return (
@@ -18,36 +22,48 @@ export function Footer() {
                             </span>
                         </div>
 
-                        <p className="text-lg md:text-sm text-neutral-400 leading-relaxed max-w-sm">
-                            Damola is product and design engineer from Nigeria.
-                            I design and build beautiful, intuitive, and
-                            responsive web and mobile applications. Let’s work
-                            together.
+                        <p className="text-lg text-neutral-400 leading-relaxed max-w-lg">
+                            Damola is a software engineer and growth operator. I
+                            publish deeply researched pieces that simplify
+                            concepts around system design, building products,
+                            driving growth, and advancing your career.
                         </p>
 
                         {/* Social Links */}
                         <div className="flex space-x-3">
-                            <a
-                                href="https://www.x.com/damolaoladipo"
-                                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-800 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] flex items-center justify-center transition-colors rounded-full"
-                                aria-label="Twitter"
+                            <Link
+                                href={siteConfig.baseLinks.sociaLlinks.twitter}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
                             >
-                                <XIcon className="w-4 h-6" />
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/damolaoladipo"
-                                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-800 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] flex items-center justify-center transition-colors rounded-full"
-                                aria-label="LinkedIn"
+                                <XIcon className="w-3.5 h-3.5" />
+                            </Link>
+                            <Link
+                                href={siteConfig.baseLinks.sociaLlinks.bluesky}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
                             >
-                                <LinkedInIcon className="w-4 h-4" />
-                            </a>
-                            <a
-                                href="https://github.com/damolaoladipo/"
-                                className="w-9 h-9 bg-neutral-200 dark:bg-neutral-800 hover:bg-[#a3f443] dark:hover:bg-[#a3f443] flex items-center justify-center transition-colors rounded-full"
-                                aria-label="GitHub"
+                                <BlueskyIcon className="w-3.5 h-3.5" />
+                            </Link>
+
+                            <Link
+                                href={siteConfig.baseLinks.sociaLlinks.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
                             >
-                                <GitHubIcon className="w-4 h-4" />
-                            </a>
+                                <Linkedin className="w-3.5 h-3.5" />
+                            </Link>
+                            <Link
+                                href={siteConfig.baseLinks.sociaLlinks.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-900/20 dark:hover:bg-neutral-100/20 transition-colors"
+                            >
+                                <Github className="w-3.5 h-3.5" />
+                            </Link>
                         </div>
                     </div>
 
@@ -55,60 +71,58 @@ export function Footer() {
                     <div className="flex flex-col md:flex-row gap-10 lg:gap-24">
                         {/* 1 Section */}
                         <div className="space-y-4">
-                            <h3 className="text-white font-semibold">
+                            <h3 className="text-neutral-400  font-semibold">
                                 Madebydamola
                             </h3>
                             <ul className="space-y-3">
                                 <li>
-                                    <a
-                                        href="./damola-resume.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
+                                    <Link
+                                        href="/essays"
+                                        className="text-lg text-neutral-400 hover:text-[#a3f443] transition-colors"
                                     >
-                                        View my resume
-                                    </a>
+                                        Essays
+                                        <span className="ml-1.5 rounded-sm inline-flex items-center px-1.5 py-0.5 text-[10px] font-light uppercase tracking-wide bg-[#a3f443] text-neutral-900 leading-none">
+                                            New
+                                        </span>
+                                    </Link>
                                 </li>
                                 <li>
+                                    <Link
+                                        href="#playground"
+                                        className="text-lg text-neutral-400 hover:text-[#a3f443] transition-colors"
+                                    >
+                                        About me
+                                    </Link>
+                                </li>
+                                {/* <li>
                                     <a
                                         href="#playground"
-                                        className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
+                                        className="text-lg text-neutral-400 hover:text-[#a3f443] transition-colors"
                                     >
                                         My playground
                                     </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#playground"
-                                        className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
-                                    >
-                                        My studio
-                                    </a>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
 
                         {/* Pages Section */}
                         <div className="space-y-4">
-                            <h3 className="text-white font-semibold">
+                            <h3 className="text-neutral-400  font-semibold">
                                 Coming soon!
                             </h3>
                             <ul className="space-y-3">
                                 <li>
                                     <a
                                         href="#"
-                                        className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
+                                        className="text-lg text-neutral-400 hover:text-[#a3f443] transition-colors"
                                     >
-                                        Essays
-                                        <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 text-[10px] font-light uppercase tracking-wide bg-[#a3f443] text-neutral-900 leading-none">
-                                            New
-                                        </span>
+                                        My playground
                                     </a>
                                 </li>
                                 <li>
                                     <a
-                                        href="#"
-                                        className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
+                                        href=""
+                                        className="text-lg text-neutral-400 hover:text-[#a3f443] transition-colors"
                                     >
                                         Online classes
                                     </a>
@@ -116,7 +130,7 @@ export function Footer() {
                                 <li>
                                     <a
                                         href="#"
-                                        className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
+                                        className="text-lg text-neutral-400 hover:text-[#a3f443] transition-colors"
                                     >
                                         Speaking
                                     </a>
@@ -124,9 +138,12 @@ export function Footer() {
                                 <li>
                                     <a
                                         href="#"
-                                        className="text-sm text-neutral-400 hover:text-[#a3f443] transition-colors"
+                                        className="text-lg text-neutral-400 hover:text-[#a3f443] transition-colors"
                                     >
                                         Newsletter
+                                        <span className="ml-1.5 rounded-sm inline-flex items-center px-1.5 py-0.5 text-[10px] font-light uppercase tracking-wide bg-blue-100 text-neutral-900 leading-none">
+                                            Coming soon
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -141,13 +158,13 @@ export function Footer() {
                 </div>
 
                 <div className="flex flex-col items-start justify-between gap-6 sm:flex-row mt-10 md:mt32 border-t border-neutral-300 dark:border-neutral-700 pt-8">
-                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
-                        <p className="text-lg md:text-sm text-neutral-500">
+                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-lg font-medium text-neutral-800 dark:text-neutral-200">
+                        <p className="text-lg md:text-lg text-neutral-500">
                             {' '}
                             Made with ❤️ from Nigeria
                         </p>
                     </div>
-                    <p className="text-lg md:text-sm text-neutral-500 dark:text-neutral-500">
+                    <p className="text-lg md:text-lg text-neutral-500 dark:text-neutral-500">
                         &copy; {new Date().getFullYear()}{' '}
                         <a
                             href="https://github.com/damolaoladipo"

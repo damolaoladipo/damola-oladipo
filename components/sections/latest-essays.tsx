@@ -38,14 +38,14 @@ export default async function LatestEssays() {
         <div className="w-full max-w-6xl mx-auto px-8 md:px-14 lg:px-20 py-16 md:py-20 lg:py-24 flex flex-col gap-10">
             {/* ── My latest writing row ── */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-                <div className="flex flex-col gap-2 max-w-xs">
-                    <p className="text-2xl font-light text-neutral-900 dark:text-neutral-100 tracking-tight">
+                <div className="flex flex-col gap-2 max-w-md">
+                    <p className="text-3xl font-light text-neutral-900 dark:text-neutral-100 tracking-tight">
                         My latest writing
                     </p>
-                    <p className="text-[0.82rem] text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                        I write about product engineering, design systems,
-                        React, Next.js, and whatever I&apos;m currently
-                        building.
+                    <p className="text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                        I write about how things actually work under the hood.
+                        Whatever I&apos;m currently learning and building, so you can build better products of your own.
+
                     </p>
                 </div>
 
@@ -73,25 +73,26 @@ export default async function LatestEssays() {
                             className="group flex flex-col gap-4"
                         >
                             {/* Thumbnail */}
-                            <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                            <div className="w-full overflow-hidden bg-neutral-200 dark:bg-neutral-800">
                                 {essay.data.thumbnail && (
                                     <Image
                                         src={essay.data.thumbnail}
                                         alt={essay.data.title}
-                                        fill
+                                        width={1200}
+                                        height={800}
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                                     />
                                 )}
                             </div>
 
                             {/* Meta + title */}
                             <div className="flex flex-col gap-1.5">
-                                <p className="text-[0.72rem] text-neutral-400 dark:text-neutral-500">
+                                <p className="text-base text-neutral-400 dark:text-neutral-500">
                                     {tag && <>{tag} &bull; </>}
                                     {formattedDate}
                                 </p>
-                                <p className="text-[0.95rem] font-semibold leading-snug text-neutral-900 dark:text-neutral-100 group-hover:opacity-60 transition-opacity">
+                                <p className="text-lg md:text-base font-semibold leading-snug text-neutral-900 dark:text-neutral-100 group-hover:opacity-60 transition-opacity">
                                     {essay.data.title}
                                 </p>
                             </div>
