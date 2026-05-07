@@ -1,12 +1,23 @@
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL as string;
+/** Canonical site origin. Defaults so builds never pass `undefined` into `new URL()`. */
+function getSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit && explicit !== "undefined") {
+    return explicit.replace(/\/$/, "");
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL.replace(/^https?:\/\//, "")}`;
+  }
+  return "http://localhost:3000";
+}
+
+const siteUrl = getSiteUrl();
 
 export const siteConfig = {
-  name: "Damola Oladipo - Product and Design Engineer exploring ML and NLP research.",
+  name: "Damola Oladipo - Growth Engineer exploring ML and NLP research.",
   author: "Damola Oladipo",
   url: siteUrl,
   description:
-    "Damola is product and design engineer from Nigeria. I design and build beautiful, intuitive, and responsive web and mobile applications. Let’s work together.",
+    "Damola is a software engineer and growth operator. I publish deeply researched pieces that simplify concepts around system design, building products, driving growth, and advancing your career.",
   ogImage: "/blocks/og.png",
   baseLinks: {
     home: "/",
@@ -27,5 +38,13 @@ export const siteConfig = {
     },
   },
 };
+
+/** Absolute URL for default OG/Twitter card image (`siteConfig.ogImage`). */
+export function absoluteOgImageUrl(): string {
+  const path = siteConfig.ogImage;
+  const base = siteConfig.url.replace(/\/$/, "");
+  if (path.startsWith("http")) return path;
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export type siteConfig = typeof siteConfig;

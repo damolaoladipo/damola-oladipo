@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import { siteConfig } from '@/_data/site-config';
+import { absoluteOgImageUrl, siteConfig } from '@/_data/site-config';
 import Essays from '@/components/sections/essays';
 
-const essaysOgImage =
-    siteConfig.ogImage.startsWith('http')
-        ? siteConfig.ogImage
-        : `${siteConfig.url.replace(/\/$/, '')}${siteConfig.ogImage.startsWith('/') ? siteConfig.ogImage : `/${siteConfig.ogImage}`}`;
+const essaysOgImage = absoluteOgImageUrl();
 
 export const metadata: Metadata = {
     openGraph: {

@@ -4,7 +4,7 @@ import { Sora } from 'next/font/google';
 import './globals.css';
 import { Footer } from '@/components/sections/footer';
 import Header from '@/components/sections/nav-bar';
-import { siteConfig } from '@/_data/site-config';
+import { absoluteOgImageUrl, siteConfig } from '@/_data/site-config';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from 'next-themes';
@@ -15,6 +15,8 @@ const useSora = Sora({
     variable: '--font-sora',
     subsets: ['latin'],
 });
+
+const defaultOg = absoluteOgImageUrl();
 
 export const metadata: Metadata = {
     title: {
@@ -33,6 +35,40 @@ export const metadata: Metadata = {
     icons: {
         icon: [{ url: '/blocks/damola.svg', type: 'image/svg+xml' }],
         shortcut: '/blocks/damola.svg',
+    },
+    openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        url: siteConfig.url,
+        title: siteConfig.name,
+        description: siteConfig.description,
+        siteName: siteConfig.name,
+        images: [
+            {
+                url: defaultOg,
+                width: 1200,
+                height: 630,
+                alt: siteConfig.name,
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: siteConfig.name,
+        description: siteConfig.description,
+        creator: '@damolaoladipo',
+        images: [defaultOg],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
     },
 };
 
