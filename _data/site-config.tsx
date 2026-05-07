@@ -1,16 +1,40 @@
-/** Canonical site origin. Defaults so builds never pass `undefined` into `new URL()`. */
-function getSiteUrl(): string {
+/**
+ * Returns a valid absolute origin for metadataBase and canonical URLs.
+ * Never returns empty, the literal "undefined", or other values that break `new URL()`.
+ */
+function getCanonicalSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
-  if (explicit && explicit !== "undefined") {
-    return explicit.replace(/\/$/, "");
+  if (typeof explicit === "string") {
+    const trimmed = explicit.trim();
+    if (trimmed && trimmed !== "undefined") {
+      const candidate = trimmed.replace(/\/$/, "");
+      const withProtocol = /^https?:\/\//i.test(candidate)
+        ? candidate
+        : `https://${candidate}`;
+      try {
+        return new URL(withProtocol).origin;
+      } catch {
+        /* fall through */
+      }
+    }
   }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL.replace(/^https?:\/\//, "")}`;
+
+  const vercel = process.env.VERCEL_URL;
+  if (typeof vercel === "string") {
+    const host = vercel.replace(/^https?:\/\//, "").trim();
+    if (host && host !== "undefined") {
+      try {
+        return new URL(`https://${host}`).origin;
+      } catch {
+        /* fall through */
+      }
+    }
   }
+
   return "http://localhost:3000";
 }
 
-const siteUrl = getSiteUrl();
+const siteUrl = getCanonicalSiteUrl();
 
 export const siteConfig = {
   name: "Damola Oladipo - Growth Engineer exploring ML and NLP research.",

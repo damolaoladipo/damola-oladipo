@@ -1,5 +1,5 @@
 import { siteConfig } from '@/_data/site-config';
-import { GitHubIcon, LinkedInIcon, XIcon } from '@/constantz/social-icons';
+import { XIcon } from '@/constantz/social-icons';
 import Link from 'next/link';
 import { BlueskyIcon } from './intro-section';
 import { Github, Linkedin } from 'lucide-react';
